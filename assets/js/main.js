@@ -12,6 +12,8 @@
   const billingCards = [...document.querySelectorAll("[data-billing-card]")];
   const appTabs = [...document.querySelectorAll("[data-app-tab]")];
   const appPreviewLabel = document.querySelector("[data-app-preview-label]");
+  const appDescriptionTitle = document.querySelector("[data-app-description-title]");
+  const appDescriptionCopy = document.querySelector("[data-app-description-copy]");
   const platformDownload = document.querySelector("[data-platform-download]");
   const continueButton = document.querySelector("[data-continue-plan]");
   const downloadFiles = {
@@ -35,6 +37,19 @@
       continueButton.textContent = `Continua con ${planName}`;
       continueButton.dataset.selectedPlan = planName;
     }
+  };
+
+  const appDescriptions = {
+    Bacheca: "Trasferisci idee, task e cose sparse dalla tua testa in una bacheca kanban semplice e visiva. Organizza tutto senza perdere il filo.",
+    Tracker: "Monitora abitudini, allenamenti, alimentazione e andamento delle tue giornate in un unico spazio. Vedi l'andamento e le analisi nella dashboard.",
+    Alimentazione: "Il tuo diario alimentare personale. Puoi collegarlo a FatSecret per tracciare pasti, calorie e valori nutrizionali in modo automatico e ordinato. Imposta il tuo planner ed esplora le dashboard.",
+    Workout: "Tieni traccia dei tuoi allenamenti, analizza l'aumento dei carichi, confronta ogni singolo allenamento con quello precedente, e monitora il tuo corpo.",
+    Misurazioni: "Salva le tue misurazioni corporee e monitora i cambiamenti nel tempo tramite dashboard e statistiche chiare.",
+    Obiettivi: "Il modo migliore per portare a termine i nostri obiettivi e' usare periodi di 3 mesi. Ne poco, ne troppo tempo. Analizza e traccia tutti i tuoi obiettivi e i tuoi progressi.",
+    Abbonamenti: "Tieni traccia dei tuoi abbonamenti, anche quelli condivisi con amici o colleghi. Controlla costi, rinnovi e scopri dove finiscono davvero i tuoi soldi ogni mese.",
+    Armadio: "Il tuo armadio, ma finalmente organizzato. Tieni traccia dei capi che possiedi, di quelli che desideri e anche di quelli che vuoi vendere.",
+    Lettura: "Chi ama i libri sa che averli in libreria aiuta a non dimenticarli. Con Organizr puoi creare una libreria virtuale, salvare riassunti, note e progressi di lettura, così tutto resta organizzato e sempre a portata di mano.",
+    File: "Ma quella cartella era sul PC, sul Mac o nel Server? Forse in tutti e tre. Organizr ti aiuta a visualizzare dove si trovano i tuoi file, come sono organizzati i backup e quando devono essere aggiornati. Così eviti il classico panico da forse l'ho perso davvero.",
   };
 
   if (countdowns.length) {
@@ -127,7 +142,11 @@
         tab.classList.toggle("is-active", active);
         tab.setAttribute("aria-selected", active ? "true" : "false");
       }
-      appPreviewLabel.textContent = nextTab.dataset.appTab;
+      const appName = nextTab.dataset.appTab;
+      appPreviewLabel.textContent = appName;
+
+      if (appDescriptionTitle) appDescriptionTitle.textContent = appName;
+      if (appDescriptionCopy) appDescriptionCopy.textContent = appDescriptions[appName] || "";
     };
 
     for (const tab of appTabs) {
