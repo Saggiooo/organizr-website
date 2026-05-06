@@ -47,7 +47,7 @@ body.maintenance-body {
   display: grid;
   min-height: 100vh;
   place-items: center;
-  padding: 28px;
+  padding: 32px;
   overflow: hidden;
 }
 
@@ -58,7 +58,7 @@ body.maintenance-body::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 50% 18%, rgba(143, 91, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 50% 26%, rgba(143, 91, 255, 0.14), transparent 26%),
     linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
   background-size: auto, 30px 30px, 30px 30px;
@@ -82,23 +82,21 @@ body.maintenance-body .maintenance-page {
 
 html.maintenance-active .maintenance-card,
 body.maintenance-body .maintenance-card {
-  width: 100%;
-  padding: clamp(34px, 6vw, 58px);
-  border: 1px solid rgba(193, 156, 255, 0.2);
-  border-radius: 30px;
-  background:
-    linear-gradient(180deg, rgba(32, 23, 49, 0.84), rgba(10, 8, 14, 0.86)),
-    radial-gradient(circle at 50% 0%, rgba(143, 91, 255, 0.24), transparent 56%);
-  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+  width: min(100%, 560px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
   text-align: center;
-  backdrop-filter: blur(20px);
+  backdrop-filter: none;
 }
 
 html.maintenance-active .maintenance-card img,
 body.maintenance-body .maintenance-card img {
-  width: min(220px, 72vw);
+  width: min(156px, 56vw);
   height: auto;
-  margin-bottom: 34px;
+  margin: 0 auto 34px;
+  display: block;
 }
 
 html.maintenance-active .maintenance-kicker,
@@ -114,8 +112,8 @@ body.maintenance-body .maintenance-kicker {
 html.maintenance-active .maintenance-card h1,
 body.maintenance-body .maintenance-card h1 {
   max-width: none;
-  font-size: clamp(2.6rem, 8vw, 5.2rem);
-  letter-spacing: -0.055em;
+  font-size: clamp(2.3rem, 7vw, 4.2rem);
+  letter-spacing: -0.045em;
 }
 
 html.maintenance-active .maintenance-card p:last-child,
