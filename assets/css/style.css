@@ -38,6 +38,95 @@ body {
   min-height: 100vh;
 }
 
+html.maintenance-active body > * {
+  display: none !important;
+}
+
+html.maintenance-active body,
+body.maintenance-body {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 28px;
+  overflow: hidden;
+}
+
+html.maintenance-active body::before,
+body.maintenance-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(143, 91, 255, 0.22), transparent 28%),
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: auto, 30px 30px, 30px 30px;
+  opacity: 1;
+  mask-image: none;
+}
+
+html.maintenance-active body::after,
+body.maintenance-body::after {
+  display: none;
+}
+
+html.maintenance-active .maintenance-page,
+body.maintenance-body .maintenance-page {
+  display: grid !important;
+  place-items: center;
+  width: min(100%, 720px);
+  position: relative;
+  z-index: 2;
+}
+
+html.maintenance-active .maintenance-card,
+body.maintenance-body .maintenance-card {
+  width: 100%;
+  padding: clamp(34px, 6vw, 58px);
+  border: 1px solid rgba(193, 156, 255, 0.2);
+  border-radius: 30px;
+  background:
+    linear-gradient(180deg, rgba(32, 23, 49, 0.84), rgba(10, 8, 14, 0.86)),
+    radial-gradient(circle at 50% 0%, rgba(143, 91, 255, 0.24), transparent 56%);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.48);
+  text-align: center;
+  backdrop-filter: blur(20px);
+}
+
+html.maintenance-active .maintenance-card img,
+body.maintenance-body .maintenance-card img {
+  width: min(220px, 72vw);
+  height: auto;
+  margin-bottom: 34px;
+}
+
+html.maintenance-active .maintenance-kicker,
+body.maintenance-body .maintenance-kicker {
+  margin: 0 0 14px;
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+html.maintenance-active .maintenance-card h1,
+body.maintenance-body .maintenance-card h1 {
+  max-width: none;
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  letter-spacing: -0.055em;
+}
+
+html.maintenance-active .maintenance-card p:last-child,
+body.maintenance-body .maintenance-card p:last-child {
+  max-width: 34rem;
+  margin: 24px auto 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.18rem);
+  line-height: 1.7;
+}
+
 .cursor-glow {
   position: fixed;
   left: 0;

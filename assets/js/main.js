@@ -1,4 +1,6 @@
 (() => {
+  if (document.documentElement.classList.contains("maintenance-active")) return;
+
   const glow = document.querySelector(".cursor-glow");
   const countdowns = [...document.querySelectorAll("[data-countdown]")];
   const countdownParts = {
@@ -99,15 +101,22 @@
     const isMac = platform.includes("mac");
     const detectedPlatform = isWindows ? "windows" : isMac ? "mac" : "";
     const label = platformDownload.querySelector("[data-platform-download-label]");
+    const showIcon = (platformKey) => {
+      for (const icon of platformDownload.querySelectorAll("[data-platform-icon]")) {
+        icon.classList.toggle("is-hidden", icon.dataset.platformIcon !== platformKey);
+      }
+    };
 
     if (detectedPlatform) {
       platformDownload.href = downloadFiles[detectedPlatform];
       platformDownload.setAttribute("download", "");
       if (label) label.textContent = "Download";
-
-      for (const icon of platformDownload.querySelectorAll("[data-platform-icon]")) {
-        icon.classList.toggle("is-hidden", icon.dataset.platformIcon !== detectedPlatform);
-      }
+      showIcon(detectedPlatform);
+    } else {
+      platformDownload.href = "download/";
+      platformDownload.removeAttribute("download");
+      if (label) label.textContent = "Download";
+      showIcon("generic");
     }
   }
 

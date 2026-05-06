@@ -3,11 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Organizer - Planner personale, tracker e hub della tua routine</title>
+    <title>Organizr - Planner personale, habit tracker e workout tracker</title>
     <meta
       name="description"
-      content="Organizer è l'app personale per pianificare abitudini, workout, diario alimentare, task e progressi in un unico hub elegante."
+      content="Organizr e' il planner personale desktop per gestire kanban, habit tracker, workout tracker, diario alimentare, misurazioni e progressi in un unico hub."
     />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#8f5bff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Organizr" />
+    <meta property="og:title" content="Organizr - Planner personale, habit tracker e workout tracker" />
+    <meta
+      property="og:description"
+      content="Planner personale desktop per kanban, abitudini, workout, diario alimentare, misurazioni e progressi."
+    />
+    <meta property="og:url" content="https://www.organizr.app/" />
+    <meta property="og:image" content="https://www.organizr.app/assets/img/logo/organizer-logo-black.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Organizr - Planner personale, habit tracker e workout tracker" />
+    <meta
+      name="twitter:description"
+      content="Organizr unisce kanban, habit tracker, workout tracker, diario alimentare e progressi in un unico hub desktop."
+    />
+    <meta name="twitter:image" content="https://www.organizr.app/assets/img/logo/organizer-logo-black.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,8 +33,44 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="assets/img/favicon/favicon-organizr.png" />
+    <link rel="canonical" href="https://www.organizr.app/" />
+    <script src="assets/js/maintenance-gate.js"></script>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/main.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Organizr",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Windows, macOS",
+        "url": "https://www.organizr.app/",
+        "downloadUrl": "https://www.organizr.app/download/",
+        "description": "Planner personale desktop per kanban, habit tracker, workout tracker, diario alimentare, misurazioni e progressi.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Organizr Pro annuale",
+            "price": "7.49",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "name": "Organizr Lifetime",
+            "price": "24.49",
+            "priceCurrency": "EUR"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Organizr",
+        "url": "https://www.organizr.app/"
+      }
+    </script>
   </head>
   <body>
     <div class="cursor-glow" aria-hidden="true"></div>
@@ -26,8 +80,8 @@
     </div>
     <div class="page-shell">
       <header class="site-header">
-        <a class="logo" href="./" aria-label="Organizer home">
-          <img src="assets/img/logo/organizer-logo-black.png" alt="Organizer" />
+        <a class="logo" href="./" aria-label="Organizr home">
+          <img src="assets/img/logo/organizer-logo-black.png" alt="Logo Organizr" />
         </a>
 
         <nav class="top-nav" aria-label="Navigazione principale">
@@ -41,12 +95,12 @@
       <main>
         <section class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">Planner personale · tracker · routine</p>
+            <p class="eyebrow">Planner personale · habit tracker · routine</p>
             <h1>La tua giornata, i tuoi progressi, il tuo spazio.</h1>
             <p class="lead">
-              Organizer unisce kanban, abitudini, workout, diario alimentare e
-              monitoraggio dei progressi in un hub essenziale, chiaro e sempre
-              pronto all’uso.
+              Organizr unisce kanban personale, habit tracker, workout tracker,
+              diario alimentare e monitoraggio dei progressi in un hub
+              essenziale, chiaro e sempre pronto all’uso.
             </p>
 
             <div class="cta-row" id="download">
@@ -61,6 +115,12 @@
                 <span class="platform-mark is-hidden" data-platform-icon="windows" aria-hidden="true">
                   <svg viewBox="0 0 24 24" focusable="false">
                     <path d="M3 4.75 10.75 3.7v7.49H3V4.75Zm8.75-1.23L21 2.25v8.94h-9.25V3.52ZM3 12.81h7.75v7.49L3 19.25v-6.44Zm8.75 0H21v8.94l-9.25-1.27v-7.67Z" />
+                  </svg>
+                </span>
+                <span class="platform-mark is-hidden" data-platform-icon="generic" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M12 3a1 1 0 0 1 1 1v8.59l2.3-2.29a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.29V4a1 1 0 0 1 1-1Z" />
+                    <path d="M5 17a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z" />
                   </svg>
                 </span>
                 <span data-platform-download-label>Download</span>
@@ -93,9 +153,9 @@
           </div>
         </section>
 
-        <section class="app-tabs-section" id="app" aria-label="Sezioni dell'app Organizer">
+        <section class="app-tabs-section" id="app" aria-label="Sezioni dell'app Organizr">
           <div class="section-heading app-tabs-heading">
-            <p class="section-index">00 // DENTRO ORGANIZER</p>
+            <p class="section-index">00 // DENTRO ORGANIZR</p>
             <h2>Le stesse sezioni che trovi nell'app.</h2>
           </div>
 
@@ -199,23 +259,24 @@
             <p class="section-index">01 // FEATURE E INTEGRAZIONI</p>
             <h2>Collega quello che usi gia', senza perdere il controllo.</h2>
             <p>
-              Organizer raccoglie workout, alimentazione, file e progressi in
-              viste chiare, pronte per essere filtrate e consultate.
+              Organizr raccoglie integrazione Hevy, integrazione FatSecret,
+              workout tracker, diario alimentare, file e progressi in viste
+              chiare, pronte per essere filtrate e consultate.
             </p>
           </div>
 
           <div class="integration-grid">
             <article class="integration-card integration-card-center">
-              <div class="integration-visual integration-logo-stage" aria-hidden="true">
-                <img class="integration-logo integration-logo-hevy" src="assets/img/integration/hevylogo.webp" alt="" />
+              <div class="integration-visual integration-logo-stage">
+                <img class="integration-logo integration-logo-hevy" src="assets/img/integration/hevylogo.webp" alt="Logo Hevy per integrazione workout tracker Organizr" />
               </div>
               <h3>Integrazione Hevy</h3>
-              <p>Importa allenamenti, esercizi e record per tenere lo storico workout dentro Organizer.</p>
+              <p>Importa allenamenti, esercizi e record per tenere lo storico workout dentro Organizr.</p>
             </article>
 
             <article class="integration-card integration-card-center">
-              <div class="integration-visual integration-logo-stage" aria-hidden="true">
-                <img class="integration-logo integration-logo-fatsecret" src="assets/img/integration/fatsecret-logo.png" alt="" />
+              <div class="integration-visual integration-logo-stage">
+                <img class="integration-logo integration-logo-fatsecret" src="assets/img/integration/fatsecret-logo.png" alt="Logo FatSecret per integrazione diario alimentare Organizr" />
               </div>
               <h3>Integrazione FatSecret</h3>
               <p>Porta calorie, macro e diario alimentare nella stessa vista dei tuoi tracker.</p>
@@ -398,11 +459,12 @@
 
         <section class="feature-section" id="funzioni">
           <div class="section-heading">
-            <p class="section-index">01 // ORGANIZER SYSTEM</p>
+            <p class="section-index">01 // ORGANIZR SYSTEM</p>
             <h2>Tutto quello che ti serve per tenere insieme giornata, corpo e obiettivi.</h2>
             <p>
-              Una sola app per vedere il quadro completo: cosa devi fare,
-              cosa stai costruendo e quanto stai migliorando nel tempo.
+              Una sola app produttivita' desktop per vedere il quadro completo:
+              task kanban, habit tracker, workout tracker, diario alimentare e
+              quanto stai migliorando nel tempo.
             </p>
           </div>
 
@@ -411,7 +473,7 @@
               <div class="feature-orbit" aria-hidden="true">
                 <span class="orbit-ring orbit-ring-one"></span>
                 <span class="orbit-ring orbit-ring-two"></span>
-                <span class="orbit-core">Organizer</span>
+                <span class="orbit-core">Organizr</span>
                 <span class="orbit-node orbit-node-kanban">Kanban</span>
                 <span class="orbit-node orbit-node-food">Food</span>
                 <span class="orbit-node orbit-node-workout">Workout</span>
@@ -463,7 +525,7 @@
                 <span>03</span>
                 <div>
                   <h3>Workout e alimentazione</h3>
-                  <p>Collega Hevy e FatSecret per avere dati utili dentro Organizer.</p>
+                  <p>Collega Hevy e FatSecret per avere dati utili dentro Organizr.</p>
                 </div>
               </article>
               <article class="feature-flow-item">
