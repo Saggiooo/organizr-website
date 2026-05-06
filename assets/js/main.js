@@ -7,7 +7,33 @@
     seconds: [...document.querySelectorAll('[data-countdown-part="seconds"]')],
   };
   const planCards = [...document.querySelectorAll(".plan-card[data-plan]")];
+  const billingCards = [...document.querySelectorAll("[data-billing-card]")];
+  const appTabs = [...document.querySelectorAll("[data-app-tab]")];
+  const appPreviewLabel = document.querySelector("[data-app-preview-label]");
+  const platformDownload = document.querySelector("[data-platform-download]");
   const continueButton = document.querySelector("[data-continue-plan]");
+  const downloadFiles = {
+    mac: "assets/downloads/Organizr_0.2.0_aarch64.dmg",
+    windows: "assets/downloads/Organizr_0.2.0_x64-setup.exe",
+  };
+
+  const setActivePlan = (nextCard) => {
+    for (const card of planCards) {
+      const active = card === nextCard;
+      card.classList.toggle("is-featured", active);
+      card.setAttribute("aria-checked", active ? "true" : "false");
+      const cardButton = card.querySelector(".plan-cta");
+      if (cardButton) {
+        cardButton.classList.toggle("plan-cta-primary", active);
+      }
+    }
+
+    const planName = nextCard.dataset.plan;
+    if (continueButton) {
+      continueButton.textContent = `Continua con ${planName}`;
+      continueButton.dataset.selectedPlan = planName;
+    }
+  };
 
   if (countdowns.length) {
     const cycleMs = 5 * 60 * 60 * 1000;
@@ -60,19 +86,57 @@
     setInterval(renderCountdown, 1000);
   }
 
-  if (planCards.length && continueButton) {
-    const setActivePlan = (nextCard) => {
-      for (const card of planCards) {
-        const active = card === nextCard;
-        card.classList.toggle("is-featured", active);
-        card.setAttribute("aria-checked", active ? "true" : "false");
-      }
+  if (platformDownload) {
+    const platform = [
+      navigator.userAgentData?.platform,
+      navigator.platform,
+      navigator.userAgent,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+    const isWindows = platform.includes("win");
+    const isMac = platform.includes("mac");
+    const detectedPlatform = isWindows ? "windows" : isMac ? "mac" : "";
+    const label = platformDownload.querySelector("[data-platform-download-label]");
 
-      const planName = nextCard.dataset.plan;
-      continueButton.textContent = `Continua con ${planName}`;
-      continueButton.dataset.selectedPlan = planName;
+    if (detectedPlatform) {
+      platformDownload.href = downloadFiles[detectedPlatform];
+      platformDownload.setAttribute("download", "");
+      if (label) label.textContent = "Download";
+
+      for (const icon of platformDownload.querySelectorAll("[data-platform-icon]")) {
+        icon.classList.toggle("is-hidden", icon.dataset.platformIcon !== detectedPlatform);
+      }
+    }
+  }
+
+  if (appTabs.length && appPreviewLabel) {
+    const setActiveAppTab = (nextTab) => {
+      for (const tab of appTabs) {
+        const active = tab === nextTab;
+        tab.classList.toggle("is-active", active);
+        tab.setAttribute("aria-selected", active ? "true" : "false");
+      }
+      appPreviewLabel.textContent = nextTab.dataset.appTab;
     };
 
+    for (const tab of appTabs) {
+      tab.addEventListener("click", () => setActiveAppTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+
+        event.preventDefault();
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        const currentIndex = appTabs.indexOf(tab);
+        const nextIndex = (currentIndex + direction + appTabs.length) % appTabs.length;
+        appTabs[nextIndex].focus();
+        setActiveAppTab(appTabs[nextIndex]);
+      });
+    }
+  }
+
+  if (planCards.length) {
     for (const card of planCards) {
       card.addEventListener("click", () => setActivePlan(card));
       card.addEventListener("keydown", (event) => {
@@ -81,6 +145,72 @@
           setActivePlan(card);
         }
       });
+    }
+  }
+
+  if (billingCards.length) {
+    const billingPlans = {
+      annual: {
+        label: "Annuale",
+        price: "7,49€",
+        cycle: "/anno",
+        oldPrice: "27,99€",
+        cta: "Scegli Annuale",
+      },
+      monthly: {
+        label: "Mensile",
+        price: "3,49€",
+        cycle: "/mese",
+        oldPrice: "",
+        cta: "Scegli Mensile",
+      },
+    };
+
+    const renderPrice = (element, value) => {
+      const match = value.match(/^(\d+,)(\d+€)$/);
+      if (!match) {
+        element.textContent = value;
+        return;
+      }
+
+      element.innerHTML = `<span class="price-main">${match[1]}</span><span class="price-decimals">${match[2]}</span>`;
+    };
+
+    const setBillingPlan = (card, key) => {
+      const plan = billingPlans[key];
+      if (!plan) return;
+
+      card.dataset.plan = plan.label;
+
+      const price = card.querySelector("[data-billing-price]");
+      const cycle = card.querySelector("[data-billing-cycle]");
+      const oldPrice = card.querySelector("[data-billing-old-price]");
+      const cta = card.querySelector("[data-billing-cta]");
+
+      if (price) renderPrice(price, plan.price);
+      if (cycle) cycle.textContent = plan.cycle;
+      if (cta) cta.textContent = plan.cta;
+      if (oldPrice) {
+        oldPrice.textContent = plan.oldPrice;
+        oldPrice.classList.toggle("is-hidden", !plan.oldPrice);
+      }
+
+      for (const option of card.querySelectorAll("[data-billing-option]")) {
+        const active = option.dataset.billingOption === key;
+        option.classList.toggle("is-active", active);
+        option.setAttribute("aria-pressed", active ? "true" : "false");
+      }
+    };
+
+    for (const card of billingCards) {
+      for (const option of card.querySelectorAll("[data-billing-option]")) {
+        option.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          setBillingPlan(card, option.dataset.billingOption);
+          setActivePlan(card);
+        });
+      }
     }
   }
 

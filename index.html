@@ -31,6 +31,7 @@
         </a>
 
         <nav class="top-nav" aria-label="Navigazione principale">
+          <a href="#app">App</a>
           <a href="#funzioni">Funzioni</a>
           <a href="#prezzi">Prezzi</a>
           <a href="download/">Download</a>
@@ -49,15 +50,20 @@
             </p>
 
             <div class="cta-row" id="download">
-              <a class="btn btn-primary" href="download/">
-                <span class="apple-mark" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+              <a class="btn btn-primary" href="download/" data-platform-download>
+                <span class="platform-mark apple-mark" data-platform-icon="mac" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
                     <path
                       d="M16.7 13.8c0-2.1 1.7-3.1 1.8-3.2-1-1.4-2.5-1.6-3-1.6-1.3-.1-2.6.8-3.2.8-.6 0-1.7-.7-2.8-.7-1.4 0-2.8.8-3.6 2-1.5 2.4-.4 6 1.1 8 .7 1 1.6 2.2 2.8 2.1 1.1-.1 1.6-.7 3-.7s1.8.7 3 .7c1.2 0 2-.9 2.7-1.8.8-1.1 1.1-2.1 1.1-2.2-.1 0-2.1-.8-2.1-3.4Zm-2-6.1c.6-.7 1-1.6.9-2.6-1 .1-2 .6-2.7 1.3-.6.7-1.1 1.7-1 2.6 1 .1 2-.5 2.8-1.3Z"
                     />
                   </svg>
                 </span>
-                Download
+                <span class="platform-mark is-hidden" data-platform-icon="windows" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M3 4.75 10.75 3.7v7.49H3V4.75Zm8.75-1.23L21 2.25v8.94h-9.25V3.52ZM3 12.81h7.75v7.49L3 19.25v-6.44Zm8.75 0H21v8.94l-9.25-1.27v-7.67Z" />
+                  </svg>
+                </span>
+                <span data-platform-download-label>Download</span>
               </a>
               <a class="btn btn-secondary" href="#funzioni">Scopri le funzioni</a>
             </div>
@@ -87,80 +93,306 @@
           </div>
         </section>
 
-        <section class="promo-section" id="prezzi" aria-label="Offerta attiva">
-          <div class="pricing-card">
-            <div class="pricing-head">
-              <div class="offer-alert" role="status" aria-live="polite">
-                <span class="offer-alert-dot" aria-hidden="true"></span>
-                Offerta lampo attiva
+        <section class="app-tabs-section" id="app" aria-label="Sezioni dell'app Organizer">
+          <div class="section-heading app-tabs-heading">
+            <p class="section-index">00 // DENTRO ORGANIZER</p>
+            <h2>Le stesse sezioni che trovi nell'app.</h2>
+          </div>
+
+          <div class="app-tabs-shell">
+            <div class="app-tabs" role="tablist" aria-label="Anteprime app">
+              <button class="app-tab is-active" type="button" role="tab" aria-selected="true" data-app-tab="Bacheca">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <rect x="4" y="4" width="6" height="6" rx="1.3" />
+                  <rect x="14" y="4" width="6" height="6" rx="1.3" />
+                  <rect x="4" y="14" width="6" height="6" rx="1.3" />
+                  <rect x="14" y="14" width="6" height="6" rx="1.3" />
+                </svg>
+                Bacheca
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Tracker">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M3 12h4l2.2-4 4 8 2.2-4H21" />
+                </svg>
+                Tracker
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Alimentazione">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M7 2v9" />
+                  <path d="M11 2v9" />
+                  <path d="M7 7h4" />
+                  <path d="M9 11v11" />
+                  <path d="M17 2v20" />
+                  <path d="M17 2c2 2 3 4.4 3 7 0 2.2-1 4-3 5" />
+                </svg>
+                Alimentazione
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Workout">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M6 7v10" />
+                  <path d="M18 7v10" />
+                  <path d="M3 10v4" />
+                  <path d="M21 10v4" />
+                  <path d="M6 12h12" />
+                </svg>
+                Workout
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Misurazioni">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="m16 3 5 5-13 13-5-5Z" />
+                  <path d="m14 5 5 5" />
+                  <path d="m10 9 2 2" />
+                  <path d="m7 12 2 2" />
+                </svg>
+                Misurazioni
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Obiettivi">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="8" />
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 2v3" />
+                  <path d="M22 12h-3" />
+                </svg>
+                Obiettivi
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Abbonamenti">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 10h18" />
+                  <path d="M7 15h4" />
+                </svg>
+                Abbonamenti
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Armadio">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M8 4h8l3 4-3 2v10H8V10L5 8Z" />
+                  <path d="M10 4c0 2 1 3 2 3s2-1 2-3" />
+                </svg>
+                Armadio
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="Lettura">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M4 5h7a3 3 0 0 1 3 3v11a3 3 0 0 0-3-3H4Z" />
+                  <path d="M20 5h-6a3 3 0 0 0-3 3" />
+                  <path d="M20 5v11h-6a3 3 0 0 0-3 3" />
+                </svg>
+                Lettura
+              </button>
+              <button class="app-tab" type="button" role="tab" aria-selected="false" data-app-tab="File">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H10l2 2h6.5A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5Z" />
+                </svg>
+                File
+              </button>
+            </div>
+
+            <div class="app-media-frame" role="tabpanel" aria-live="polite">
+              <div class="app-media-placeholder">
+                <span data-app-preview-label>Bacheca</span>
               </div>
-              <p class="section-index">02 // PREZZI ATTIVI</p>
-              <div class="discount-lockup" aria-label="Sconto del 72 percento">
-                <span class="discount-copy">Risparmia</span>
-                <strong class="discount-mega" data-text="-72%">-72%</strong>
-                <span class="discount-copy">solo adesso</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="integrations-section" id="integrazioni" aria-label="Feature e integrazioni">
+          <div class="section-heading integrations-heading">
+            <p class="section-index">01 // FEATURE E INTEGRAZIONI</p>
+            <h2>Collega quello che usi gia', senza perdere il controllo.</h2>
+            <p>
+              Organizer raccoglie workout, alimentazione, file e progressi in
+              viste chiare, pronte per essere filtrate e consultate.
+            </p>
+          </div>
+
+          <div class="integration-grid">
+            <article class="integration-card integration-card-center">
+              <div class="integration-visual integration-logo-stage" aria-hidden="true">
+                <img class="integration-logo integration-logo-hevy" src="assets/img/integration/hevylogo.webp" alt="" />
               </div>
-              <p class="pricing-urgency">
-                Prezzi promozionali bloccati fino allo scadere del timer.
-              </p>
-              <div class="pricing-countdown" aria-label="Offerta termina tra" aria-live="polite">
-                <span class="pricing-countdown-label">Scade tra</span>
-                <div class="countdown-dial" aria-hidden="true">
-                  <span class="countdown-unit">
-                    <strong data-countdown-part="hours">05</strong>
-                    <span>ore</span>
-                  </span>
-                  <span class="countdown-separator">:</span>
-                  <span class="countdown-unit">
-                    <strong data-countdown-part="minutes">00</strong>
-                    <span>min</span>
-                  </span>
-                  <span class="countdown-separator">:</span>
-                  <span class="countdown-unit">
-                    <strong data-countdown-part="seconds">00</strong>
-                    <span>sec</span>
-                  </span>
+              <h3>Integrazione Hevy</h3>
+              <p>Importa allenamenti, esercizi e record per tenere lo storico workout dentro Organizer.</p>
+            </article>
+
+            <article class="integration-card integration-card-center">
+              <div class="integration-visual integration-logo-stage" aria-hidden="true">
+                <img class="integration-logo integration-logo-fatsecret" src="assets/img/integration/fatsecret-logo.png" alt="" />
+              </div>
+              <h3>Integrazione FatSecret</h3>
+              <p>Porta calorie, macro e diario alimentare nella stessa vista dei tuoi tracker.</p>
+            </article>
+
+            <article class="integration-card integration-card-center">
+              <div class="integration-visual integration-wave" aria-hidden="true">
+                <div class="speed-row">
+                  <span>Tracker sync</span>
+                  <strong>live</strong>
                 </div>
-                <strong class="pricing-countdown-time sr-only" data-countdown>05:00:00</strong>
+                <svg viewBox="0 0 280 100" focusable="false">
+                  <path d="M12 70c18-36 54-30 72-32 20-2 18-28 30-10 10 16 12 34 34 18 18-13 46 2 58 0 17-2 10-42 36-8 9 12 24 1 26 28" />
+                </svg>
               </div>
+              <h3>Sync tracker avanzati</h3>
+              <p>Misurazioni, peso, abitudini e progressi restano leggibili in dashboard dedicate.</p>
+            </article>
+
+            <article class="integration-card integration-card-wide">
+              <div class="integration-icon-bubble" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3 5 6v5c0 5 3 8 7 10 4-2 7-5 7-10V6Z" />
+                </svg>
+              </div>
+              <div class="integration-copy">
+                <h3>Dashboard personalizzabili</h3>
+                <p>Scegli cosa vedere in bacheca: workout, alimentazione, misurazioni, task e obiettivi.</p>
+              </div>
+              <div class="mini-window" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <svg viewBox="0 0 260 130">
+                  <path d="M12 100 40 76l28 18 34-48 34 38 34-24 34 32 44-66" />
+                </svg>
+              </div>
+            </article>
+
+            <article class="integration-card integration-card-wide">
+              <div class="integration-icon-bubble" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4H10l2 2h6.5A2.5 2.5 0 0 1 21 8.5v8A2.5 2.5 0 0 1 18.5 19h-13A2.5 2.5 0 0 1 3 16.5Z" />
+                </svg>
+              </div>
+              <div class="integration-copy">
+                <h3>File, note e allegati</h3>
+                <p>Tieni materiali, appunti e riferimenti collegati ai tuoi progetti e alle tue routine.</p>
+              </div>
+              <div class="floating-tags" aria-hidden="true">
+                <span>PDF</span>
+                <span>Foto</span>
+                <span>Note</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="promo-section" id="prezzi" aria-label="Offerta attiva">
+          <div class="pricing-showcase">
+            <div class="pricing-promo-banner" role="status" aria-live="polite">
+              <span class="promo-pulse" aria-hidden="true"></span>
+              <strong>-72%</strong>
+              <span>Sconto attivo sui piani Pro e Lifetime</span>
             </div>
 
             <div class="plan-list" role="radiogroup" aria-label="Scelta piano">
-              <article class="plan-card" data-plan="Mensile" role="radio" aria-checked="false" tabindex="0">
-                <span class="plan-discount">Promo attiva</span>
-                <p class="plan-name">Mensile</p>
-                <p class="plan-copy">Ingresso leggero, nessun vincolo lungo.</p>
-                <div class="plan-prices">
-                  <strong class="plan-price">3,49€</strong>
-                  <span class="plan-cycle">/ mese</span>
+              <article class="plan-card" data-plan="Organizr Lite" role="radio" aria-checked="false" tabindex="0">
+                <div class="plan-top">
+                  <div class="plan-row">
+                    <p class="plan-name">
+                      <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+                        <circle cx="9.5" cy="7" r="4" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                      Organizr lite
+                    </p>
+                  </div>
+                  <div class="plan-prices">
+                    <strong class="plan-price plan-price-free">FREE</strong>
+                  </div>
+                  <a class="plan-cta" href="download/">Scarica gratis</a>
+                </div>
+
+                <div class="plan-body">
+                  <ul class="plan-features">
+                    <li>Kanban con un solo Workspace</li>
+                    <li>Tracker abitudini</li>
+                    <li>Misurazioni e lettura</li>
+                    <li class="is-unavailable">Pagina Obiettivi</li>
+                    <li class="is-unavailable">Tracker Workout</li>
+                    <li class="is-unavailable">Diario alimentare</li>
+                    <li class="is-unavailable">Dashboard avanzate</li>
+                    <li class="is-unavailable">Pagina abbonamenti</li>
+                    <li class="is-unavailable">Armadio personale</li>
+                    <li class="is-unavailable">Organizzazione File</li>
+                  </ul>
                 </div>
               </article>
 
-              <article class="plan-card" data-plan="Annuale" role="radio" aria-checked="false" tabindex="0">
-                <span class="plan-discount">-72%</span>
-                <p class="plan-name">Annuale</p>
-                <p class="plan-copy">Miglior prezzo breve periodo, promo attiva.</p>
-                <div class="plan-prices">
-                  <strong class="plan-price">7,49€</strong>
-                  <span class="plan-cycle">/ anno</span>
+              <article class="plan-card is-featured" data-plan="Annuale" data-billing-card role="radio" aria-checked="true" tabindex="0">
+                <div class="plan-top">
+                  <div class="plan-row plan-row-pro">
+                    <div class="billing-toggle" aria-label="Scegli periodo piano Pro">
+                      <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="17" rx="2" />
+                        <path d="M8 2v4" />
+                        <path d="M16 2v4" />
+                        <path d="M3 10h18" />
+                      </svg>
+                      <button class="billing-option is-active" type="button" data-billing-option="annual" aria-pressed="true">
+                        Annuale
+                      </button>
+                      <button class="billing-option" type="button" data-billing-option="monthly" aria-pressed="false">
+                        Mensile
+                      </button>
+                    </div>
+                  </div>
+                  <div class="plan-prices">
+                    <strong class="plan-price" data-billing-price>7,49€</strong>
+                    <span class="plan-cycle" data-billing-cycle>/anno</span>
+                    <span class="plan-old-price" data-billing-old-price>27,99€</span>
+                  </div>
+                  <a class="plan-cta plan-cta-primary" href="download/" data-billing-cta>Scegli Annuale</a>
                 </div>
-                <p class="plan-meta"><span class="plan-was">Prima</span> <span class="plan-old-price">27,99€</span> · sconto 72%</p>
+
+                <div class="plan-body">
+                  <ul class="plan-features">
+                    <li>Bacheca kanban completa</li>
+                    <li>Tracker con analisi</li>
+                    <li>Pagina Obiettivi</li>
+                    <li>Tracker Workout</li>
+                    <li>Diario alimentare</li>
+                    <li>Dashboard avanzate</li>
+                    <li>Pagina abbonamenti</li>
+                    <li>Armadio personale</li>
+                    <li>Organizzazione File</li>
+                    <li>Collegamento con Hevy</li>
+                    <li>Collegamento FatSecret</li>
+                  </ul>
+                </div>
               </article>
 
-              <article class="plan-card is-featured" data-plan="Lifetime" role="radio" aria-checked="true" tabindex="0">
-                <span class="plan-badge">Piu' acquistato</span>
-                <span class="plan-discount">-72%</span>
-                <p class="plan-name">Lifetime</p>
-                <p class="plan-copy">Accesso completo una volta sola, senza rinnovi.</p>
-                <div class="plan-prices">
-                  <strong class="plan-price">24,49€</strong>
-                  <span class="plan-cycle">una tantum</span>
+              <article class="plan-card" data-plan="Lifetime" role="radio" aria-checked="false" tabindex="0">
+                <div class="plan-top">
+                  <div class="plan-row">
+                    <p class="plan-name">
+                      <svg aria-hidden="true" viewBox="0 0 24 24">
+                        <rect x="4" y="2" width="16" height="20" rx="2" />
+                        <path d="M9 22v-4h6v4" />
+                        <path d="M8 6h.01" />
+                        <path d="M12 6h.01" />
+                        <path d="M16 6h.01" />
+                        <path d="M8 10h.01" />
+                        <path d="M12 10h.01" />
+                        <path d="M16 10h.01" />
+                      </svg>
+                      Lifetime
+                    </p>
+                  </div>
+                  <div class="plan-prices">
+                    <strong class="plan-price">24,49€</strong>
+                    <span class="plan-old-price">86,99€</span>
+                  </div>
+                  <a class="plan-cta" href="download/">Scegli Lifetime</a>
                 </div>
-                <p class="plan-meta"><span class="plan-was">Prima</span> <span class="plan-old-price">86,99€</span> · sconto 72%</p>
+
+                <div class="plan-body">
+                  <ul class="plan-features">
+                    <li>Tutte le funzioni annuali</li>
+                    <li>Accesso completo per sempre</li>
+                    <li>Nessun rinnovo</li>
+                    <li>Pagamento una sola volta</li>
+                  </ul>
+                </div>
               </article>
             </div>
-
-            <a class="continue-btn" data-continue-plan href="#">Continua con Lifetime</a>
           </div>
         </section>
 
@@ -174,42 +406,74 @@
             </p>
           </div>
 
-          <div class="feature-grid">
-            <article class="feature-card">
-              <p class="feature-label">Kanban table</p>
-              <h3>Gestione task senza rumore.</h3>
-              <p>
-                Colonne chiare, priorità visibili e avanzamento immediato per
-                organizzare studio, lavoro e vita personale.
-              </p>
-            </article>
+          <div class="feature-system">
+            <div class="feature-command">
+              <div class="feature-orbit" aria-hidden="true">
+                <span class="orbit-ring orbit-ring-one"></span>
+                <span class="orbit-ring orbit-ring-two"></span>
+                <span class="orbit-core">Organizer</span>
+                <span class="orbit-node orbit-node-kanban">Kanban</span>
+                <span class="orbit-node orbit-node-food">Food</span>
+                <span class="orbit-node orbit-node-workout">Workout</span>
+                <span class="orbit-node orbit-node-goals">Goals</span>
+              </div>
 
-            <article class="feature-card">
-              <p class="feature-label">Abitudini</p>
-              <h3>Routine che si vede, non che si perde.</h3>
-              <p>
-                Streak, check giornalieri e obiettivi settimanali per restare
-                costante senza dover usare mille app diverse.
-              </p>
-            </article>
+              <div class="feature-command-copy">
+                <p class="feature-label">Command center</p>
+                <h3>Ogni area parla con le altre.</h3>
+                <p>
+                  Task, routine, allenamenti, alimentazione e obiettivi restano
+                  nello stesso flusso. Apri la bacheca e capisci subito cosa
+                  richiede attenzione.
+                </p>
+              </div>
 
-            <article class="feature-card">
-              <p class="feature-label">Workout tracker</p>
-              <h3>Allenamenti e progressi nello stesso posto.</h3>
-              <p>
-                Registra sessioni, gruppi muscolari e note rapide per seguire
-                l’allenamento con una traccia semplice e utile.
-              </p>
-            </article>
+              <div class="feature-metrics" aria-label="Esempi dashboard">
+                <div>
+                  <span>Focus oggi</span>
+                  <strong>6 task</strong>
+                </div>
+                <div>
+                  <span>Routine</span>
+                  <strong>82%</strong>
+                </div>
+                <div>
+                  <span>Workout</span>
+                  <strong>4 set PR</strong>
+                </div>
+              </div>
+            </div>
 
-            <article class="feature-card">
-              <p class="feature-label">Diario alimentare</p>
-              <h3>Il cibo resta leggibile e concreto.</h3>
-              <p>
-                Tieni traccia dei pasti e delle abitudini alimentari con una
-                vista pulita, pensata per consultazioni veloci.
-              </p>
-            </article>
+            <div class="feature-flow" aria-label="Flussi principali">
+              <article class="feature-flow-item">
+                <span>01</span>
+                <div>
+                  <h3>Bacheca kanban completa</h3>
+                  <p>Organizza progetti, priorità e giornate in workspace chiari.</p>
+                </div>
+              </article>
+              <article class="feature-flow-item">
+                <span>02</span>
+                <div>
+                  <h3>Tracker con analisi</h3>
+                  <p>Leggi abitudini, misurazioni e andamento senza cambiare app.</p>
+                </div>
+              </article>
+              <article class="feature-flow-item">
+                <span>03</span>
+                <div>
+                  <h3>Workout e alimentazione</h3>
+                  <p>Collega Hevy e FatSecret per avere dati utili dentro Organizer.</p>
+                </div>
+              </article>
+              <article class="feature-flow-item">
+                <span>04</span>
+                <div>
+                  <h3>Obiettivi, file e armadio</h3>
+                  <p>Tieni materiali, progressi e routine personali in un hub solo.</p>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
       </main>
