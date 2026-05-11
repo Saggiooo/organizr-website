@@ -2,15 +2,13 @@
   if (document.documentElement.classList.contains("maintenance-active")) return;
 
   const glow = document.querySelector(".cursor-glow");
-  const countdowns = [...document.querySelectorAll("[data-countdown]")];
-  const countdownParts = {
-    hours: [...document.querySelectorAll('[data-countdown-part="hours"]')],
-    minutes: [...document.querySelectorAll('[data-countdown-part="minutes"]')],
-    seconds: [...document.querySelectorAll('[data-countdown-part="seconds"]')],
-  };
   const planCards = [...document.querySelectorAll(".plan-card[data-plan]")];
   const billingCards = [...document.querySelectorAll("[data-billing-card]")];
   const appTabs = [...document.querySelectorAll("[data-app-tab]")];
+  const appTabsTrack = document.querySelector(".app-tabs");
+  const appTabsPrev = document.querySelector("[data-app-tabs-prev]");
+  const appTabsNext = document.querySelector("[data-app-tabs-next]");
+  const appDescriptionNext = document.querySelector("[data-app-description-next]");
   const appPreviewLabel = document.querySelector("[data-app-preview-label]");
   const appDescriptionTitle = document.querySelector("[data-app-description-title]");
   const appDescriptionCopy = document.querySelector("[data-app-description-copy]");
@@ -45,63 +43,13 @@
     Alimentazione: "Il tuo diario alimentare personale. Puoi collegarlo a FatSecret per tracciare pasti, calorie e valori nutrizionali in modo automatico e ordinato. Imposta il tuo planner ed esplora le dashboard.",
     Workout: "Tieni traccia dei tuoi allenamenti, analizza l'aumento dei carichi, confronta ogni singolo allenamento con quello precedente, e monitora il tuo corpo.",
     Misurazioni: "Salva le tue misurazioni corporee e monitora i cambiamenti nel tempo tramite dashboard e statistiche chiare.",
+    Portafoglio: "Organizza in modo chiaro le tue finanze, puoi inserire tutti i tuoi conti, movimenti e investimenti. Attraverso le dashboard puoi analizzare quanto stai spendendo e come.",
     Obiettivi: "Il modo migliore per portare a termine i nostri obiettivi e' usare periodi di 3 mesi. Ne poco, ne troppo tempo. Analizza e traccia tutti i tuoi obiettivi e i tuoi progressi.",
     Abbonamenti: "Tieni traccia dei tuoi abbonamenti, anche quelli condivisi con amici o colleghi. Controlla costi, rinnovi e scopri dove finiscono davvero i tuoi soldi ogni mese.",
     Armadio: "Il tuo armadio, ma finalmente organizzato. Tieni traccia dei capi che possiedi, di quelli che desideri e anche di quelli che vuoi vendere.",
     Lettura: "Chi ama i libri sa che averli in libreria aiuta a non dimenticarli. Con Organizr puoi creare una libreria virtuale, salvare riassunti, note e progressi di lettura, così tutto resta organizzato e sempre a portata di mano.",
     File: "Ma quella cartella era sul PC, sul Mac o nel Server? Forse in tutti e tre. Organizr ti aiuta a visualizzare dove si trovano i tuoi file, come sono organizzati i backup e quando devono essere aggiornati. Così eviti il classico panico da forse l'ho perso davvero.",
   };
-
-  if (countdowns.length) {
-    const cycleMs = 5 * 60 * 60 * 1000;
-    const storageKey = "organizer-offer-end-at";
-    const now = Date.now();
-    let endAt = now + cycleMs;
-
-    try {
-      const savedEndAt = Number(window.localStorage.getItem(storageKey));
-      if (Number.isFinite(savedEndAt) && savedEndAt > now) {
-        endAt = savedEndAt;
-      } else {
-        window.localStorage.setItem(storageKey, String(endAt));
-      }
-    } catch (error) {
-      endAt = now + cycleMs;
-    }
-
-    const pad = (value) => String(value).padStart(2, "0");
-
-    const renderCountdown = () => {
-      const now = Date.now();
-      let remaining = endAt - now;
-
-      while (remaining <= 0) {
-        endAt += cycleMs;
-        remaining = endAt - now;
-        try {
-          window.localStorage.setItem(storageKey, String(endAt));
-        } catch (error) {
-          // Keep timer running in memory when storage is blocked.
-        }
-      }
-
-      const totalSeconds = Math.floor(remaining / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-
-      const formatted = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-      for (const countdown of countdowns) {
-        countdown.textContent = formatted;
-      }
-      for (const part of countdownParts.hours) part.textContent = pad(hours);
-      for (const part of countdownParts.minutes) part.textContent = pad(minutes);
-      for (const part of countdownParts.seconds) part.textContent = pad(seconds);
-    };
-
-    renderCountdown();
-    setInterval(renderCountdown, 1000);
-  }
 
   if (platformDownload) {
     const platform = [
@@ -147,6 +95,7 @@
 
       if (appDescriptionTitle) appDescriptionTitle.textContent = appName;
       if (appDescriptionCopy) appDescriptionCopy.textContent = appDescriptions[appName] || "";
+      nextTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
     };
 
     for (const tab of appTabs) {
@@ -162,6 +111,23 @@
         setActiveAppTab(appTabs[nextIndex]);
       });
     }
+
+    const moveAppTab = (direction) => {
+      const currentIndex = appTabs.findIndex((tab) => tab.classList.contains("is-active"));
+      const nextIndex = (currentIndex + direction + appTabs.length) % appTabs.length;
+      setActiveAppTab(appTabs[nextIndex]);
+    };
+
+    appTabsPrev?.addEventListener("click", () => moveAppTab(-1));
+    appTabsNext?.addEventListener("click", () => moveAppTab(1));
+    appDescriptionNext?.addEventListener("click", () => moveAppTab(1));
+
+    appTabsTrack?.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+
+      event.preventDefault();
+      appTabsTrack.scrollBy({ left: event.deltaY, behavior: "smooth" });
+    }, { passive: false });
   }
 
   if (planCards.length) {
@@ -184,6 +150,7 @@
         cycle: "/anno",
         oldPrice: "27,99€",
         cta: "Scegli Annuale",
+        checkoutUrl: "https://buy.stripe.com/dRm00i3W28G77Dm29X7wA01",
       },
       monthly: {
         label: "Mensile",
@@ -191,6 +158,7 @@
         cycle: "/mese",
         oldPrice: "",
         cta: "Scegli Mensile",
+        checkoutUrl: "https://buy.stripe.com/bJeaEW78ef4v0aUaGt7wA00",
       },
     };
 
@@ -217,7 +185,10 @@
 
       if (price) renderPrice(price, plan.price);
       if (cycle) cycle.textContent = plan.cycle;
-      if (cta) cta.textContent = plan.cta;
+      if (cta) {
+        cta.textContent = plan.cta;
+        cta.href = plan.checkoutUrl;
+      }
       if (oldPrice) {
         oldPrice.textContent = plan.oldPrice;
         oldPrice.classList.toggle("is-hidden", !plan.oldPrice);
