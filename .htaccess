@@ -13,7 +13,8 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # Maintenance mode must stay disabled for SEO: redirecting public pages to
 # maintenance.html (noindex) prevents indexing of the canonical pages.
-# To re-enable it temporarily, uncomment the following block and keep it short-lived.
+# Do not reintroduce the removed client-side maintenance-gate.js script.
+# To re-enable server-side maintenance temporarily, uncomment the following block and keep it short-lived.
 # RewriteCond %{QUERY_STRING} !(^|&)preview=ZAwNoPDllgzVhHBNFsVpFvJItCnYUDkxjotsyLgUgOfUBkiBnD(&|$)
 # RewriteCond %{HTTP_COOKIE} !(^|;\ *)maintenance_override=true(;|$)
 # RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
