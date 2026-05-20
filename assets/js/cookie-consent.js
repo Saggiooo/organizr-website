@@ -129,8 +129,8 @@
         <p class="cookie-consent__label">Privacy e cookie</p>
         <h2>Usiamo cookie solo quando servono.</h2>
         <p>
-          I cookie tecnici tengono il sito funzionante. Analytics resta spento
-          finche' non lo accetti.
+          Utilizziamo cookie tecnici necessari al funzionamento del sito.
+          <a href="/cookie-policy/">Leggi la cookie policy</a>
         </p>
       </div>
       <div class="cookie-consent__actions">

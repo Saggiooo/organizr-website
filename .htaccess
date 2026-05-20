@@ -3,14 +3,24 @@ DirectoryIndex index.html
 
 RewriteEngine On
 
-# Maintenance mode: public visitors see maintenance, preview token can set the override cookie client-side.
-RewriteCond %{QUERY_STRING} !(^|&)preview=ZAwNoPDllgzVhHBNFsVpFvJItCnYUDkxjotsyLgUgOfUBkiBnD(&|$)
-RewriteCond %{HTTP_COOKIE} !(^|;\ *)maintenance_override=true(;|$)
-RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
-RewriteCond %{REQUEST_URI} !^/assets/ [NC]
-RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
-RewriteCond %{REQUEST_URI} !^/sitemap\.xml$ [NC]
-RewriteRule ^.*$ /maintenance.html [R=302,L]
+# Canonical host and protocol for production.
+RewriteCond %{HTTP_HOST} ^organizr\.app$ [NC]
+RewriteRule ^ https://www.organizr.app%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^(www\.)?organizr\.app$ [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Maintenance mode must stay disabled for SEO: redirecting public pages to
+# maintenance.html (noindex) prevents indexing of the canonical pages.
+# To re-enable it temporarily, uncomment the following block and keep it short-lived.
+# RewriteCond %{QUERY_STRING} !(^|&)preview=ZAwNoPDllgzVhHBNFsVpFvJItCnYUDkxjotsyLgUgOfUBkiBnD(&|$)
+# RewriteCond %{HTTP_COOKIE} !(^|;\ *)maintenance_override=true(;|$)
+# RewriteCond %{REQUEST_URI} !^/maintenance\.html$ [NC]
+# RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+# RewriteCond %{REQUEST_URI} !^/robots\.txt$ [NC]
+# RewriteCond %{REQUEST_URI} !^/sitemap\.xml$ [NC]
+# RewriteRule ^.*$ /maintenance.html [R=302,L]
 
 # Clean old direct file URLs.
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
@@ -32,5 +42,17 @@ RewriteRule ^(.+?)/?$ $1.html [L]
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
   ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType application/octet-stream "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>

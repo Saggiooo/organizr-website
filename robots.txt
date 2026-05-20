@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /.git/
 Disallow: /assets/downloads/
+Disallow: /download.html
+Disallow: /maintenance.html
 
 Sitemap: https://www.organizr.app/sitemap.xml

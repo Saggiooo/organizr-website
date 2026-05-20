@@ -1,4 +1,7 @@
 (() => {
+  const maintenanceEnabled = false;
+  if (!maintenanceEnabled) return;
+
   const previewToken = "ZAwNoPDllgzVhHBNFsVpFvJItCnYUDkxjotsyLgUgOfUBkiBnD";
   const cookieName = "maintenance_override";
   const hasOverride = () => document.cookie.split(";").some((cookie) => cookie.trim() === `${cookieName}=true`);

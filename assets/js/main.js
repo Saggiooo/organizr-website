@@ -12,6 +12,8 @@
   const appPreviewLabel = document.querySelector("[data-app-preview-label]");
   const appDescriptionTitle = document.querySelector("[data-app-description-title]");
   const appDescriptionCopy = document.querySelector("[data-app-description-copy]");
+  const appPreviewVideo = document.querySelector("[data-app-preview-video]");
+  const appPreviewSource = document.querySelector("[data-app-preview-source]");
   const platformDownload = document.querySelector("[data-platform-download]");
   const continueButton = document.querySelector("[data-continue-plan]");
   const downloadFiles = {
@@ -51,6 +53,48 @@
     File: "Ma quella cartella era sul PC, sul Mac o nel Server? Forse in tutti e tre. Organizr ti aiuta a visualizzare dove si trovano i tuoi file, come sono organizzati i backup e quando devono essere aggiornati. Così eviti il classico panico da forse l'ho perso davvero.",
   };
 
+  const appVideos = {
+    Bacheca: "assets/video/bacheca_web.mp4",
+    Tracker: "assets/video/tracker_web.mp4",
+    Alimentazione: "assets/video/alimenta_web.mp4",
+    Workout: "assets/video/workout_web.mp4",
+    Misurazioni: "assets/video/misure_web.mp4",
+    Portafoglio: "assets/video/portafoglio_web.mp4",
+    Obiettivi: "assets/video/obiettivi_web.mp4",
+    Abbonamenti: "assets/video/abbonamenti_web.mp4",
+    Armadio: "assets/video/armadio_web.mp4",
+    Lettura: "assets/video/libreria_web.mp4",
+    File: "assets/video/file_web.mp4",
+  };
+
+  const appVideoWarmers = new Map();
+  const canWarmAppVideos = !navigator.connection?.saveData
+    && !["slow-2g", "2g"].includes(navigator.connection?.effectiveType);
+
+  const warmAppVideo = (appName, preload = "metadata") => {
+    if (!canWarmAppVideos) return;
+
+    const src = appVideos[appName];
+    if (!src || src === appPreviewSource?.getAttribute("src")) return;
+
+    const existingVideo = appVideoWarmers.get(src);
+    if (existingVideo) {
+      if (preload === "auto" && existingVideo.preload !== "auto") {
+        existingVideo.preload = "auto";
+        existingVideo.load();
+      }
+      return;
+    }
+
+    const video = document.createElement("video");
+    video.preload = preload;
+    video.muted = true;
+    video.playsInline = true;
+    video.src = src;
+    video.load();
+    appVideoWarmers.set(src, video);
+  };
+
   if (platformDownload) {
     const platform = [
       navigator.userAgentData?.platform,
@@ -84,7 +128,19 @@
   }
 
   if (appTabs.length && appPreviewLabel) {
-    const setActiveAppTab = (nextTab) => {
+    const warmNeighborAppVideos = (activeTab) => {
+      if (appTabs.length < 2) return;
+
+      const activeIndex = appTabs.indexOf(activeTab);
+      if (activeIndex === -1) return;
+
+      const previousTab = appTabs[(activeIndex - 1 + appTabs.length) % appTabs.length];
+      const nextTab = appTabs[(activeIndex + 1) % appTabs.length];
+      warmAppVideo(previousTab.dataset.appTab, "metadata");
+      warmAppVideo(nextTab.dataset.appTab, "metadata");
+    };
+
+    const setActiveAppTab = (nextTab, options = {}) => {
       for (const tab of appTabs) {
         const active = tab === nextTab;
         tab.classList.toggle("is-active", active);
@@ -92,14 +148,47 @@
       }
       const appName = nextTab.dataset.appTab;
       appPreviewLabel.textContent = appName;
+      const nextVideo = appVideos[appName] || "";
+
+      if (appPreviewVideo && appPreviewSource) {
+        const hasVideo = Boolean(nextVideo);
+
+        if (hasVideo && appPreviewSource.getAttribute("src") !== nextVideo) {
+          appPreviewVideo.classList.add("is-hidden");
+          appPreviewLabel.parentElement?.classList.remove("is-hidden");
+          appPreviewSource.setAttribute("src", nextVideo);
+          appPreviewVideo.load();
+        } else if (!hasVideo) {
+          appPreviewVideo.classList.add("is-hidden");
+          appPreviewLabel.parentElement?.classList.remove("is-hidden");
+        }
+
+        if (hasVideo) {
+          appPreviewVideo.play().catch(() => {});
+        } else {
+          appPreviewVideo.pause();
+        }
+      }
 
       if (appDescriptionTitle) appDescriptionTitle.textContent = appName;
       if (appDescriptionCopy) appDescriptionCopy.textContent = appDescriptions[appName] || "";
-      nextTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      warmNeighborAppVideos(nextTab);
+      if (options.scroll !== false) {
+        nextTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }
     };
+
+    appPreviewVideo?.addEventListener("loadeddata", () => {
+      if (!appPreviewSource?.getAttribute("src")) return;
+
+      appPreviewVideo.classList.remove("is-hidden");
+      appPreviewLabel.parentElement?.classList.add("is-hidden");
+    });
 
     for (const tab of appTabs) {
       tab.addEventListener("click", () => setActiveAppTab(tab));
+      tab.addEventListener("pointerenter", () => warmAppVideo(tab.dataset.appTab, "auto"));
+      tab.addEventListener("focus", () => warmAppVideo(tab.dataset.appTab, "auto"));
       tab.addEventListener("keydown", (event) => {
         if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
 
@@ -111,6 +200,19 @@
         setActiveAppTab(appTabs[nextIndex]);
       });
     }
+
+    const loadActiveAppVideo = () => {
+      const activeTab = appTabs.find((tab) => tab.classList.contains("is-active")) || appTabs[0];
+      if (activeTab) setActiveAppTab(activeTab, { scroll: false });
+    };
+
+    window.addEventListener("load", () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadActiveAppVideo, { timeout: 1500 });
+      } else {
+        window.setTimeout(loadActiveAppVideo, 800);
+      }
+    }, { once: true });
 
     const moveAppTab = (direction) => {
       const currentIndex = appTabs.findIndex((tab) => tab.classList.contains("is-active"));
