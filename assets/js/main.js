@@ -381,15 +381,10 @@
 
   if (!getLangPref()) {
     const browserLang = (navigator.language || "").toLowerCase();
-    if (browserLang.startsWith("it")) {
-      const itLink = document.querySelector('link[hreflang="it"]');
-      const enLink = document.querySelector('link[hreflang="en"]');
-      const currentUrl = window.location.href.replace(/\/$/, "");
-      const itUrl = itLink?.href.replace(/\/$/, "");
-      const enUrl = enLink?.href.replace(/\/$/, "");
-      if (itUrl && itUrl !== enUrl && currentUrl === enUrl) {
-        window.location.replace(itLink.href);
-      }
+    const onItPage = window.location.pathname.startsWith("/it/") || window.location.pathname === "/it";
+    if (browserLang.startsWith("it") && !onItPage) {
+      const itPath = langSwitcher?.dataset.itUrl;
+      if (itPath) window.location.replace(itPath);
     }
   }
 

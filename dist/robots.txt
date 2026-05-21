@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /assets/downloads/
+Disallow: /download.html
+Disallow: /maintenance.html
+Disallow: /termini-condizioni/
+
+# AI crawlers — allowed to index all public content
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://www.organizr.app/sitemap.xml
+LLMs: https://www.organizr.app/llms.txt
