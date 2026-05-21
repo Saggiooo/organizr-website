@@ -290,6 +290,7 @@
       if (cta) {
         cta.textContent = plan.cta;
         cta.href = plan.checkoutUrl;
+        cta.dataset.umamiEvent = `cta-plan-pro-${key}`;
       }
       if (oldPrice) {
         oldPrice.textContent = plan.oldPrice;
