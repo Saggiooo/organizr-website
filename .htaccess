@@ -53,6 +53,12 @@ RewriteRule ^(.+?)/?$ $1.html [L]
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
+AddType application/octet-stream .dmg
+
+<FilesMatch "\.(dmg|exe)$">
+  Header set Content-Disposition "attachment"
+</FilesMatch>
+
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
