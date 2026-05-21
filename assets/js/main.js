@@ -17,8 +17,8 @@
   const platformDownload = document.querySelector("[data-platform-download]");
   const continueButton = document.querySelector("[data-continue-plan]");
   const downloadFiles = {
-    mac: "assets/downloads/Organizr_0.2.2_aarch64.dmg",
-    windows: "assets/downloads/Organizr_0.2.2_x64-setup.exe",
+    mac: "/assets/downloads/Organizr_0.2.2_aarch64.dmg",
+    windows: "/assets/downloads/Organizr_0.2.2_x64-setup.exe",
   };
 
   const setActivePlan = (nextCard) => {
@@ -54,17 +54,17 @@
   };
 
   const appVideos = {
-    Bacheca: "assets/video/bacheca_web.mp4",
-    Tracker: "assets/video/tracker_web.mp4",
-    Alimentazione: "assets/video/alimenta_web.mp4",
-    Workout: "assets/video/workout_web.mp4",
-    Misurazioni: "assets/video/misure_web.mp4",
-    Portafoglio: "assets/video/portafoglio_web.mp4",
-    Obiettivi: "assets/video/obiettivi_web.mp4",
-    Abbonamenti: "assets/video/abbonamenti_web.mp4",
-    Armadio: "assets/video/armadio_web.mp4",
-    Lettura: "assets/video/libreria_web.mp4",
-    File: "assets/video/file_web.mp4",
+    Bacheca: "/assets/video/bacheca_web.mp4",
+    Tracker: "/assets/video/tracker_web.mp4",
+    Alimentazione: "/assets/video/alimenta_web.mp4",
+    Workout: "/assets/video/workout_web.mp4",
+    Misurazioni: "/assets/video/misure_web.mp4",
+    Portafoglio: "/assets/video/portafoglio_web.mp4",
+    Obiettivi: "/assets/video/obiettivi_web.mp4",
+    Abbonamenti: "/assets/video/abbonamenti_web.mp4",
+    Armadio: "/assets/video/armadio_web.mp4",
+    Lettura: "/assets/video/libreria_web.mp4",
+    File: "/assets/video/file_web.mp4",
   };
 
   const appVideoWarmers = new Map();
@@ -147,7 +147,8 @@
         tab.setAttribute("aria-selected", active ? "true" : "false");
       }
       const appName = nextTab.dataset.appTab;
-      appPreviewLabel.textContent = appName;
+      const displayName = nextTab.textContent.trim();
+      appPreviewLabel.textContent = displayName;
       const nextVideo = appVideos[appName] || "";
 
       if (appPreviewVideo && appPreviewSource) {
@@ -170,8 +171,8 @@
         }
       }
 
-      if (appDescriptionTitle) appDescriptionTitle.textContent = appName;
-      if (appDescriptionCopy) appDescriptionCopy.textContent = appDescriptions[appName] || "";
+      if (appDescriptionTitle) appDescriptionTitle.textContent = displayName;
+      if (appDescriptionCopy) appDescriptionCopy.textContent = nextTab.dataset.description || appDescriptions[appName] || "";
       warmNeighborAppVideos(nextTab);
       if (options.scroll !== false) {
         nextTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
@@ -359,5 +360,67 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   if (reduceMotion.matches) {
     glow.classList.add("is-subtle");
+  }
+
+  // Language switcher
+  const langSwitcher = document.querySelector(".lang-switcher");
+  const langBtn = document.querySelector(".lang-btn");
+  const langOptions = [...document.querySelectorAll(".lang-option")];
+  const langBtnFlag = langBtn && langBtn.querySelector(".lang-flag");
+  const langBtnName = langBtn && langBtn.querySelector(".lang-name");
+
+  const LANG_PREF_KEY = "organizr_lang_pref";
+  const getLangPref = () => {
+    const prefix = `${LANG_PREF_KEY}=`;
+    const c = document.cookie.split(";").map((s) => s.trim()).find((s) => s.startsWith(prefix));
+    return c ? c.slice(prefix.length) : null;
+  };
+  const setLangPref = (lang) => {
+    document.cookie = `${LANG_PREF_KEY}=${lang}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+  };
+
+  if (!getLangPref()) {
+    const browserLang = (navigator.language || "").toLowerCase();
+    if (browserLang.startsWith("it")) {
+      const itLink = document.querySelector('link[hreflang="it"]');
+      const enLink = document.querySelector('link[hreflang="en"]');
+      const currentUrl = window.location.href.replace(/\/$/, "");
+      const itUrl = itLink?.href.replace(/\/$/, "");
+      const enUrl = enLink?.href.replace(/\/$/, "");
+      if (itUrl && itUrl !== enUrl && currentUrl === enUrl) {
+        window.location.replace(itLink.href);
+      }
+    }
+  }
+
+  if (langSwitcher && langBtn) {
+    const closeLang = () => {
+      langSwitcher.classList.remove("is-open");
+      langBtn.setAttribute("aria-expanded", "false");
+    };
+
+    langBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = langSwitcher.classList.toggle("is-open");
+      langBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    langOptions.forEach((opt) => {
+      opt.addEventListener("click", () => {
+        if (opt.classList.contains("is-active")) { closeLang(); return; }
+        const targetUrl = langSwitcher.dataset[opt.dataset.lang + "Url"];
+        if (targetUrl) {
+          setLangPref(opt.dataset.lang);
+          window.location.href = targetUrl;
+        } else {
+          closeLang();
+        }
+      });
+    });
+
+    document.addEventListener("click", closeLang);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeLang();
+    });
   }
 })();

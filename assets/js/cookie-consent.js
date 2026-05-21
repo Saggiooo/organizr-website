@@ -121,22 +121,59 @@
   };
 
   const renderBanner = () => {
+    const isIt = document.documentElement.lang === "it";
+    const cookiePolicyHref = isIt ? "/it/cookie-policy/" : "/cookie-policy/";
+    const t = isIt ? {
+      label: "Privacy e cookie",
+      title: "Usiamo cookie solo quando servono.",
+      body: `Utilizziamo cookie tecnici necessari al funzionamento del sito. <a href="${cookiePolicyHref}">Leggi la cookie policy</a>`,
+      customize: "Personalizza",
+      reject: "Rifiuta",
+      accept: "Accetta",
+      prefLabel: "Preferenze",
+      prefTitle: "Gestisci cookie",
+      prefIntro: "Puoi cambiare scelta in qualsiasi momento cancellando il cookie di consenso. I cookie analytics servono solo per capire visite e uso del sito.",
+      necessary: "Necessari",
+      necessaryDesc: "Richiesti per sicurezza, manutenzione e salvataggio preferenze.",
+      alwaysActive: "Sempre attivi",
+      analytics: "Analytics",
+      analyticsDesc: "Google Analytics e strumenti simili. Bloccati finché non abiliti questa voce.",
+      closeLabel: "Chiudi preferenze cookie",
+      save: "Salva scelta",
+      acceptAll: "Accetta tutto",
+    } : {
+      label: "Privacy & cookies",
+      title: "We only use cookies when needed.",
+      body: `We use technical cookies necessary for the website to function. <a href="${cookiePolicyHref}">Read the cookie policy</a>`,
+      customize: "Customize",
+      reject: "Decline",
+      accept: "Accept",
+      prefLabel: "Preferences",
+      prefTitle: "Manage cookies",
+      prefIntro: "You can change your choice at any time by deleting the consent cookie. Analytics cookies are only used to understand visits and page usage.",
+      necessary: "Necessary",
+      necessaryDesc: "Required for security, maintenance and saving preferences.",
+      alwaysActive: "Always active",
+      analytics: "Analytics",
+      analyticsDesc: "Google Analytics and similar tools. Blocked until you enable this option.",
+      closeLabel: "Close cookie preferences",
+      save: "Save choice",
+      acceptAll: "Accept all",
+    };
+
     const wrapper = document.createElement("div");
     wrapper.className = "cookie-consent";
     wrapper.setAttribute("data-cookie-banner", "");
     wrapper.innerHTML = `
       <div class="cookie-consent__copy">
-        <p class="cookie-consent__label">Privacy e cookie</p>
-        <h2>Usiamo cookie solo quando servono.</h2>
-        <p>
-          Utilizziamo cookie tecnici necessari al funzionamento del sito.
-          <a href="/cookie-policy/">Leggi la cookie policy</a>
-        </p>
+        <p class="cookie-consent__label">${t.label}</p>
+        <h2>${t.title}</h2>
+        <p>${t.body}</p>
       </div>
       <div class="cookie-consent__actions">
-        <button class="cookie-btn cookie-btn--ghost" type="button" data-cookie-customize>Personalizza</button>
-        <button class="cookie-btn cookie-btn--muted" type="button" data-cookie-reject>Rifiuta</button>
-        <button class="cookie-btn cookie-btn--primary" type="button" data-cookie-accept>Accetta</button>
+        <button class="cookie-btn cookie-btn--ghost" type="button" data-cookie-customize>${t.customize}</button>
+        <button class="cookie-btn cookie-btn--muted" type="button" data-cookie-reject>${t.reject}</button>
+        <button class="cookie-btn cookie-btn--primary" type="button" data-cookie-accept>${t.accept}</button>
       </div>
     `;
 
@@ -146,38 +183,35 @@
     modal.setAttribute("aria-hidden", "true");
     modal.innerHTML = `
       <div class="cookie-modal__panel" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
-        <button class="cookie-modal__close" type="button" aria-label="Chiudi preferenze cookie" data-cookie-close>
+        <button class="cookie-modal__close" type="button" aria-label="${t.closeLabel}" data-cookie-close>
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m6 6 12 12M18 6 6 18" />
           </svg>
         </button>
-        <p class="cookie-consent__label">Preferenze</p>
-        <h2 id="cookie-modal-title">Gestisci cookie</h2>
-        <p class="cookie-modal__intro">
-          Puoi cambiare scelta in qualsiasi momento cancellando il cookie di consenso.
-          I cookie analytics servono solo per capire visite e uso del sito.
-        </p>
+        <p class="cookie-consent__label">${t.prefLabel}</p>
+        <h2 id="cookie-modal-title">${t.prefTitle}</h2>
+        <p class="cookie-modal__intro">${t.prefIntro}</p>
 
         <div class="cookie-option">
           <div>
-            <strong>Necessari</strong>
-            <span>Richiesti per sicurezza, manutenzione e salvataggio preferenze.</span>
+            <strong>${t.necessary}</strong>
+            <span>${t.necessaryDesc}</span>
           </div>
-          <span class="cookie-badge">Sempre attivi</span>
+          <span class="cookie-badge">${t.alwaysActive}</span>
         </div>
 
         <label class="cookie-option cookie-option--toggle">
           <div>
-            <strong>Analytics</strong>
-            <span>Google Analytics e strumenti simili. Bloccati finche' non abiliti questa voce.</span>
+            <strong>${t.analytics}</strong>
+            <span>${t.analyticsDesc}</span>
           </div>
           <input type="checkbox" data-cookie-analytics />
           <span class="cookie-switch" aria-hidden="true"></span>
         </label>
 
         <div class="cookie-modal__actions">
-          <button class="cookie-btn cookie-btn--muted" type="button" data-cookie-save>Salva scelta</button>
-          <button class="cookie-btn cookie-btn--primary" type="button" data-cookie-accept-modal>Accetta tutto</button>
+          <button class="cookie-btn cookie-btn--muted" type="button" data-cookie-save>${t.save}</button>
+          <button class="cookie-btn cookie-btn--primary" type="button" data-cookie-accept-modal>${t.acceptAll}</button>
         </div>
       </div>
     `;

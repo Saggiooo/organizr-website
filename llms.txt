@@ -1,0 +1,43 @@
+# Organizr
+
+> Organizr is a personal desktop planner for macOS and Windows. All data stays locally on the user's device — no cloud, no mandatory subscription.
+
+## What is Organizr
+
+Organizr brings together in a single desktop app: personal kanban board, habit tracker, workout tracker, nutrition diary, body measurement tracking, goal management, subscription tracker, wardrobe organizer, reading library and file manager. It is designed for people who want a complete personal hub without using dozens of separate apps.
+
+## Platforms
+
+- macOS (Apple Silicon and Intel)
+- Windows 10 / 11
+
+## Versions and pricing
+
+- **Organizr Lite** — free, core features
+- **Organizr Pro** — €7.49/year (72% off standard price)
+- **Organizr Lifetime** — €24.49 one-time payment
+
+## Key features
+
+- **Board (Kanban)** — task and personal project management with customizable columns
+- **Tracker** — daily habit tracker with streaks and statistics
+- **Workout** — workout log with sets, reps, weight; Hevy integration
+- **Nutrition** — nutrition diary with macros; FatSecret integration
+- **Measurements** — body weight, BMI and measurements tracking over time
+- **Goals** — goal setting and tracking with milestones
+- **Subscriptions** — manage and calculate active subscription costs
+- **Wardrobe** — clothing item organization
+- **Reading** — personal library with reading status and notes
+- **Files** — file manager integrated in the hub
+
+## Privacy and data
+
+All data is saved locally on the user's device. Organizr requires no account, sends no data to remote servers and has no access to the user's personal data.
+
+## Useful links
+
+- [Homepage](https://www.organizr.app/)
+- [Download](https://www.organizr.app/download/)
+- [Privacy Policy](https://www.organizr.app/privacy-policy/)
+- [Cookie Policy](https://www.organizr.app/cookie-policy/)
+- [Terms & Conditions](https://www.organizr.app/terms-conditions/)
