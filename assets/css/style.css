@@ -392,13 +392,106 @@ a {
 }
 
 .hero {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
   padding: 78px 0 92px;
   min-height: calc(100vh - 110px);
 }
 
 .hero-copy {
   max-width: 900px;
+  min-width: 0;
+}
+
+.hero-copy h1 {
+  font-size: clamp(3.2rem, 6vw, 5.2rem);
+}
+
+.hero-float {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-width: 460px;
+  width: 100%;
+  margin-left: auto;
+  isolation: isolate;
+  perspective: 1100px;
+  perspective-origin: 50% 40%;
+}
+
+.hero-float-orb {
+  position: absolute;
+  inset: 22% 18% 38% 18%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(143, 91, 255, 0.28), rgba(143, 91, 255, 0) 65%);
+  filter: blur(12px);
+  z-index: 0;
+  animation: hero-float-pulse 6s ease-in-out infinite;
+}
+
+.hero-float-orb-2 {
+  inset: 30% 8% 26% 28%;
+  background: radial-gradient(circle at 60% 60%, rgba(77, 139, 255, 0.24), rgba(77, 139, 255, 0) 65%);
+  animation-delay: -3s;
+}
+
+@keyframes hero-float-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.85; }
+  50%      { transform: scale(1.08); opacity: 1; }
+}
+
+.hero-float-logo {
+  position: absolute;
+  inset: 20%;
+  margin-top: -30%;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 40px rgba(143, 91, 255, 0.22));
+  transform-style: preserve-3d;
+  animation: hero-float-3d 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-float-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes hero-float-3d {
+  0%   { transform: translateY(0)    rotateX(8deg)  rotateY(-14deg) rotateZ(-3deg); }
+  25%  { transform: translateY(-14px) rotateX(4deg)  rotateY(-8deg)  rotateZ(-2deg); }
+  50%  { transform: translateY(-22px) rotateX(-2deg) rotateY(6deg)   rotateZ(2deg); }
+  75%  { transform: translateY(-10px) rotateX(2deg)  rotateY(-2deg)  rotateZ(0deg); }
+  100% { transform: translateY(0)    rotateX(8deg)  rotateY(-14deg) rotateZ(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float-orb,
+  .hero-float-logo {
+    animation: none;
+  }
+  .hero-float-logo {
+    transform: rotateX(6deg) rotateY(-10deg) rotateZ(-2deg);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-float {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-float-logo {
+    margin-top: 0;
+  }
 }
 
 .eyebrow,
@@ -735,6 +828,7 @@ h1 {
   gap: 14px;
   max-width: 1040px;
   margin-top: 30px;
+  grid-column: 1 / -1;
 }
 
 .hero-trust-card {
@@ -1144,6 +1238,58 @@ h1 {
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.app-description-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.app-description-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(135deg, rgba(143, 91, 255, 0.95), rgba(77, 139, 255, 0.85));
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+  box-shadow: 0 12px 26px rgba(143, 91, 255, 0.35);
+}
+
+.app-description-more:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  box-shadow: 0 18px 34px rgba(143, 91, 255, 0.45);
+}
+
+.app-description-more:focus-visible {
+  outline: 2px solid rgba(193, 156, 255, 0.95);
+  outline-offset: 3px;
+}
+
+.app-description-more svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.app-description-more.is-hidden {
+  display: none;
 }
 
 .integrations-section {
@@ -2258,20 +2404,22 @@ h1 {
   position: relative;
   overflow: hidden;
   margin-top: 28px;
-  padding: clamp(32px, 4vw, 56px);
-  border-radius: 32px;
-  border: 1px solid rgba(193, 156, 255, 0.28);
+  padding: clamp(36px, 4.4vw, 64px);
+  border-radius: 36px;
+  border: 1px solid rgba(193, 156, 255, 0.32);
   background:
-    radial-gradient(circle at 12% 0%, rgba(143, 91, 255, 0.32), transparent 48%),
-    radial-gradient(circle at 92% 100%, rgba(193, 156, 255, 0.18), transparent 48%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)),
-    rgba(12, 8, 22, 0.92);
+    radial-gradient(circle at 8% -10%, rgba(143, 91, 255, 0.38), transparent 42%),
+    radial-gradient(circle at 100% 110%, rgba(77, 139, 255, 0.22), transparent 48%),
+    radial-gradient(circle at 60% 50%, rgba(193, 156, 255, 0.08), transparent 60%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
+    rgba(10, 7, 20, 0.94);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 32px 80px rgba(0, 0, 0, 0.4);
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
+    inset 0 0 0 1px rgba(143, 91, 255, 0.08),
+    0 40px 90px rgba(0, 0, 0, 0.5);
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  gap: clamp(28px, 4vw, 48px);
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: clamp(28px, 4vw, 52px);
   align-items: center;
 }
 
@@ -2281,24 +2429,52 @@ h1 {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: radial-gradient(ellipse at 50% 30%, rgba(0, 0, 0, 0.7), transparent 70%);
-  opacity: 0.22;
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(ellipse at 50% 40%, rgba(0, 0, 0, 0.7), transparent 75%);
+  opacity: 0.18;
+}
+
+.why-cta::after {
+  content: "";
+  position: absolute;
+  inset: -40% 40% 40% -40%;
+  background: conic-gradient(from 140deg at 50% 50%, rgba(143, 91, 255, 0) 0deg, rgba(143, 91, 255, 0.25) 80deg, rgba(193, 156, 255, 0) 160deg);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  animation: why-cta-rotate 22s linear infinite;
+}
+
+@keyframes why-cta-rotate {
+  to { transform: rotate(360deg); }
 }
 
 .why-cta-glow {
   position: absolute;
   z-index: 0;
-  width: 320px;
-  height: 320px;
-  top: -120px;
-  right: -80px;
+  width: 360px;
+  height: 360px;
+  top: -140px;
+  right: -100px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(143, 91, 255, 0.36), transparent 70%);
-  filter: blur(40px);
+  background: radial-gradient(circle, rgba(143, 91, 255, 0.42), transparent 70%);
+  filter: blur(48px);
   pointer-events: none;
+  animation: why-cta-pulse 9s ease-in-out infinite;
+}
+
+@keyframes why-cta-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50%      { transform: scale(1.1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-cta::after,
+  .why-cta-glow {
+    animation: none;
+  }
 }
 
 .why-cta-head {
@@ -2334,35 +2510,74 @@ h1 {
 .why-cta-stats {
   position: relative;
   z-index: 1;
+  list-style: none;
   display: grid;
-  gap: 14px;
-  padding: 22px;
-  border-radius: 22px;
+  gap: 12px;
+  padding: 18px;
+  margin: 0;
+  border-radius: 24px;
   border: 1px solid rgba(193, 156, 255, 0.22);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012)),
-    rgba(8, 6, 14, 0.7);
+    rgba(8, 6, 16, 0.78);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 40px rgba(0, 0, 0, 0.3);
 }
 
-.why-cta-stats div {
+.why-cta-stats li {
   display: grid;
-  grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+  grid-template-columns: 44px minmax(0, 1fr);
   gap: 16px;
-  align-items: baseline;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(193, 156, 255, 0.14);
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0));
+  border: 1px solid rgba(193, 156, 255, 0.08);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
 }
 
-.why-cta-stats div:last-child {
-  padding-bottom: 0;
-  border-bottom: 0;
+.why-cta-stats li:hover {
+  transform: translateY(-1px);
+  border-color: rgba(193, 156, 255, 0.28);
+  background: linear-gradient(180deg, rgba(143, 91, 255, 0.08), rgba(255, 255, 255, 0));
+}
+
+.why-cta-stat-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(193, 156, 255, 0.28);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.16), transparent 55%),
+    linear-gradient(160deg, rgba(143, 91, 255, 0.28), rgba(77, 139, 255, 0.18));
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 20px rgba(143, 91, 255, 0.25);
+}
+
+.why-cta-stat-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.why-cta-stats li > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
 .why-cta-stats strong {
   color: #fff;
-  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
   font-weight: 900;
   letter-spacing: -0.04em;
+  line-height: 1.1;
   background: linear-gradient(180deg, #fff, var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
@@ -2370,7 +2585,7 @@ h1 {
 }
 
 .why-cta-stats span {
-  color: rgba(245, 241, 248, 0.62);
+  color: rgba(245, 241, 248, 0.66);
   font-size: 0.9rem;
   line-height: 1.4;
 }
@@ -2381,8 +2596,19 @@ h1 {
   grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.why-cta-primary {
+  box-shadow: 0 18px 40px rgba(143, 91, 255, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.why-cta-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 26px 56px rgba(143, 91, 255, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .why-cta-primary {
@@ -2406,9 +2632,31 @@ h1 {
   z-index: 1;
   grid-column: 1 / -1;
   margin: 0;
-  color: rgba(245, 241, 248, 0.5);
+  color: rgba(245, 241, 248, 0.56);
   font-size: 0.85rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.why-cta-trust::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #6df6a3;
+  box-shadow: 0 0 0 4px rgba(109, 246, 163, 0.16), 0 0 14px rgba(109, 246, 163, 0.55);
+  animation: why-cta-trust-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes why-cta-trust-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-cta-trust::before { animation: none; }
 }
 
 @media (max-width: 880px) {
@@ -3206,5 +3454,590 @@ h1 {
 
   .section-heading h2 {
     font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
+
+/* Home workout teaser */
+.home-workout-teaser {
+  margin-top: 64px;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: 32px;
+  border: 1px solid rgba(193, 156, 255, 0.22);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(143, 91, 255, 0.18), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(77, 139, 255, 0.14), transparent 50%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+    rgba(10, 7, 18, 0.92);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+  display: grid;
+  gap: 28px;
+}
+
+.home-workout-teaser .section-heading {
+  max-width: 640px;
+}
+
+.home-workout-teaser .section-heading h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.035em;
+  margin: 8px 0 10px;
+}
+
+.home-workout-teaser .section-heading p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.home-workout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-workout-card {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(9, 7, 12, 0.9);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  text-decoration: none;
+}
+
+.home-workout-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(193, 156, 255, 0.42);
+  box-shadow: 0 28px 60px rgba(143, 91, 255, 0.28);
+}
+
+.home-workout-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 7;
+}
+
+.home-workout-card-label {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: rgba(11, 8, 16, 0.7);
+  border: 1px solid rgba(193, 156, 255, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.home-workout-cta {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(135deg, rgba(143, 91, 255, 0.95), rgba(77, 139, 255, 0.85));
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 14px 32px rgba(143, 91, 255, 0.35);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.home-workout-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 22px 44px rgba(143, 91, 255, 0.5);
+}
+
+@media (max-width: 780px) {
+  .home-workout-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-workout-card img {
+    aspect-ratio: 16 / 8;
+  }
+  .home-workout-cta {
+    justify-self: center;
+  }
+}
+
+/* Workout page */
+.workout-page {
+  padding: 72px 0 96px;
+  display: grid;
+  gap: 96px;
+}
+
+.workout-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.workout-hero-copy {
+  max-width: 640px;
+}
+
+.workout-hero h1 {
+  max-width: 16ch;
+  font-size: clamp(2.3rem, 5.2vw, 4rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.workout-hero-grad {
+  background: linear-gradient(120deg, #c19cff 0%, #8f5bff 45%, #4d8bff 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: workout-hero-grad-shift 8s ease-in-out infinite;
+}
+
+@keyframes workout-hero-grad-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+.workout-hero-float {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-width: 420px;
+  margin-left: auto;
+  width: 100%;
+  isolation: isolate;
+  perspective: 1100px;
+  perspective-origin: 50% 40%;
+}
+
+.workout-hero-orb {
+  position: absolute;
+  inset: 8% 8% 8% 8%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(143, 91, 255, 0.55), rgba(143, 91, 255, 0) 65%);
+  filter: blur(14px);
+  z-index: 0;
+  animation: workout-hero-pulse 6s ease-in-out infinite;
+}
+
+.workout-hero-orb-2 {
+  inset: 18% -6% -6% 18%;
+  background: radial-gradient(circle at 60% 60%, rgba(77, 139, 255, 0.5), rgba(77, 139, 255, 0) 65%);
+  animation-delay: -3s;
+}
+
+@keyframes workout-hero-pulse {
+  0%, 100% { transform: scale(1);   opacity: 0.85; }
+  50%      { transform: scale(1.08); opacity: 1; }
+}
+
+.workout-hero-logo {
+  position: absolute;
+  inset: 14%;
+  border-radius: 38%;
+  border: 1px solid rgba(193, 156, 255, 0.34);
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.18), transparent 55%),
+    linear-gradient(160deg, rgba(143, 91, 255, 0.28), rgba(11, 8, 16, 0.94));
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 0 120px rgba(143, 91, 255, 0.38);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  transform-style: preserve-3d;
+  animation: workout-hero-float-3d 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+.workout-hero-logo::before {
+  content: "";
+  position: absolute;
+  inset: 6%;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 55%);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.workout-hero-logo-inner {
+  position: relative;
+  width: 68%;
+  height: 68%;
+  border-radius: 32%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  transform: translateZ(40px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.workout-hero-logo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+}
+
+@keyframes workout-hero-float-3d {
+  0% {
+    transform: translateY(0) rotateX(8deg) rotateY(-14deg) rotateZ(-3deg);
+  }
+  25% {
+    transform: translateY(-14px) rotateX(4deg) rotateY(-8deg) rotateZ(-2deg);
+  }
+  50% {
+    transform: translateY(-22px) rotateX(-2deg) rotateY(6deg) rotateZ(2deg);
+  }
+  75% {
+    transform: translateY(-10px) rotateX(2deg) rotateY(-2deg) rotateZ(0deg);
+  }
+  100% {
+    transform: translateY(0) rotateX(8deg) rotateY(-14deg) rotateZ(-3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workout-hero-grad,
+  .workout-hero-orb,
+  .workout-hero-logo {
+    animation: none;
+  }
+  .workout-hero-logo {
+    transform: rotateX(6deg) rotateY(-10deg) rotateZ(-2deg);
+  }
+}
+
+.workout-showcase {
+  display: grid;
+  gap: 32px;
+}
+
+.workout-figure {
+  margin: 0;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(9, 7, 12, 0.88);
+  padding: 18px;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
+}
+
+.workout-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius-xl) - 8px);
+}
+
+.workout-figure figcaption {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+.workout-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.workout-stat-card {
+  padding: 22px;
+  border-radius: calc(var(--radius-xl) - 4px);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+    rgba(9, 7, 12, 0.85);
+}
+
+.workout-stat-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.workout-stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.workout-stat-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.workout-section {
+  display: grid;
+  gap: 28px;
+}
+
+.workout-section-split {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.workout-section-split.is-reversed .workout-split-copy {
+  order: 2;
+}
+
+.workout-section-split.is-reversed .workout-split-visual {
+  order: 1;
+}
+
+.workout-split-copy h2 {
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  letter-spacing: -0.04em;
+  margin: 10px 0 16px;
+}
+
+.workout-split-copy p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0 0 18px;
+}
+
+.workout-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.workout-bullets li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.workout-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8f5bff, #4d8bff);
+}
+
+.workout-hevy-card {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 40px 28px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(143, 91, 255, 0.42);
+  background:
+    radial-gradient(circle at 70% 18%, rgba(143, 91, 255, 0.22), transparent 36%),
+    linear-gradient(180deg, rgba(143, 91, 255, 0.12), rgba(255, 255, 255, 0.02)),
+    rgba(11, 8, 16, 0.92);
+  text-align: center;
+}
+
+.workout-hevy-card img {
+  width: 96px;
+  height: 96px;
+}
+
+.workout-hevy-label {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 4px 0 0;
+}
+
+.workout-hevy-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.workout-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.workout-feature {
+  padding: 24px;
+  border-radius: calc(var(--radius-xl) - 4px);
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(9, 7, 12, 0.85);
+}
+
+.workout-feature h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+}
+
+.workout-feature p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.workout-heatmap {
+  display: grid;
+  gap: 28px;
+}
+
+.workout-heatmap-copy {
+  max-width: 720px;
+}
+
+.workout-heatmap-copy h2 {
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  letter-spacing: -0.04em;
+  margin: 10px 0 16px;
+}
+
+.workout-heatmap-copy p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.workout-figure-wide {
+  padding: 14px;
+}
+
+.workout-figure-wide img {
+  border-radius: calc(var(--radius-xl) - 10px);
+}
+
+.workout-cta {
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(143, 91, 255, 0.42);
+  background:
+    radial-gradient(circle at 80% 20%, rgba(143, 91, 255, 0.22), transparent 38%),
+    linear-gradient(180deg, rgba(143, 91, 255, 0.10), rgba(255, 255, 255, 0.02)),
+    rgba(11, 8, 16, 0.92);
+  padding: 56px 36px;
+}
+
+.workout-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+}
+
+.workout-cta h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.workout-cta p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.workout-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.workout-cta-icon {
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .workout-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workout-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .workout-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .workout-hero-float {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .workout-page {
+    padding: 56px 12px 72px;
+    gap: 72px;
+  }
+
+  .workout-hero-copy {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .workout-hero-copy .eyebrow,
+  .workout-hero-copy h1,
+  .workout-hero-copy .lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .workout-hero h1 {
+    max-width: none;
+  }
+
+  .workout-section-split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .workout-section-split.is-reversed .workout-split-copy,
+  .workout-section-split.is-reversed .workout-split-visual {
+    order: initial;
+  }
+
+  .workout-stats,
+  .workout-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workout-cta {
+    padding: 36px 20px;
   }
 }

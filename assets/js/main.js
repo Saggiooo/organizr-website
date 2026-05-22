@@ -12,6 +12,7 @@
   const appPreviewLabel = document.querySelector("[data-app-preview-label]");
   const appDescriptionTitle = document.querySelector("[data-app-description-title]");
   const appDescriptionCopy = document.querySelector("[data-app-description-copy]");
+  const appDescriptionMore = document.querySelector("[data-app-description-more]");
   const appPreviewVideo = document.querySelector("[data-app-preview-video]");
   const appPreviewSource = document.querySelector("[data-app-preview-source]");
   const platformDownload = document.querySelector("[data-platform-download]");
@@ -173,6 +174,10 @@
 
       if (appDescriptionTitle) appDescriptionTitle.textContent = displayName;
       if (appDescriptionCopy) appDescriptionCopy.textContent = nextTab.dataset.description || appDescriptions[appName] || "";
+      if (appDescriptionMore) {
+        const target = appDescriptionMore.dataset.appDescriptionMoreTarget;
+        appDescriptionMore.classList.toggle("is-hidden", target !== appName);
+      }
       warmNeighborAppVideos(nextTab);
       if (options.scroll !== false) {
         const tabLeft = nextTab.offsetLeft;
