@@ -175,7 +175,11 @@
       if (appDescriptionCopy) appDescriptionCopy.textContent = nextTab.dataset.description || appDescriptions[appName] || "";
       warmNeighborAppVideos(nextTab);
       if (options.scroll !== false) {
-        nextTab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        const tabLeft = nextTab.offsetLeft;
+        const tabWidth = nextTab.offsetWidth;
+        const trackWidth = appTabsTrack.offsetWidth;
+        const targetScroll = tabLeft - (trackWidth - tabWidth) / 2;
+        appTabsTrack.scrollTo({ left: targetScroll, behavior: "smooth" });
       }
     };
 
