@@ -18,8 +18,8 @@
   const platformDownload = document.querySelector("[data-platform-download]");
   const continueButton = document.querySelector("[data-continue-plan]");
   const downloadFiles = {
-    mac: "/assets/downloads/Organizr_0.2.2_aarch64.dmg",
-    windows: "/assets/downloads/Organizr_0.2.2_x64-setup.exe",
+    mac: "/assets/downloads/Organizr_0.2.3_aarch64.dmg",
+    windows: "/assets/downloads/Organizr_0.2.3_x64-setup.exe",
   };
 
   const setActivePlan = (nextCard) => {
