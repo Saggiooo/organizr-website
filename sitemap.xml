@@ -4,90 +4,90 @@
 
   <!-- Home -->
   <url>
-    <loc>https://www.organizr.it/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/"/>
+    <loc>https://organizr.it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.organizr.it/it/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/"/>
+    <loc>https://organizr.it/it/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Download -->
   <url>
-    <loc>https://www.organizr.it/download/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/download/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/download/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/download/"/>
+    <loc>https://organizr.it/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/download/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/download/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.organizr.it/it/download/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/download/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/download/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/download/"/>
+    <loc>https://organizr.it/it/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/download/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/download/"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Privacy Policy -->
   <url>
-    <loc>https://www.organizr.it/privacy-policy/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/privacy-policy/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/privacy-policy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/privacy-policy/"/>
+    <loc>https://organizr.it/privacy-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/privacy-policy/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.organizr.it/it/privacy-policy/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/privacy-policy/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/privacy-policy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/privacy-policy/"/>
+    <loc>https://organizr.it/it/privacy-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/privacy-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/privacy-policy/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <!-- Cookie Policy -->
   <url>
-    <loc>https://www.organizr.it/cookie-policy/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/cookie-policy/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/cookie-policy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/cookie-policy/"/>
+    <loc>https://organizr.it/cookie-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/cookie-policy/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.organizr.it/it/cookie-policy/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/cookie-policy/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/cookie-policy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/cookie-policy/"/>
+    <loc>https://organizr.it/it/cookie-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/cookie-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/cookie-policy/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <!-- Terms & Conditions -->
   <url>
-    <loc>https://www.organizr.it/terms-conditions/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/terms-conditions/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/termini-condizioni/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/terms-conditions/"/>
+    <loc>https://organizr.it/terms-conditions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/terms-conditions/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/termini-condizioni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/terms-conditions/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.organizr.it/it/termini-condizioni/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.organizr.it/terms-conditions/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://www.organizr.it/it/termini-condizioni/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.organizr.it/terms-conditions/"/>
+    <loc>https://organizr.it/it/termini-condizioni/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/terms-conditions/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/termini-condizioni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/terms-conditions/"/>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
