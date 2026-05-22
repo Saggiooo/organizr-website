@@ -105,8 +105,11 @@
       .filter(Boolean)
       .join(" ")
       .toLowerCase();
-    const isWindows = platform.includes("win");
-    const isMac = platform.includes("mac");
+    const isMobile =
+      /android|iphone|ipad|ipod/.test(platform) ||
+      (platform.includes("mac") && navigator.maxTouchPoints > 1);
+    const isWindows = !isMobile && platform.includes("win");
+    const isMac = !isMobile && platform.includes("mac");
     const detectedPlatform = isWindows ? "windows" : isMac ? "mac" : "";
     const label = platformDownload.querySelector("[data-platform-download-label]");
     const showIcon = (platformKey) => {
