@@ -31,5 +31,5 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
-Sitemap: https://www.organizr.app/sitemap.xml
-LLMs: https://www.organizr.app/llms.txt
+Sitemap: https://organizr.it/sitemap.xml
+LLMs: https://organizr.it/llms.txt

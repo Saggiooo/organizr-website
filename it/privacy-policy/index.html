@@ -35,9 +35,9 @@
     <link rel="alternate" hreflang="it" href="https://organizr.it/it/privacy-policy/" />
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/privacy-policy/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36a40752-20ea-4be7-a942-502d1f4434ef"></script>
-    <script src="/assets/js/cookie-consent.min.js" defer></script>
-    <link rel="stylesheet" href="/assets/css/style.min.css" />
-    <script src="/assets/js/main.min.js" defer></script>
+    <script src="/assets/js/cookie-consent.min.js?v=56dd973e2a" defer></script>
+    <link rel="stylesheet" href="/assets/css/style.min.css?v=5a0524e513" />
+    <script src="/assets/js/main.min.js?v=9e751a113d" defer></script>
   </head>
   <body>
     <div class="cursor-glow" aria-hidden="true"></div>
@@ -75,7 +75,7 @@
         <header class="legal-hero">
           <p class="eyebrow">Privacy</p>
           <h1>Privacy Policy di Organizr</h1>
-          <p class="lead">Ultimo aggiornamento: 10 Aprile 2026</p>
+          <p class="lead">Ultimo aggiornamento: 25 Maggio 2026</p>
         </header>
 
         <section class="legal-layout" aria-label="Privacy Policy Organizr">
@@ -136,24 +136,40 @@
 
               <h3>2. Tipologia di applicazione</h3>
               <p>
-                Organizr è un'applicazione desktop sviluppata con tecnologia Tauri. L'app funziona
-                principalmente in modalità locale (offline): tutti i dati inseriti dall'utente sono salvati
-                esclusivamente sul dispositivo dell'utente e non vengono trasmessi a server esterni.
+                Organizr è un'applicazione desktop sviluppata con tecnologia Tauri. L'app funziona in
+                modalità locale (offline) per impostazione predefinita: tutti i dati inseriti dall'utente sono salvati
+                esclusivamente sul dispositivo dell'utente. È disponibile una funzione opzionale di <strong>Sync</strong>:
+                se attivata esplicitamente dall'utente, i dati vengono salvati su nostri server sicuri situati
+                nell'Unione Europea. La sincronizzazione è disattivata per impostazione predefinita e deve essere
+                abilitata manualmente.
               </p>
 
               <h3>3. Dati trattati</h3>
-              <h4>3.1 Dati salvati localmente</h4>
+              <h4>3.1 Dati salvati localmente (modalità predefinita)</h4>
               <p>
-                L'app memorizza esclusivamente sul dispositivo dell'utente: attività e impegni (kanban), dati
-                relativi ad abbonamenti, informazioni alimentari, dati relativi agli allenamenti e chiavi API
-                inserite manualmente dall'utente.
+                Per impostazione predefinita, l'app memorizza esclusivamente sul dispositivo dell'utente: attività e
+                impegni (kanban), dati relativi ad abbonamenti, informazioni alimentari, dati relativi agli allenamenti
+                e chiavi API inserite manualmente dall'utente.
               </p>
               <p>
-                Questi dati non vengono trasmessi al Titolare, non vengono condivisi con terze parti e non
-                vengono sincronizzati su server esterni.
+                In modalità offline, questi dati non vengono trasmessi al Titolare, non vengono condivisi con terze
+                parti e non vengono sincronizzati su alcun server esterno.
               </p>
 
-              <h4>3.2 Dati tecnici di connessione</h4>
+              <h4>3.2 Dati sincronizzati in cloud (opzionale)</h4>
+              <p>
+                Se l'utente attiva esplicitamente la funzione <strong>Sync</strong>, i dati elencati nella sezione 3.1
+                vengono cifrati end-to-end e trasmessi a nostri server situati nell'Unione Europea (UE). I dati sono
+                conservati in forma crittografata e non sono accessibili in chiaro dal Titolare né da terze parti.
+              </p>
+              <p>
+                La base giuridica di questo trattamento è il consenso esplicito dell'utente, espresso al momento
+                dell'attivazione della funzione Sync. L'utente può disattivare la sincronizzazione in qualsiasi momento
+                dalle impostazioni dell'app, interrompendo ogni ulteriore trasmissione, e può richiedere la cancellazione
+                dei dati cloud contattando il Titolare a <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.
+              </p>
+
+              <h4>3.3 Dati tecnici di connessione</h4>
               <p>
                 L'app può effettuare connessioni di rete limitate per il controllo aggiornamenti. Durante questa
                 operazione possono essere trattati indirizzo IP, informazioni tecniche del dispositivo e versione
@@ -189,15 +205,22 @@
 
               <h3>6. Conservazione dei dati</h3>
               <p>
-                I dati dell'utente sono conservati esclusivamente sul dispositivo locale. Non esistono backup
-                automatici su server del Titolare. L'utente può effettuare manualmente esportazione/importazione
-                dei dati.
+                In modalità offline, i dati dell'utente sono conservati esclusivamente sul dispositivo locale,
+                senza backup automatici su server del Titolare. L'utente può effettuare manualmente
+                esportazione/importazione dei dati.
+              </p>
+              <p>
+                Se la funzione Sync è attiva, i dati sono conservati in forma crittografata sul server UE del
+                Titolare fino alla disattivazione della sincronizzazione o alla richiesta di cancellazione.
+                L'utente può richiedere la rimozione completa dei dati cloud scrivendo a
+                <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.
               </p>
 
               <h3>7. Comunicazione dei dati</h3>
               <p>
                 I dati non vengono comunicati a terzi, salvo Google per i font e i servizi esterni FatSecret e
-                Hevy se utilizzati dall'utente.
+                Hevy se utilizzati dall'utente. Se la funzione Sync è attiva, i dati crittografati sono
+                conservati sul server del Titolare nell'UE — non vengono venduti né condivisi con terze parti.
               </p>
 
               <h3>8. Diritti dell'utente</h3>
@@ -210,6 +233,11 @@
               <p>
                 L'utente è responsabile della sicurezza del proprio dispositivo e dei backup locali. Il Titolare
                 non è responsabile per perdita di dati o accessi non autorizzati al dispositivo dell'utente.
+              </p>
+              <p>
+                Quando la funzione Sync è attiva, i dati vengono cifrati end-to-end prima della trasmissione e
+                conservati in forma crittografata sul nostro server nell'UE. Il Titolare non può leggere il
+                contenuto dei dati sincronizzati in chiaro.
               </p>
 
               <h3>10. Modifiche</h3>

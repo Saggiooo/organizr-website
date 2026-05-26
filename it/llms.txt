@@ -36,8 +36,8 @@ Tutti i dati sono salvati localmente sul dispositivo dell'utente. Organizr non r
 
 ## Link utili
 
-- [Homepage](https://www.organizr.app/it/)
-- [Download](https://www.organizr.app/it/download/)
-- [Privacy Policy](https://www.organizr.app/it/privacy-policy/)
-- [Cookie Policy](https://www.organizr.app/it/cookie-policy/)
-- [Termini e Condizioni](https://www.organizr.app/it/termini-condizioni/)
+- [Homepage](https://organizr.it/it/)
+- [Download](https://organizr.it/it/download/)
+- [Privacy Policy](https://organizr.it/it/privacy-policy/)
+- [Cookie Policy](https://organizr.it/it/cookie-policy/)
+- [Termini e Condizioni](https://organizr.it/it/termini-condizioni/)

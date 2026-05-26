@@ -119,8 +119,14 @@
     };
 
     if (detectedPlatform) {
-      platformDownload.href = downloadFiles[detectedPlatform];
-      platformDownload.setAttribute("download", "");
+      if (detectedPlatform === "windows") {
+        const langPrefix = location.pathname.startsWith("/it/") ? "/it" : "";
+        platformDownload.href = langPrefix + "/download-windows/";
+        platformDownload.removeAttribute("download");
+      } else {
+        platformDownload.href = downloadFiles[detectedPlatform];
+        platformDownload.setAttribute("download", "");
+      }
       if (label) label.textContent = "Download";
       showIcon(detectedPlatform);
     } else {

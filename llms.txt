@@ -36,8 +36,8 @@ All data is saved locally on the user's device. Organizr requires no account, se
 
 ## Useful links
 
-- [Homepage](https://www.organizr.app/)
-- [Download](https://www.organizr.app/download/)
-- [Privacy Policy](https://www.organizr.app/privacy-policy/)
-- [Cookie Policy](https://www.organizr.app/cookie-policy/)
-- [Terms & Conditions](https://www.organizr.app/terms-conditions/)
+- [Homepage](https://organizr.it/)
+- [Download](https://organizr.it/download/)
+- [Privacy Policy](https://organizr.it/privacy-policy/)
+- [Cookie Policy](https://organizr.it/cookie-policy/)
+- [Terms & Conditions](https://organizr.it/terms-conditions/)

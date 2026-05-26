@@ -35,9 +35,9 @@
     <link rel="alternate" hreflang="it" href="https://organizr.it/it/privacy-policy/" />
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/privacy-policy/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36a40752-20ea-4be7-a942-502d1f4434ef"></script>
-    <script src="../assets/js/cookie-consent.min.js" defer></script>
-    <link rel="stylesheet" href="../assets/css/style.min.css" />
-    <script src="../assets/js/main.min.js" defer></script>
+    <script src="../assets/js/cookie-consent.min.js?v=56dd973e2a" defer></script>
+    <link rel="stylesheet" href="../assets/css/style.min.css?v=5a0524e513" />
+    <script src="../assets/js/main.min.js?v=9e751a113d" defer></script>
   </head>
   <body>
     <div class="cursor-glow" aria-hidden="true"></div>
@@ -75,7 +75,7 @@
         <header class="legal-hero">
           <p class="eyebrow">Privacy</p>
           <h1>Privacy Policy of Organizr</h1>
-          <p class="lead">Last updated: April 10, 2026</p>
+          <p class="lead">Last updated: May 25, 2026</p>
         </header>
 
         <section class="legal-layout" aria-label="Privacy Policy Organizr">
@@ -136,23 +136,38 @@
 
               <h3>2. Type of application</h3>
               <p>
-                Organizr is a desktop application built with Tauri technology. The app works primarily in
-                local (offline) mode: all data entered by the user is stored exclusively on the user's device
-                and is not transmitted to external servers.
+                Organizr is a desktop application built with Tauri technology. The app works in
+                local (offline) mode by default: all data entered by the user is stored exclusively on the user's device.
+                An optional <strong>Sync</strong> feature is available: if explicitly activated by the user, data is
+                backed up to our secure server located in the European Union. Sync is disabled by default and
+                must be enabled manually.
               </p>
 
               <h3>3. Data processed</h3>
-              <h4>3.1 Locally stored data</h4>
+              <h4>3.1 Locally stored data (default mode)</h4>
               <p>
-                The app stores exclusively on the user's device: tasks and activities (kanban), subscription
+                By default, the app stores exclusively on the user's device: tasks and activities (kanban), subscription
                 data, nutrition information, workout data, and API keys manually entered by the user.
               </p>
               <p>
-                This data is not transmitted to the controller, not shared with third parties, and not
-                synchronized to external servers.
+                In offline mode, this data is not transmitted to the controller, not shared with third parties, and not
+                synchronized to any external server.
               </p>
 
-              <h4>3.2 Technical connection data</h4>
+              <h4>3.2 Cloud sync data (optional)</h4>
+              <p>
+                If the user explicitly activates the <strong>Sync</strong> feature, the data listed in section 3.1 is
+                encrypted end-to-end and transmitted to our server located in the European Union (EU). Data is stored
+                in encrypted form and is not accessible in plain text by the controller or any third party.
+              </p>
+              <p>
+                The legal basis for this processing is the user's explicit consent, given at the time of activating the
+                Sync feature. The user can disable Sync at any time from the app settings, which stops any further
+                transmission and allows requesting deletion of cloud data by contacting us at
+                <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.
+              </p>
+
+              <h4>3.3 Technical connection data</h4>
               <p>
                 The app may make limited network connections to check for updates. During this operation,
                 IP address, technical device information and app version may be processed. Such data is used
@@ -187,14 +202,20 @@
 
               <h3>6. Data retention</h3>
               <p>
-                User data is stored exclusively on the local device. There are no automatic backups on the
-                controller's servers. The user can manually export/import data.
+                In offline mode, user data is stored exclusively on the local device with no automatic backups
+                on the controller's servers. The user can manually export/import data.
+              </p>
+              <p>
+                If Sync is enabled, data is retained on the EU server in encrypted form until the user disables
+                Sync or requests deletion. The user can request complete removal of cloud data by writing to
+                <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.
               </p>
 
               <h3>7. Data sharing</h3>
               <p>
                 Data is not shared with third parties, except Google for fonts and the external services
-                FatSecret and Hevy if used by the user.
+                FatSecret and Hevy if used by the user. If Sync is enabled, encrypted data is stored on
+                the controller's own server in the EU — it is not sold or shared with any third party.
               </p>
 
               <h3>8. User rights</h3>
@@ -207,6 +228,10 @@
               <p>
                 The user is responsible for the security of their device and local backups. The controller is
                 not responsible for data loss or unauthorized access to the user's device.
+              </p>
+              <p>
+                When Sync is active, data is encrypted end-to-end before transmission and stored encrypted on
+                our EU server. The controller cannot read the content of synced data in plain text.
               </p>
 
               <h3>10. Changes</h3>
