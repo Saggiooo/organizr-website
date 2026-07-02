@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 526 1080" role="img" aria-labelledby="title desc">
+  <title id="title">iPhone video frame</title>
+  <desc id="desc">Transparent iPhone frame with Dynamic Island, designed as an overlay for videos placed behind the screen area.</desc>
+  <defs>
+    <path id="outerShape" d="M92 9H434C478.6 9 511 42.8 511 87.2V992.8C511 1037.2 478.6 1071 434 1071H92C47.4 1071 15 1037.2 15 992.8V87.2C15 42.8 47.4 9 92 9Z" />
+    <path id="midShape" d="M94 17H432C472.4 17 504 49.4 504 89.8V990.2C504 1030.6 472.4 1063 432 1063H94C53.6 1063 22 1030.6 22 990.2V89.8C22 49.4 53.6 17 94 17Z" />
+    <path id="innerBezelShape" d="M88 22H438C472.9 22 499 50.2 499 85.1V994.9C499 1029.8 472.9 1058 438 1058H88C53.1 1058 27 1029.8 27 994.9V85.1C27 50.2 53.1 22 88 22Z" />
+    <path id="screenCutoutPath" d="M90 24H436C469.8 24 496 51.1 496 85.5V994.5C496 1028.9 469.8 1056 436 1056H90C56.2 1056 30 1028.9 30 994.5V85.5C30 51.1 56.2 24 90 24Z" />
+    <mask id="screenCutout" maskUnits="userSpaceOnUse">
+      <rect width="526" height="1080" fill="#fff" />
+      <use href="#screenCutoutPath" fill="#000" />
+    </mask>
+    <linearGradient id="metalOuter" x1="19" y1="8" x2="507" y2="1072" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6c6d70" />
+      <stop offset="0.08" stop-color="#2f3032" />
+      <stop offset="0.2" stop-color="#0b0c0d" />
+      <stop offset="0.51" stop-color="#0f1011" />
+      <stop offset="0.68" stop-color="#333538" />
+      <stop offset="0.84" stop-color="#0d0e0f" />
+      <stop offset="1" stop-color="#7b7c7f" />
+    </linearGradient>
+    <linearGradient id="metalSide" x1="15" y1="540" x2="511" y2="540" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111214" />
+      <stop offset="0.035" stop-color="#77787b" />
+      <stop offset="0.07" stop-color="#18191a" />
+      <stop offset="0.5" stop-color="#070708" />
+      <stop offset="0.93" stop-color="#171819" />
+      <stop offset="0.965" stop-color="#77787b" />
+      <stop offset="1" stop-color="#111214" />
+    </linearGradient>
+    <linearGradient id="bezelPaint" x1="263" y1="18" x2="263" y2="1064" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111214" />
+      <stop offset="0.18" stop-color="#050506" />
+      <stop offset="0.82" stop-color="#060607" />
+      <stop offset="1" stop-color="#151617" />
+    </linearGradient>
+    <linearGradient id="edgeHighlight" x1="47" y1="29" x2="480" y2="1051" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#85868a" stop-opacity="0.72" />
+      <stop offset="0.18" stop-color="#3a3b3d" stop-opacity="0.18" />
+      <stop offset="0.78" stop-color="#232426" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#9a9b9f" stop-opacity="0.64" />
+    </linearGradient>
+    <linearGradient id="buttonMetal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#191a1c" />
+      <stop offset="0.45" stop-color="#5b5c60" />
+      <stop offset="1" stop-color="#17181a" />
+    </linearGradient>
+    <filter id="phoneShadow" x="-8%" y="-4%" width="116%" height="108%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.36" />
+    </filter>
+  </defs>
+
+  <g filter="url(#phoneShadow)">
+    <g mask="url(#screenCutout)">
+      <use href="#outerShape" fill="url(#metalOuter)" />
+      <use href="#outerShape" fill="none" stroke="#030303" stroke-width="1.5" opacity="0.88" />
+      <use href="#midShape" fill="url(#metalSide)" />
+      <use href="#midShape" fill="none" stroke="#66676b" stroke-width="1.2" opacity="0.56" />
+      <path d="M88 20H438C476 20 501 50.2 501 88.2V991.8C501 1029.8 476 1060 438 1060H88C50 1060 25 1029.8 25 991.8V88.2C25 50.2 50 20 88 20Z" fill="#030304" />
+      <use href="#innerBezelShape" fill="url(#bezelPaint)" />
+      <use href="#screenCutoutPath" fill="none" stroke="#0a0a0b" stroke-width="2.5" />
+      <use href="#screenCutoutPath" fill="none" stroke="#202124" stroke-width="1.2" opacity="0.58" />
+    </g>
+
+    <path d="M92 9H434C478.6 9 511 42.8 511 87.2V992.8C511 1037.2 478.6 1071 434 1071H92C47.4 1071 15 1037.2 15 992.8V87.2C15 42.8 47.4 9 92 9Z" fill="none" stroke="url(#edgeHighlight)" stroke-width="1.6" opacity="0.92" />
+    <path d="M90 24H436C469.8 24 496 51.1 496 85.5V994.5C496 1028.9 469.8 1056 436 1056H90C56.2 1056 30 1028.9 30 994.5V85.5C30 51.1 56.2 24 90 24Z" fill="none" stroke="#000" stroke-width="2.4" opacity="0.72" />
+  </g>
+
+  <g aria-hidden="true">
+    <path d="M15 210H20V246H15Z" fill="url(#buttonMetal)" />
+    <path d="M14 211H17V245H14Z" fill="#0a0b0c" />
+    <path d="M15 307H20V378H15Z" fill="url(#buttonMetal)" />
+    <path d="M14 309H17V376H14Z" fill="#0a0b0c" />
+    <path d="M15 403H20V475H15Z" fill="url(#buttonMetal)" />
+    <path d="M14 405H17V473H14Z" fill="#0a0b0c" />
+    <path d="M506 336H511V446H506Z" fill="url(#buttonMetal)" />
+    <path d="M509 338H512V444H509Z" fill="#0a0b0c" />
+    <path d="M408 9H437C458 9 476 15.5 489 27.6" fill="none" stroke="#7d7e82" stroke-width="1.4" opacity="0.28" />
+    <path d="M95 1070H121" stroke="#717276" stroke-width="2" opacity="0.34" />
+    <path d="M405 1070H431" stroke="#717276" stroke-width="2" opacity="0.34" />
+    <path d="M15 965H21" stroke="#6a6b6f" stroke-width="2" opacity="0.34" />
+  </g>
+
+  <g aria-hidden="true">
+    <rect x="195" y="50" width="136" height="40" rx="20" fill="#000" />
+  </g>
+</svg>

@@ -5,7 +5,8 @@
   const planCards = [...document.querySelectorAll(".plan-card[data-plan]")];
   const billingCards = [...document.querySelectorAll("[data-billing-card]")];
   const appTabs = [...document.querySelectorAll("[data-app-tab]")];
-  const appTabsTrack = document.querySelector(".app-tabs");
+  const appTabsTrack = document.querySelector("[data-app-tabs-track]") || document.querySelector(".app-tabs");
+  const appSectionDock = document.querySelector("[data-app-section-dock]");
   const appTabsPrev = document.querySelector("[data-app-tabs-prev]");
   const appTabsNext = document.querySelector("[data-app-tabs-next]");
   const appDescriptionNext = document.querySelector("[data-app-description-next]");
@@ -15,6 +16,7 @@
   const appDescriptionMore = document.querySelector("[data-app-description-more]");
   const appPreviewVideo = document.querySelector("[data-app-preview-video]");
   const appPreviewSource = document.querySelector("[data-app-preview-source]");
+  const phoneShowcases = [...document.querySelectorAll("[data-phone-showcase]")];
   const platformDownload = document.querySelector("[data-platform-download]");
   const continueButton = document.querySelector("[data-continue-plan]");
   const downloadFiles = {
@@ -41,12 +43,15 @@
   };
 
   const appDescriptions = {
+    Sync: "Sincronizza i tuoi dati tra iPhone, Android, Mac e Windows con crittografia end-to-end. Sul server restano solo gli ultimi 90 giorni, cifrati, per tenere i dispositivi allineati.",
+    "Organizr AI": "L'IA di Organizr legge i tuoi dati, trova pattern, crea schede workout, prepara ricette e ti aiuta a capire meglio abitudini, spese e progressi.",
+    Ricette: "Crea, salva e organizza ricette personali. Puoi usarle per pianificare i pasti e farle generare o analizzare da Organizr AI.",
     Bacheca: "Trasferisci idee, task e cose sparse dalla tua testa in una bacheca kanban semplice e visiva. Organizza tutto senza perdere il filo.",
     Tracker: "Monitora abitudini, allenamenti, alimentazione e andamento delle tue giornate in un unico spazio. Vedi l'andamento e le analisi nella dashboard.",
     Alimentazione: "Il tuo diario alimentare personale. Puoi collegarlo a FatSecret per tracciare pasti, calorie e valori nutrizionali in modo automatico e ordinato. Imposta il tuo planner ed esplora le dashboard.",
-    Workout: "Tieni traccia dei tuoi allenamenti, analizza l'aumento dei carichi, confronta ogni singolo allenamento con quello precedente, e monitora il tuo corpo.",
+    Workout: "Tieni traccia degli allenamenti anche da Apple Watch e altri smartwatch, analizza l'aumento dei carichi e confronta ogni sessione con quella precedente.",
     Misurazioni: "Salva le tue misurazioni corporee e monitora i cambiamenti nel tempo tramite dashboard e statistiche chiare.",
-    Portafoglio: "Organizza in modo chiaro le tue finanze, puoi inserire tutti i tuoi conti, movimenti e investimenti. Attraverso le dashboard puoi analizzare quanto stai spendendo e come.",
+    Portafoglio: "Organizza conti, movimenti e investimenti. Le dashboard ti mostrano quanto stai spendendo, come si muove il portafoglio e dove intervenire.",
     Obiettivi: "Il modo migliore per portare a termine i nostri obiettivi e' usare periodi di 3 mesi. Ne poco, ne troppo tempo. Analizza e traccia tutti i tuoi obiettivi e i tuoi progressi.",
     Abbonamenti: "Tieni traccia dei tuoi abbonamenti, anche quelli condivisi con amici o colleghi. Controlla costi, rinnovi e scopri dove finiscono davvero i tuoi soldi ogni mese.",
     Armadio: "Il tuo armadio, ma finalmente organizzato. Tieni traccia dei capi che possiedi, di quelli che desideri e anche di quelli che vuoi vendere.",
@@ -96,6 +101,286 @@
     appVideoWarmers.set(src, video);
   };
 
+  const initPhoneShowcase = (showcase) => {
+    const tabs = [...showcase.querySelectorAll("[data-phone-tab]")];
+    const dock = showcase.querySelector(".phone-section-dock");
+    const title = showcase.querySelector("[data-phone-title]");
+    const copy = showcase.querySelector("[data-phone-copy]");
+    const previewVideo = showcase.querySelector("[data-phone-preview-video]");
+    const previewSource = showcase.querySelector("[data-phone-preview-source]");
+    const previewLabel = showcase.querySelector("[data-phone-preview-label]");
+    const placeholder = previewLabel?.closest(".phone-showcase-placeholder");
+
+    if (!tabs.length || !title || !copy || !previewVideo || !previewSource || !previewLabel || !placeholder) return;
+
+    let dockShiftTimer = 0;
+    let wheelResetTimer = 0;
+    let lockedScrollY = null;
+    let wheelDirection = 0;
+    let wheelDistance = 0;
+    const wheelCommitDistance = 640;
+
+    const getDockLensMetrics = (tab) => {
+      const width = Math.max(86, tab.offsetWidth + 14);
+      return {
+        width,
+        x: tab.offsetLeft + (tab.offsetWidth - width) / 2,
+      };
+    };
+
+    const setDockLensMetrics = ({ x, width }) => {
+      dock.style.setProperty("--phone-active-width", `${width}px`);
+      dock.style.setProperty("--phone-active-x", `${x}px`);
+    };
+
+    const updateDockLens = (activeTab, animate = true) => {
+      if (!dock || !activeTab) return;
+
+      setDockLensMetrics(getDockLensMetrics(activeTab));
+
+      if (!animate) return;
+
+      dock.classList.add("is-shifting");
+      window.clearTimeout(dockShiftTimer);
+      dockShiftTimer = window.setTimeout(() => dock.classList.remove("is-shifting"), 360);
+    };
+
+    const updateDockLensBetween = (fromTab, toTab, progress) => {
+      if (!dock || !fromTab || !toTab) return;
+
+      const start = getDockLensMetrics(fromTab);
+      const end = getDockLensMetrics(toTab);
+      const easedProgress = Math.pow(Math.min(Math.max(progress, 0), 1), 1.55);
+
+      dock.classList.add("is-scrubbing");
+      setDockLensMetrics({
+        x: start.x + (end.x - start.x) * easedProgress,
+        width: start.width + (end.width - start.width) * easedProgress,
+      });
+    };
+
+    const resetWheelScrub = () => {
+      wheelDirection = 0;
+      wheelDistance = 0;
+      dock?.classList.remove("is-scrubbing");
+      const active = tabs.find((tab) => tab.classList.contains("is-active"));
+      if (active) updateDockLens(active, true);
+    };
+
+    const getShowcaseLockY = () => {
+      const grid = showcase.querySelector(".phone-showcase-grid") || showcase;
+      const gridRect = grid.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const pageHeight = Math.max(
+        document.body.scrollHeight,
+        document.documentElement.scrollHeight,
+      );
+      const centeredOffset = Math.max(22, (viewportHeight - gridRect.height) / 2);
+      const targetY = window.scrollY + gridRect.top - centeredOffset;
+
+      return Math.round(Math.min(Math.max(targetY, 0), pageHeight - viewportHeight));
+    };
+
+    const holdShowcaseLock = () => {
+      if (lockedScrollY === null) {
+        lockedScrollY = getShowcaseLockY();
+      }
+
+      const root = document.documentElement;
+      const previousScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, lockedScrollY);
+      window.requestAnimationFrame(() => {
+        root.style.scrollBehavior = previousScrollBehavior;
+      });
+    };
+
+    const releaseShowcaseLock = () => {
+      lockedScrollY = null;
+    };
+
+    const isAtShowcaseLock = (event, direction) => {
+      const targetY = lockedScrollY ?? getShowcaseLockY();
+      const currentY = window.scrollY;
+      const lockTolerance = 2;
+
+      if (direction > 0 && currentY < targetY - lockTolerance) {
+        if (currentY + Math.abs(event.deltaY) < targetY - lockTolerance) {
+          return false;
+        }
+
+        event.preventDefault();
+        lockedScrollY = targetY;
+        window.scrollTo({ top: targetY, behavior: "smooth" });
+        return false;
+      }
+
+      if (direction < 0 && currentY > targetY + lockTolerance) {
+        if (currentY - Math.abs(event.deltaY) > targetY + lockTolerance) {
+          return false;
+        }
+
+        event.preventDefault();
+        lockedScrollY = targetY;
+        window.scrollTo({ top: targetY, behavior: "smooth" });
+        return false;
+      }
+
+      return true;
+    };
+
+    const isShowcaseScrollReady = () => {
+      const grid = showcase.querySelector(".phone-showcase-grid") || showcase;
+      const rect = grid.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+      const enterLine = viewportHeight * 0.44;
+      const exitLine = viewportHeight * 0.58;
+
+      return rect.top <= enterLine && rect.bottom >= exitLine;
+    };
+
+    const handleSectionWheel = (event) => {
+      if (Math.abs(event.deltaY) < Math.abs(event.deltaX)) return false;
+
+      const activeIndex = tabs.findIndex((tab) => tab.classList.contains("is-active"));
+      if (activeIndex === -1) return false;
+
+      const direction = event.deltaY > 0 ? 1 : -1;
+      const targetIndex = activeIndex + direction;
+      const activeTab = tabs[activeIndex];
+      const targetTab = tabs[targetIndex];
+
+      if (!targetTab) {
+        resetWheelScrub();
+        releaseShowcaseLock();
+        return false;
+      }
+
+      if (!isAtShowcaseLock(event, direction)) {
+        return false;
+      }
+
+      event.preventDefault();
+      holdShowcaseLock();
+
+      if (wheelDirection !== direction) {
+        wheelDirection = direction;
+        wheelDistance = 0;
+      }
+
+      wheelDistance += Math.min(Math.abs(event.deltaY), 120);
+      const progress = Math.min(wheelDistance / wheelCommitDistance, 1);
+
+      updateDockLensBetween(activeTab, targetTab, progress);
+      warmAppVideo(targetTab.dataset.phoneTab, "auto");
+
+      window.clearTimeout(wheelResetTimer);
+
+      if (progress >= 1) {
+        wheelDirection = 0;
+        wheelDistance = 0;
+        dock.classList.remove("is-scrubbing");
+        setActivePhoneTab(targetTab);
+        return true;
+      }
+
+      wheelResetTimer = window.setTimeout(resetWheelScrub, 760);
+      return true;
+    };
+
+    const setActivePhoneTab = (nextTab, options = {}) => {
+      for (const tab of tabs) {
+        const active = tab === nextTab;
+        tab.classList.toggle("is-active", active);
+        tab.setAttribute("aria-selected", active ? "true" : "false");
+      }
+
+      updateDockLens(nextTab, options.animate !== false);
+
+      const appName = nextTab.dataset.phoneTab;
+      const displayName = nextTab.dataset.phoneLabel || nextTab.textContent.trim();
+      const description = nextTab.dataset.description || appDescriptions[appName] || "";
+      const nextVideo = appVideos[appName] || "";
+
+      title.textContent = displayName;
+      copy.textContent = description;
+      previewLabel.textContent = displayName;
+
+      if (nextVideo && previewSource.getAttribute("src") !== nextVideo) {
+        previewVideo.classList.add("is-hidden");
+        placeholder.classList.remove("is-hidden");
+        previewSource.setAttribute("src", nextVideo);
+        previewVideo.load();
+      } else if (!nextVideo) {
+        previewVideo.pause();
+        previewVideo.classList.add("is-hidden");
+        placeholder.classList.remove("is-hidden");
+        previewSource.removeAttribute("src");
+      }
+
+      if (nextVideo) {
+        previewVideo.play().catch(() => {});
+      }
+
+      warmAppVideo(appName, "metadata");
+
+      if (options.scroll !== false && dock) {
+        const targetScroll = nextTab.offsetLeft - (dock.offsetWidth - nextTab.offsetWidth) / 2;
+        dock.scrollTo({ left: targetScroll, behavior: "smooth" });
+        window.setTimeout(() => updateDockLens(nextTab, false), 260);
+      }
+    };
+
+    previewVideo.addEventListener("loadeddata", () => {
+      if (!previewSource.getAttribute("src")) return;
+      previewVideo.classList.remove("is-hidden");
+      placeholder.classList.add("is-hidden");
+    });
+
+    for (const tab of tabs) {
+      tab.addEventListener("click", () => setActivePhoneTab(tab));
+      tab.addEventListener("pointerenter", () => warmAppVideo(tab.dataset.phoneTab, "auto"));
+      tab.addEventListener("focus", () => warmAppVideo(tab.dataset.phoneTab, "auto"));
+      tab.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+
+        event.preventDefault();
+        const direction = event.key === "ArrowRight" ? 1 : -1;
+        const currentIndex = tabs.indexOf(tab);
+        const nextIndex = (currentIndex + direction + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        setActivePhoneTab(tabs[nextIndex]);
+      });
+    }
+
+    window.addEventListener("wheel", (event) => {
+      if (!isShowcaseScrollReady()) {
+        if (wheelDistance) resetWheelScrub();
+        releaseShowcaseLock();
+        return;
+      }
+
+      handleSectionWheel(event);
+    }, { passive: false });
+
+    const activeTab = tabs.find((tab) => tab.classList.contains("is-active")) || tabs[0];
+    setActivePhoneTab(activeTab, { animate: false, scroll: false });
+
+    dock?.addEventListener("scroll", () => {
+      const active = tabs.find((tab) => tab.classList.contains("is-active"));
+      if (active) updateDockLens(active, false);
+    }, { passive: true });
+
+    window.addEventListener("resize", () => {
+      const active = tabs.find((tab) => tab.classList.contains("is-active"));
+      if (active) updateDockLens(active, false);
+    });
+  };
+
+  for (const showcase of phoneShowcases) {
+    initPhoneShowcase(showcase);
+  }
+
   if (platformDownload) {
     const platform = [
       navigator.userAgentData?.platform,
@@ -138,6 +423,26 @@
   }
 
   if (appTabs.length && appPreviewLabel) {
+    let appDockShiftTimer = 0;
+
+    const updateAppDockLens = (activeTab, animate = true) => {
+      if (!appSectionDock || !activeTab) return;
+
+      const width = Math.max(82, activeTab.offsetWidth + 14);
+      const x = activeTab.offsetLeft + (activeTab.offsetWidth - width) / 2;
+      const y = Math.max(0, activeTab.offsetTop - 9);
+
+      appSectionDock.style.setProperty("--phone-active-width", `${width}px`);
+      appSectionDock.style.setProperty("--phone-active-x", `${x}px`);
+      appSectionDock.style.setProperty("--phone-active-y", `${y}px`);
+
+      if (!animate) return;
+
+      appSectionDock.classList.add("is-shifting");
+      window.clearTimeout(appDockShiftTimer);
+      appDockShiftTimer = window.setTimeout(() => appSectionDock.classList.remove("is-shifting"), 360);
+    };
+
     const warmNeighborAppVideos = (activeTab) => {
       if (appTabs.length < 2) return;
 
@@ -158,6 +463,7 @@
       }
       const appName = nextTab.dataset.appTab;
       const displayName = nextTab.textContent.trim();
+      updateAppDockLens(nextTab, options.animate !== false);
       appPreviewLabel.textContent = displayName;
       const nextVideo = appVideos[appName] || "";
 
@@ -188,12 +494,18 @@
         appDescriptionMore.classList.toggle("is-hidden", target !== appName);
       }
       warmNeighborAppVideos(nextTab);
-      if (options.scroll !== false) {
+      if (options.scroll !== false && appTabsTrack) {
         const tabLeft = nextTab.offsetLeft;
         const tabWidth = nextTab.offsetWidth;
         const trackWidth = appTabsTrack.offsetWidth;
         const targetScroll = tabLeft - (trackWidth - tabWidth) / 2;
         appTabsTrack.scrollTo({ left: targetScroll, behavior: "smooth" });
+      } else if (options.scroll !== false && appSectionDock && appSectionDock.scrollWidth > appSectionDock.clientWidth) {
+        const tabLeft = nextTab.offsetLeft;
+        const tabWidth = nextTab.offsetWidth;
+        const dockWidth = appSectionDock.offsetWidth;
+        const targetScroll = tabLeft - (dockWidth - tabWidth) / 2;
+        appSectionDock.scrollTo({ left: targetScroll, behavior: "smooth" });
       }
     };
 
@@ -233,6 +545,11 @@
       }
     }, { once: true });
 
+    window.addEventListener("resize", () => {
+      const activeTab = appTabs.find((tab) => tab.classList.contains("is-active")) || appTabs[0];
+      if (activeTab) updateAppDockLens(activeTab, false);
+    });
+
     const moveAppTab = (direction) => {
       const currentIndex = appTabs.findIndex((tab) => tab.classList.contains("is-active"));
       const nextIndex = (currentIndex + direction + appTabs.length) % appTabs.length;
@@ -244,6 +561,7 @@
     appDescriptionNext?.addEventListener("click", () => moveAppTab(1));
 
     appTabsTrack?.addEventListener("wheel", (event) => {
+      if (appTabsTrack.scrollWidth <= appTabsTrack.clientWidth) return;
       if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
 
       event.preventDefault();
