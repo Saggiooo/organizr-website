@@ -24,6 +24,25 @@
     windows: "/assets/downloads/Organizr_0.2.3_x64-setup.exe",
   };
 
+  const revealTargets = [...document.querySelectorAll("[data-reveal]")];
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (revealTargets.length && !prefersReducedMotion.matches && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("has-reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-revealed");
+        revealObserver.unobserve(entry.target);
+      }
+    }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
+
+    for (const target of revealTargets) {
+      revealObserver.observe(target);
+    }
+  }
+
   const setActivePlan = (nextCard) => {
     for (const card of planCards) {
       const active = card === nextCard;
@@ -49,10 +68,10 @@
     Bacheca: "Trasferisci idee, task e cose sparse dalla tua testa in una bacheca kanban semplice e visiva. Organizza tutto senza perdere il filo.",
     Tracker: "Monitora abitudini, allenamenti, alimentazione e andamento delle tue giornate in un unico spazio. Vedi l'andamento e le analisi nella dashboard.",
     Alimentazione: "Il tuo diario alimentare personale. Puoi collegarlo a FatSecret per tracciare pasti, calorie e valori nutrizionali in modo automatico e ordinato. Imposta il tuo planner ed esplora le dashboard.",
-    Workout: "Tieni traccia degli allenamenti anche da Apple Watch e altri smartwatch, analizza l'aumento dei carichi e confronta ogni sessione con quella precedente.",
+    Workout: "Tieni traccia dei tuoi allenamenti, analizza l'aumento dei carichi, confronta ogni singolo allenamento con quello precedente, e crea schede con Organizr AI.",
     Misurazioni: "Salva le tue misurazioni corporee e monitora i cambiamenti nel tempo tramite dashboard e statistiche chiare.",
-    Portafoglio: "Organizza conti, movimenti e investimenti. Le dashboard ti mostrano quanto stai spendendo, come si muove il portafoglio e dove intervenire.",
-    Obiettivi: "Il modo migliore per portare a termine i nostri obiettivi e' usare periodi di 3 mesi. Ne poco, ne troppo tempo. Analizza e traccia tutti i tuoi obiettivi e i tuoi progressi.",
+    Portafoglio: "Organizza in modo chiaro le tue finanze, puoi inserire tutti i tuoi conti, movimenti e investimenti. Attraverso le dashboard puoi analizzare quanto stai spendendo e come.",
+    Obiettivi: "Il modo migliore per portare a termine i nostri obiettivi è usare periodi di 3 mesi. Ne poco, ne troppo tempo. Oppure puoi visualizzarli per un anno intero.",
     Abbonamenti: "Tieni traccia dei tuoi abbonamenti, anche quelli condivisi con amici o colleghi. Controlla costi, rinnovi e scopri dove finiscono davvero i tuoi soldi ogni mese.",
     Armadio: "Il tuo armadio, ma finalmente organizzato. Tieni traccia dei capi che possiedi, di quelli che desideri e anche di quelli che vuoi vendere.",
     Lettura: "Chi ama i libri sa che averli in libreria aiuta a non dimenticarli. Con Organizr puoi creare una libreria virtuale, salvare riassunti, note e progressi di lettura, così tutto resta organizzato e sempre a portata di mano.",
@@ -111,7 +130,7 @@
     const previewLabel = showcase.querySelector("[data-phone-preview-label]");
     const placeholder = previewLabel?.closest(".phone-showcase-placeholder");
 
-    if (!tabs.length || !title || !copy || !previewVideo || !previewSource || !previewLabel || !placeholder) return;
+    if (!tabs.length || !title || !copy || !previewLabel || !placeholder) return;
 
     let dockShiftTimer = 0;
     let wheelResetTimer = 0;
@@ -272,8 +291,6 @@
       const progress = Math.min(wheelDistance / wheelCommitDistance, 1);
 
       updateDockLensBetween(activeTab, targetTab, progress);
-      warmAppVideo(targetTab.dataset.phoneTab, "auto");
-
       window.clearTimeout(wheelResetTimer);
 
       if (progress >= 1) {
@@ -300,29 +317,14 @@
       const appName = nextTab.dataset.phoneTab;
       const displayName = nextTab.dataset.phoneLabel || nextTab.textContent.trim();
       const description = nextTab.dataset.description || appDescriptions[appName] || "";
-      const nextVideo = appVideos[appName] || "";
 
       title.textContent = displayName;
       copy.textContent = description;
       previewLabel.textContent = displayName;
-
-      if (nextVideo && previewSource.getAttribute("src") !== nextVideo) {
-        previewVideo.classList.add("is-hidden");
-        placeholder.classList.remove("is-hidden");
-        previewSource.setAttribute("src", nextVideo);
-        previewVideo.load();
-      } else if (!nextVideo) {
-        previewVideo.pause();
-        previewVideo.classList.add("is-hidden");
-        placeholder.classList.remove("is-hidden");
-        previewSource.removeAttribute("src");
-      }
-
-      if (nextVideo) {
-        previewVideo.play().catch(() => {});
-      }
-
-      warmAppVideo(appName, "metadata");
+      placeholder.classList.remove("is-hidden");
+      previewVideo?.pause();
+      previewVideo?.classList.add("is-hidden");
+      previewSource?.removeAttribute("src");
 
       if (options.scroll !== false && dock) {
         const targetScroll = nextTab.offsetLeft - (dock.offsetWidth - nextTab.offsetWidth) / 2;
@@ -331,7 +333,7 @@
       }
     };
 
-    previewVideo.addEventListener("loadeddata", () => {
+    previewVideo?.addEventListener("loadeddata", () => {
       if (!previewSource.getAttribute("src")) return;
       previewVideo.classList.remove("is-hidden");
       placeholder.classList.add("is-hidden");
@@ -339,8 +341,6 @@
 
     for (const tab of tabs) {
       tab.addEventListener("click", () => setActivePhoneTab(tab));
-      tab.addEventListener("pointerenter", () => warmAppVideo(tab.dataset.phoneTab, "auto"));
-      tab.addEventListener("focus", () => warmAppVideo(tab.dataset.phoneTab, "auto"));
       tab.addEventListener("keydown", (event) => {
         if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
 
@@ -584,60 +584,136 @@
   if (billingCards.length) {
     const billingPlans = {
       annual: {
-        label: "Annuale",
-        price: "7,49€",
-        cycle: "/anno",
-        oldPrice: "27,99€",
-        cta: "Scegli Annuale",
+        label: {
+          en: "Annual",
+          it: "Annuale",
+        },
+        price: {
+          eur: "17,99€",
+          usd: "$19.99",
+        },
+        cycle: {
+          en: "/year",
+          it: "/anno",
+        },
+        oldPrice: {
+          eur: "24,99€",
+          usd: "$27.99",
+        },
+        cta: {
+          en: "Choose Annual",
+          it: "Scegli Annuale",
+        },
         checkoutUrl: "https://buy.stripe.com/dRm00i3W28G77Dm29X7wA01",
       },
       monthly: {
-        label: "Mensile",
-        price: "3,49€",
-        cycle: "/mese",
-        oldPrice: "",
-        cta: "Scegli Mensile",
+        label: {
+          en: "Monthly",
+          it: "Mensile",
+        },
+        price: {
+          eur: "3,49€",
+          usd: "$3.99",
+        },
+        cycle: {
+          en: "/month",
+          it: "/mese",
+        },
+        oldPrice: {
+          eur: "",
+          usd: "",
+        },
+        cta: {
+          en: "Choose Monthly",
+          it: "Scegli Mensile",
+        },
         checkoutUrl: "https://buy.stripe.com/bJeaEW78ef4v0aUaGt7wA00",
       },
     };
 
     const renderPrice = (element, value) => {
-      const match = value.match(/^(\d+,)(\d+€)$/);
+      const match = value.match(/^([€$]?)(\d+[,.])(\d+)([€$]?)$/);
       if (!match) {
         element.textContent = value;
         return;
       }
 
-      element.innerHTML = `<span class="price-main">${match[1]}</span><span class="price-decimals">${match[2]}</span>`;
+      element.innerHTML = `${match[1]}<span class="price-main">${match[2]}</span><span class="price-decimals">${match[3]}${match[4]}</span>`;
+    };
+
+    const getCurrency = () => localStorage.getItem("organizr_currency_pref") || "eur";
+
+    const updateCurrencyButtons = (currency) => {
+      for (const option of document.querySelectorAll("[data-currency-option]")) {
+        const active = option.dataset.currencyOption === currency;
+        option.classList.toggle("is-active", active);
+        option.setAttribute("aria-pressed", active ? "true" : "false");
+      }
+    };
+
+    const getCurrencyValue = (value, currency) => {
+      if (!value) return "";
+      if (typeof value === "string") return value;
+      return value[currency] || value.eur || "";
+    };
+
+    const getLocaleValue = (value) => {
+      if (!value) return "";
+      if (typeof value === "string") return value;
+      const locale = document.documentElement.lang?.toLowerCase().startsWith("en") ? "en" : "it";
+      return value[locale] || value.it || value.en || "";
     };
 
     const setBillingPlan = (card, key) => {
       const plan = billingPlans[key];
       if (!plan) return;
 
-      card.dataset.plan = plan.label;
+      const currency = getCurrency();
+      card.dataset.plan = getLocaleValue(plan.label);
+      card.dataset.currentBilling = key;
 
       const price = card.querySelector("[data-billing-price]");
       const cycle = card.querySelector("[data-billing-cycle]");
       const oldPrice = card.querySelector("[data-billing-old-price]");
       const cta = card.querySelector("[data-billing-cta]");
 
-      if (price) renderPrice(price, plan.price);
-      if (cycle) cycle.textContent = plan.cycle;
+      if (price) renderPrice(price, getCurrencyValue(plan.price, currency));
+      if (cycle) cycle.textContent = getLocaleValue(plan.cycle);
       if (cta) {
-        cta.textContent = plan.cta;
+        cta.textContent = getLocaleValue(plan.cta);
         cta.href = plan.checkoutUrl;
         cta.dataset.umamiEvent = `cta-plan-pro-${key}`;
       }
       if (oldPrice) {
-        oldPrice.textContent = plan.oldPrice;
-        oldPrice.classList.toggle("is-hidden", !plan.oldPrice);
+        const oldPriceValue = getCurrencyValue(plan.oldPrice, currency);
+        oldPrice.textContent = oldPriceValue;
+        oldPrice.classList.toggle("is-hidden", !oldPriceValue);
       }
 
       for (const option of card.querySelectorAll("[data-billing-option]")) {
         const active = option.dataset.billingOption === key;
         option.classList.toggle("is-active", active);
         option.setAttribute("aria-pressed", active ? "true" : "false");
+      }
+    };
+
+    const applyCurrency = (currency) => {
+      localStorage.setItem("organizr_currency_pref", currency);
+      updateCurrencyButtons(currency);
+
+      for (const element of document.querySelectorAll("[data-price-eur][data-price-usd]")) {
+        renderPrice(element, currency === "usd" ? element.dataset.priceUsd : element.dataset.priceEur);
+      }
+
+      for (const element of document.querySelectorAll("[data-old-price-eur][data-old-price-usd]")) {
+        const value = currency === "usd" ? element.dataset.oldPriceUsd : element.dataset.oldPriceEur;
+        element.textContent = value;
+        element.classList.toggle("is-hidden", !value);
+      }
+
+      for (const card of billingCards) {
+        const activeOption = card.querySelector("[data-billing-option].is-active");
+        setBillingPlan(card, card.dataset.currentBilling || activeOption?.dataset.billingOption || "annual");
       }
     };
 
@@ -651,6 +727,12 @@
         });
       }
     }
+
+    for (const option of document.querySelectorAll("[data-currency-option]")) {
+      option.addEventListener("click", () => applyCurrency(option.dataset.currencyOption));
+    }
+
+    applyCurrency(getCurrency());
   }
 
   if (!glow) return;

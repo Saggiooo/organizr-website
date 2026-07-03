@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookie Policy Organizr | Cookie tecnici e analytics</title>
+    <title>Cookie Policy Organizr | Archiviazione tecnica app</title>
     <meta
       name="description"
-      content="Cookie Policy del sito Organizr: cookie necessari, consenso analytics, durata delle preferenze e gestione delle scelte."
+      content="Cookie Policy di Organizr: archiviazione tecnica dell'app desktop, localStorage, risorse esterne e gestione dei dati locali."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#8f5bff" />
@@ -14,12 +14,12 @@
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Organizr" />
     <meta property="og:title" content="Cookie Policy Organizr" />
-    <meta property="og:description" content="Informazioni sui cookie tecnici e analytics del sito Organizr." />
+    <meta property="og:description" content="Informazioni sull'archiviazione tecnica usata dall'app desktop Organizr." />
     <meta property="og:url" content="https://organizr.it/it/cookie-policy/" />
     <meta property="og:image" content="https://organizr.it/assets/img/logo/organizer-logo-black.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Cookie Policy Organizr" />
-    <meta name="twitter:description" content="Informazioni sui cookie tecnici e analytics del sito Organizr." />
+    <meta name="twitter:description" content="Informazioni sull'archiviazione tecnica usata dall'app desktop Organizr." />
     <meta name="twitter:image" content="https://organizr.it/assets/img/logo/organizer-logo-black.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,8 +36,8 @@
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/cookie-policy/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36a40752-20ea-4be7-a942-502d1f4434ef"></script>
     <script src="/assets/js/cookie-consent.min.js?v=56dd973e2a" defer></script>
-    <link rel="stylesheet" href="/assets/css/style.min.css?v=8092eab579" />
-    <script src="/assets/js/main.min.js?v=e74ca19831" defer></script>
+    <link rel="stylesheet" href="/assets/css/style.min.css?v=03efbb91c6" />
+    <script src="/assets/js/main.min.js?v=028e596bb7" defer></script>
   </head>
   <body>
     <div class="cursor-glow" aria-hidden="true"></div>
@@ -48,7 +48,7 @@
         </a>
 
         <nav class="top-nav" aria-label="Navigazione principale">
-          <a href="/it/#app">App</a>
+          <a href="/it/workout/">Workout</a>
           <a href="/it/#prezzi">Prezzi</a>
           <a href="/it/download/">Download</a>
           <div class="lang-switcher" data-en-url="/cookie-policy/" data-it-url="/it/cookie-policy/">
@@ -75,89 +75,93 @@
         <header class="legal-hero">
           <p class="eyebrow">Cookie</p>
           <h1>Cookie Policy di Organizr</h1>
-          <p class="lead">Ultimo aggiornamento: 10 Aprile 2026</p>
+          <p class="lead">Ultimo aggiornamento: 30 Giugno 2026</p>
         </header>
 
         <section class="legal-layout" aria-label="Cookie Policy Organizr">
           <nav class="legal-toc" aria-label="Indice cookie policy">
-            <a href="#cosa-sono">Cosa sono</a>
-            <a href="#cookie-usati">Cookie usati</a>
-            <a href="#gestione">Gestione scelte</a>
+            <a href="#applicazione-desktop">Applicazione desktop</a>
+            <a href="#archiviazione-tecnica">Archiviazione tecnica</a>
+            <a href="#risorse-esterne">Pagine esterne</a>
+            <a href="#consenso">Consenso</a>
+            <a href="#gestione">Gestione locale</a>
           </nav>
 
           <article class="legal-card">
-            <section id="cosa-sono">
-              <h2>1. Cosa sono i cookie</h2>
+            <section id="applicazione-desktop">
+              <h2>1. Applicazione desktop</h2>
               <p>
-                I cookie sono piccoli file di testo che un sito può salvare nel browser dell'utente per
-                consentire funzioni tecniche, ricordare preferenze o raccogliere statistiche aggregate quando
-                l'utente presta consenso.
+                Organizr è un'applicazione desktop, non un sito web tradizionale. All'interno dell'app non
+                vengono usati cookie pubblicitari, cookie di profilazione o tracker marketing di terze parti.
+              </p>
+              <p>
+                Alcune schermate dell'app sono renderizzate tramite webview e usano archiviazione locale di
+                tipo browser per funzionare correttamente. In questa policy localStorage e strumenti tecnici
+                simili sono descritti insieme ai cookie perché svolgono una funzione tecnica comparabile.
               </p>
             </section>
 
-            <section>
-              <h2>2. Titolare</h2>
+            <section id="archiviazione-tecnica">
+              <h2>2. Archiviazione tecnica usata dall'app</h2>
               <p>
-                Il Titolare del trattamento è Allpromotion di Massimo Policano, Via Bruno Bottau 4, Castenaso
-                (BO), Italia. Email: <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.
+                L'app usa localStorage e archiviazione locale per preferenze e stati tecnici, inclusi lingua,
+                onboarding, debug mode, metadati account/login, stato licenza, snapshot entitlement, stato di
+                attivazione Sync, moduli Sync abilitati, timer locali, preferenze UI e consenso AI.
+              </p>
+              <p>
+                Nelle build di produzione, token sensibili come refresh token e materiale password Sync sono
+                salvati nel portachiavi sicuro del sistema operativo quando disponibile. Nelle build di sviluppo
+                può essere usato un fallback locale per test.
+              </p>
+              <p>
+                Questi elementi sono necessari a fornire le funzioni dell'app, mantenere le sessioni, ricordare
+                le scelte dell'utente e far funzionare le funzionalità locali. Non vengono usati per profilazione
+                pubblicitaria.
               </p>
             </section>
 
-            <section id="cookie-usati">
-              <h2>3. Cookie usati dal sito</h2>
-
-              <h3>Cookie necessari</h3>
+            <section id="risorse-esterne">
+              <h2>3. Risorse di rete e pagine esterne</h2>
               <p>
-                Il sito usa cookie necessari per salvare le preferenze espresse dall'utente nel banner cookie e
-                mantenere il corretto funzionamento delle pagine. Questi cookie non richiedono consenso perché
-                sono necessari al servizio richiesto.
+                L'app carica Google Fonts dai server Google. Questo può comportare richieste tecniche a Google
+                ed è regolato dalle policy di Google.
               </p>
-
-              <div class="legal-table" role="table" aria-label="Cookie necessari">
-                <div role="row">
-                  <strong role="cell">organizr_cookie_consent_v1</strong>
-                  <span role="cell">Salva la scelta dell'utente su cookie necessari e analytics.</span>
-                  <span role="cell">Durata: 180 giorni.</span>
-                </div>
-              </div>
-
-              <h3>Cookie analytics</h3>
               <p>
-                Gli analytics sono disattivati di default. Vengono caricati solo se l'utente sceglie "Accetta"
-                o abilita la categoria analytics nel pannello preferenze. Se l'utente rifiuta, il sito prova a
-                cancellare eventuali cookie analytics già presenti.
+                Quando l'utente apre pagine esterne come pricing, acquisto, billing Stripe, supporto, Privacy
+                Policy, reset password, pagine OAuth di terze parti o siti aperti tramite link, tali siti possono
+                usare cookie e strumenti propri secondo le rispettive policy.
               </p>
-
-              <div class="legal-table" role="table" aria-label="Cookie analytics">
-                <div role="row">
-                  <strong role="cell">_ga, _ga_*, _gid, _gat, _gcl_au</strong>
-                  <span role="cell">Cookie analytics o misurazione, se presenti e accettati dall'utente.</span>
-                  <span role="cell">Durata variabile secondo il servizio terzo.</span>
-                </div>
-              </div>
             </section>
 
-            <section>
-              <h2>4. Servizi terzi</h2>
+            <section id="consenso">
+              <h2>4. Consenso</h2>
               <p>
-                Il sito può utilizzare strumenti analytics, come Google Analytics o strumenti simili, solo dopo
-                consenso. Le informazioni raccolte da questi strumenti sono regolate anche dalle rispettive
-                informative dei fornitori.
+                Poiché Organizr non usa cookie pubblicitari o di profilazione dentro l'app desktop, l'interfaccia
+                interna dell'app non mostra un banner per cookie marketing.
+              </p>
+              <p>
+                Le funzioni opzionali come Organizr AI, Sync, Community e integrazioni esterne richiedono
+                un'azione volontaria dell'utente nell'app e sono regolate principalmente da Privacy Policy e
+                Termini.
               </p>
             </section>
 
             <section id="gestione">
-              <h2>5. Gestione delle preferenze</h2>
+              <h2>5. Gestione dell'archiviazione locale</h2>
               <p>
-                L'utente può accettare, rifiutare o personalizzare i cookie dal banner mostrato alla prima
-                visita. Può modificare la scelta cancellando il cookie di consenso dal browser e ricaricando il
-                sito.
+                L'utente può rimuovere dati locali cancellando i file dati dell'app, rimuovendo l'app, usando i
+                controlli disponibili, effettuando logout, disattivando la Sync o eliminando backup locali/esportati
+                ove applicabile.
+              </p>
+              <p>
+                La cancellazione dell'archiviazione locale può disconnettere l'utente, azzerare preferenze,
+                disattivare stati Sync ricordati o rimuovere dati solo locali.
               </p>
             </section>
 
             <section>
               <h2>6. Contatti</h2>
-              <p>Per qualsiasi richiesta: <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.</p>
+              <p>Per qualsiasi richiesta: <a href="mailto:info@wonder-web.it">info@wonder-web.it</a></p>
             </section>
           </article>
         </section>

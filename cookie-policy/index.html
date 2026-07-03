@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookie Policy Organizr | Technical and analytics cookies</title>
+    <title>Cookie Policy Organizr | Technical app storage</title>
     <meta
       name="description"
-      content="Cookie Policy of the Organizr website: necessary cookies, analytics consent, preference duration and choice management."
+      content="Cookie Policy of Organizr: technical storage used by the desktop app, localStorage, external resources and local data management."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#8f5bff" />
@@ -14,12 +14,12 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Organizr" />
     <meta property="og:title" content="Cookie Policy Organizr" />
-    <meta property="og:description" content="Information about technical and analytics cookies on the Organizr website." />
+    <meta property="og:description" content="Information about technical storage used by the Organizr desktop app." />
     <meta property="og:url" content="https://organizr.it/cookie-policy/" />
     <meta property="og:image" content="https://organizr.it/assets/img/logo/organizer-logo-black.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Cookie Policy Organizr" />
-    <meta name="twitter:description" content="Information about technical and analytics cookies on the Organizr website." />
+    <meta name="twitter:description" content="Information about technical storage used by the Organizr desktop app." />
     <meta name="twitter:image" content="https://organizr.it/assets/img/logo/organizer-logo-black.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,8 +36,8 @@
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/cookie-policy/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36a40752-20ea-4be7-a942-502d1f4434ef"></script>
     <script src="../assets/js/cookie-consent.min.js?v=56dd973e2a" defer></script>
-    <link rel="stylesheet" href="../assets/css/style.min.css?v=8092eab579" />
-    <script src="../assets/js/main.min.js?v=e74ca19831" defer></script>
+    <link rel="stylesheet" href="../assets/css/style.min.css?v=03efbb91c6" />
+    <script src="../assets/js/main.min.js?v=028e596bb7" defer></script>
   </head>
   <body>
     <div class="cursor-glow" aria-hidden="true"></div>
@@ -48,7 +48,7 @@
         </a>
 
         <nav class="top-nav" aria-label="Navigazione principale">
-          <a href="../#app">App</a>
+          <a href="../workout/">Workout</a>
           <a href="../#prezzi">Pricing</a>
           <a href="../download/">Download</a>
           <div class="lang-switcher" data-en-url="/cookie-policy/" data-it-url="/it/cookie-policy/">
@@ -75,82 +75,84 @@
         <header class="legal-hero">
           <p class="eyebrow">Cookie</p>
           <h1>Cookie Policy of Organizr</h1>
-          <p class="lead">Last updated: April 10, 2026</p>
+          <p class="lead">Last updated: June 30, 2026</p>
         </header>
 
         <section class="legal-layout" aria-label="Cookie Policy Organizr">
           <nav class="legal-toc" aria-label="Indice cookie policy">
-            <a href="#cosa-sono">What they are</a>
-            <a href="#cookie-usati">Cookies used</a>
-            <a href="#gestione">Manage choices</a>
+            <a href="#desktop-app">Desktop app</a>
+            <a href="#technical-storage">Technical storage</a>
+            <a href="#network-resources">External pages</a>
+            <a href="#consent">Consent</a>
+            <a href="#management">Local management</a>
           </nav>
 
           <article class="legal-card">
-            <section id="cosa-sono">
-              <h2>1. What are cookies</h2>
+            <section id="desktop-app">
+              <h2>1. Desktop app</h2>
               <p>
-                Cookies are small text files that a website can save in the user's browser to enable technical
-                functions, remember preferences, or collect aggregate statistics when the user gives consent.
+                Organizr is a desktop application, not a traditional website. Inside the app, no advertising
+                cookies, profiling cookies, or third-party marketing trackers are used.
+              </p>
+              <p>
+                Some app screens are rendered through a webview and use browser-like local storage to work
+                correctly. In this policy, localStorage and similar technical tools are described together with
+                cookies because they perform a comparable technical function.
               </p>
             </section>
 
-            <section>
-              <h2>2. Data controller</h2>
+            <section id="technical-storage">
+              <h2>2. Technical storage used by the app</h2>
               <p>
-                The data controller is Allpromotion di Massimo Policano, Via Bruno Bottau 4, Castenaso
-                (BO), Italy. Email: <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.
+                The app uses localStorage and local storage for preferences and technical states, including
+                language, onboarding, debug mode, account/login metadata, license status, entitlement snapshots,
+                Sync activation status, enabled Sync modules, local timers, UI preferences, and AI consent.
+              </p>
+              <p>
+                In production builds, sensitive tokens such as refresh tokens and Sync password material are
+                stored in the operating system secure keychain when available. In development builds, a local
+                fallback may be used for testing.
+              </p>
+              <p>
+                These elements are necessary to provide app functions, maintain sessions, remember the user's
+                choices, and operate local features. They are not used for advertising profiling.
               </p>
             </section>
 
-            <section id="cookie-usati">
-              <h2>3. Cookies used by the website</h2>
-
-              <h3>Necessary cookies</h3>
+            <section id="network-resources">
+              <h2>3. Network resources and external pages</h2>
               <p>
-                The website uses necessary cookies to save the preferences expressed by the user in the cookie
-                banner and to maintain the correct functioning of the pages. These cookies do not require
-                consent because they are necessary for the requested service.
+                The app loads Google Fonts from Google servers. This may involve technical requests to Google
+                and is governed by Google's policies.
               </p>
-
-              <div class="legal-table" role="table" aria-label="Necessary cookies">
-                <div role="row">
-                  <strong role="cell">organizr_cookie_consent_v1</strong>
-                  <span role="cell">Saves the user's choice regarding necessary and analytics cookies.</span>
-                  <span role="cell">Duration: 180 days.</span>
-                </div>
-              </div>
-
-              <h3>Analytics cookies</h3>
               <p>
-                Analytics are disabled by default. They are loaded only if the user selects "Accept" or
-                enables the analytics category in the preferences panel. If the user declines, the website
-                attempts to delete any analytics cookies already present.
-              </p>
-
-              <div class="legal-table" role="table" aria-label="Analytics cookies">
-                <div role="row">
-                  <strong role="cell">_ga, _ga_*, _gid, _gat, _gcl_au</strong>
-                  <span role="cell">Analytics or measurement cookies, if present and accepted by the user.</span>
-                  <span role="cell">Duration varies by third-party service.</span>
-                </div>
-              </div>
-            </section>
-
-            <section>
-              <h2>4. Third-party services</h2>
-              <p>
-                The website may use analytics tools, such as Google Analytics or similar tools, only after
-                consent. Information collected by these tools is also governed by the respective providers'
-                privacy notices.
+                When the user opens external pages such as pricing, purchase, Stripe billing, support, Privacy
+                Policy, password reset, third-party OAuth pages, or websites opened through links, those sites
+                may use their own cookies and tools according to their respective policies.
               </p>
             </section>
 
-            <section id="gestione">
-              <h2>5. Managing preferences</h2>
+            <section id="consent">
+              <h2>4. Consent</h2>
               <p>
-                The user can accept, decline, or customize cookies from the banner shown on the first visit.
-                They can change their choice by deleting the consent cookie from the browser and reloading
-                the website.
+                Because Organizr does not use advertising or profiling cookies inside the desktop app, the app's
+                internal interface does not show a marketing cookie banner.
+              </p>
+              <p>
+                Optional functions such as Organizr AI, Sync, Community, and external integrations require a
+                voluntary user action inside the app and are governed mainly by the Privacy Policy and Terms.
+              </p>
+            </section>
+
+            <section id="management">
+              <h2>5. Managing local storage</h2>
+              <p>
+                The user can remove local data by deleting the app data files, removing the app, using available
+                controls, logging out, disabling Sync, or deleting local/exported backups where applicable.
+              </p>
+              <p>
+                Clearing local storage may disconnect the user, reset preferences, disable remembered Sync states,
+                or remove local-only data.
               </p>
             </section>
 
