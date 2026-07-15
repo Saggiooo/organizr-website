@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment successful - Organizr</title>
+    <meta name="description" content="Your Organizr payment was successful. Check your inbox to activate your account.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#8f5bff">
+
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-organizr.png">
+    <link rel="apple-touch-icon" href="/assets/img/favicon/favicon-organizr.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="canonical" href="https://organizr.it/successfully-registered/">
+    <link rel="alternate" hreflang="en" href="https://organizr.it/successfully-registered/">
+    <link rel="alternate" hreflang="it" href="https://organizr.it/it/successfully-registered/">
+    <link rel="alternate" hreflang="x-default" href="https://organizr.it/successfully-registered/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.min.css?v=03efbb91c6">
+
+    <style>
+        .auth-wrap {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .auth-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px 80px;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 520px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            padding: 44px 36px;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            .auth-card {
+                padding: 30px 20px;
+            }
+        }
+
+        .auth-icon {
+            width: 84px;
+            height: 84px;
+            margin: 0 auto 24px;
+            border-radius: 999px;
+            background: rgba(0, 210, 150, 0.14);
+            color: #00d296;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+        }
+
+        .auth-icon--sm {
+            width: 64px;
+            height: 64px;
+            font-size: 1.6rem;
+            background: var(--accent-soft);
+            color: var(--accent-2);
+            margin-bottom: 20px;
+        }
+
+        .auth-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 800;
+            text-align: center !important;
+            color: var(--text);
+            margin-bottom: 14px;
+            max-width: none;
+            letter-spacing: normal;
+            line-height: 1.35;
+        }
+
+        .auth-sub {
+            color: var(--muted);
+            text-align: center !important;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: 0.98rem;
+        }
+
+        .auth-note {
+            color: rgba(245, 241, 248, 0.42);
+            font-size: 0.86rem;
+            margin-bottom: 30px;
+        }
+
+        .auth-actions {
+            display: grid;
+            gap: 12px;
+        }
+
+        .btn-auth {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            min-height: 52px;
+            padding: 0 20px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            color: #fff;
+            background: linear-gradient(180deg, #a074ff 0%, #7f49ff 100%);
+            box-shadow: 0 14px 40px rgba(143, 91, 255, 0.28);
+            transition: filter 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .btn-auth:hover:not(:disabled) {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+            box-shadow: 0 18px 44px rgba(143, 91, 255, 0.36);
+        }
+
+        .btn-auth:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .btn-ghost {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            min-height: 50px;
+            padding: 0 20px;
+            border-radius: 999px;
+            border: 1.5px solid var(--line);
+            background: rgba(255, 255, 255, 0.03);
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--muted);
+            transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--line-strong);
+            color: var(--text);
+            background: rgba(143, 91, 255, 0.06);
+        }
+
+        /* Support modal */
+        .sup-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 120;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(4, 3, 6, 0.72);
+            backdrop-filter: blur(6px);
+        }
+
+        .sup-modal.is-open {
+            display: flex;
+        }
+
+        .sup-modal__panel {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            background: var(--panel-strong);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 34px 30px 30px;
+            text-align: left;
+        }
+
+        @media (max-width: 480px) {
+            .sup-modal__panel {
+                padding: 28px 18px 22px;
+            }
+        }
+
+        .sup-modal__close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            border: none;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 180ms ease, color 180ms ease;
+        }
+
+        .sup-modal__close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text);
+        }
+
+        .sup-modal__title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .sup-modal__intro {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 22px;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field__label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .field__input {
+            width: 100%;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1rem;
+            color: var(--text);
+            padding: 13px 16px;
+            border: 1.5px solid var(--line);
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.04);
+            transition: border-color 180ms ease, background 180ms ease;
+            box-sizing: border-box;
+        }
+
+        textarea.field__input {
+            min-height: 110px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        .field__input::placeholder {
+            color: rgba(245, 241, 248, 0.22);
+        }
+
+        .field__input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(143, 91, 255, 0.06);
+        }
+
+        .field__input.is-invalid {
+            border-color: #ff5555;
+        }
+
+        .field__hp {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sup-alert {
+            display: none;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .sup-alert.is-visible {
+            display: flex;
+        }
+
+        .sup-alert--error {
+            background: rgba(255, 85, 85, 0.12);
+            color: #ff7070;
+            border: 1px solid rgba(255, 85, 85, 0.2);
+        }
+
+        .sup-alert i {
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .sup-done {
+            text-align: center;
+            padding: 10px 0 4px;
+        }
+
+        .is-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <div class="auth-wrap">
+        <div class="page-shell">
+            <header class="site-header">
+                <a class="logo" href="/" aria-label="Organizr home">
+                    <img src="/assets/img/logo/organizer-logo-black.png" alt="Organizr logo" width="1275" height="351">
+                </a>
+                <nav class="top-nav" aria-label="Navigation">
+                    <a href="/">
+                        <i class="fas fa-arrow-left" style="font-size:0.8rem;"></i> Home
+                    </a>
+                    <a href="/download/">Download</a>
+                </nav>
+            </header>
+        </div>
+
+        <main class="auth-main">
+            <div class="auth-card">
+                <div class="auth-icon">
+                    <i class="fas fa-circle-check"></i>
+                </div>
+                <h1 class="auth-title">Payment successful, thank you for choosing Organizr!</h1>
+                <p class="auth-sub">Check your inbox to activate your account.</p>
+                <p class="auth-sub auth-note">Check your spam folder too.</p>
+
+                <div class="auth-actions">
+                    <a class="btn-auth" href="/download/">
+                        <i class="fas fa-download" style="font-size:0.9rem;"></i> Download Organizr
+                    </a>
+                    <button type="button" class="btn-ghost" id="support-open">
+                        <i class="fas fa-envelope-open-text" style="font-size:0.85rem;"></i> I didn't receive the email
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Support modal -->
+    <div class="sup-modal" id="support-modal" role="dialog" aria-modal="true" aria-labelledby="support-title" hidden>
+        <div class="sup-modal__panel">
+            <button type="button" class="sup-modal__close" id="support-close" aria-label="Close">
+                <i class="fas fa-xmark"></i>
+            </button>
+
+            <div id="support-body">
+                <h2 class="sup-modal__title" id="support-title">Didn't receive the email?</h2>
+                <p class="sup-modal__intro">Tell us the email address you used at checkout and we'll get back to you as soon as possible.</p>
+
+                <div id="support-alert" class="sup-alert sup-alert--error">
+                    <i class="fas fa-circle-exclamation"></i>
+                    <span id="support-alert-msg"></span>
+                </div>
+
+                <form id="support-form" novalidate>
+                    <div class="field">
+                        <label class="field__label" for="sup-name">Name</label>
+                        <input class="field__input" type="text" id="sup-name" name="name" autocomplete="name" placeholder="Your name">
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="sup-email">Email used at checkout *</label>
+                        <input class="field__input" type="email" id="sup-email" name="email" autocomplete="email" placeholder="you@email.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="sup-phone">Phone (optional)</label>
+                        <input class="field__input" type="tel" id="sup-phone" name="phone" autocomplete="tel" placeholder="+39 000 000 0000">
+                    </div>
+
+                    <div class="field">
+                        <label class="field__label" for="sup-message">Message *</label>
+                        <textarea class="field__input" id="sup-message" name="message" placeholder="Describe the issue: when you paid, which email you're expecting..." required></textarea>
+                    </div>
+
+                    <input class="field__hp" type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                    <button type="submit" class="btn-auth" id="support-submit">
+                        <span id="support-submit-label">Send request</span>
+                    </button>
+                </form>
+            </div>
+
+            <div id="support-done" class="sup-done is-hidden">
+                <div class="auth-icon auth-icon--sm" style="background:rgba(0,210,150,0.14);color:#00d296;">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+                <h2 class="sup-modal__title" style="text-align:center;">Request sent</h2>
+                <p class="sup-modal__intro" style="text-align:center;margin-bottom:0;">We received your message and we'll reply to the address you provided.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/main.min.js?v=028e596bb7" defer></script>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var FORMGATE_URL = 'https://api-formgate.wonder-web.it/webhook/f1e08990-bfae-4538-8512-4eb0888b5541';
+            var FORMGATE_KEY = 'fg_58be967a643b1cfdad4ef2d49d0aaa2ef76c8b4de432453d';
+
+            var modal = document.getElementById('support-modal');
+            var openBtn = document.getElementById('support-open');
+            var closeBtn = document.getElementById('support-close');
+            var form = document.getElementById('support-form');
+            var body = document.getElementById('support-body');
+            var done = document.getElementById('support-done');
+            var submitBtn = document.getElementById('support-submit');
+            var submitLabel = document.getElementById('support-submit-label');
+            var alertBox = document.getElementById('support-alert');
+            var alertMsg = document.getElementById('support-alert-msg');
+            var lastFocused = null;
+
+            function openModal() {
+                lastFocused = document.activeElement;
+                modal.hidden = false;
+                modal.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+                document.getElementById('sup-email').focus();
+            }
+
+            function closeModal() {
+                modal.classList.remove('is-open');
+                modal.hidden = true;
+                document.body.style.overflow = '';
+                if (lastFocused) lastFocused.focus();
+            }
+
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+            });
+
+            function showAlert(msg) {
+                alertMsg.textContent = msg;
+                alertBox.classList.add('is-visible');
+            }
+
+            function hideAlert() {
+                alertBox.classList.remove('is-visible');
+            }
+
+            function setLoading(loading) {
+                submitBtn.disabled = loading;
+                submitLabel.textContent = loading ? 'Sending...' : 'Send request';
+            }
+
+            function showDone() {
+                body.classList.add('is-hidden');
+                done.classList.remove('is-hidden');
+            }
+
+            form.addEventListener('input', hideAlert);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                hideAlert();
+
+                var name = form.querySelector('[name="name"]').value.trim();
+                var email = form.querySelector('[name="email"]').value.trim();
+                var phone = form.querySelector('[name="phone"]').value.trim();
+                var message = form.querySelector('[name="message"]').value.trim();
+                var hp = form.querySelector('[name="_hp"]').value;
+
+                var emailEl = form.querySelector('[name="email"]');
+                var msgEl = form.querySelector('[name="message"]');
+                emailEl.classList.remove('is-invalid');
+                msgEl.classList.remove('is-invalid');
+
+                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    emailEl.classList.add('is-invalid');
+                    showAlert('Enter a valid email address.');
+                    emailEl.focus();
+                    return;
+                }
+
+                if (!message) {
+                    msgEl.classList.add('is-invalid');
+                    showAlert('Write a message describing the issue.');
+                    msgEl.focus();
+                    return;
+                }
+
+                // Honeypot filled by a bot: fake success, send nothing.
+                if (hp) {
+                    showDone();
+                    return;
+                }
+
+                setLoading(true);
+
+                fetch(FORMGATE_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-FormGate-Key': FORMGATE_KEY
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        message: 'Request: activation email not received\n\n' + message
+                    })
+                })
+                    .then(function (res) {
+                        if (!res.ok) {
+                            return res.json().catch(function () { return {}; }).then(function (data) {
+                                throw new Error(data.error || 'Error while sending.');
+                            });
+                        }
+                        showDone();
+                        setLoading(false);
+                    })
+                    .catch(function (err) {
+                        showAlert(err.message || 'Error. Try again in a few minutes.');
+                        setLoading(false);
+                    });
+            });
+        })();
+    </script>
+</body>
+</html>
