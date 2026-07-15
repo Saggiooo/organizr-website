@@ -3189,6 +3189,43 @@ h3 {
   color: rgba(255, 255, 255, 0.54);
 }
 
+.plan-ai-box {
+  display: grid;
+  gap: 6px;
+  margin-top: 26px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(193, 156, 255, 0.28);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(143, 91, 255, 0.16), transparent 60%),
+    rgba(143, 91, 255, 0.08);
+}
+
+.plan-ai-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.plan-ai-label::before {
+  content: "✦";
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.plan-ai-box p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1.02rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
 .section-heading {
   max-width: 740px;
 }
