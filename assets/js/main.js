@@ -807,6 +807,50 @@
   }
 
   if (langSwitcher && langBtn) {
+    const langSwitcherSlot = document.createElement("span");
+    langSwitcherSlot.className = "lang-switcher-slot";
+    langSwitcher.before(langSwitcherSlot);
+    langSwitcherSlot.append(langSwitcher);
+
+    const measureLangSwitcherSlot = () => {
+      if (langSwitcher.classList.contains("is-fixed")) return;
+      const { width, height } = langSwitcher.getBoundingClientRect();
+      langSwitcherSlot.style.width = `${width}px`;
+      langSwitcherSlot.style.height = `${height}px`;
+    };
+
+    const updateFixedLangSwitcher = () => {
+      const shouldFix = window.scrollY > 0 && langSwitcherSlot.getBoundingClientRect().top <= 4;
+      const isFixed = langSwitcher.classList.contains("is-fixed");
+
+      if (shouldFix && !isFixed) {
+        langSwitcher.classList.add("is-fixed");
+        document.body.append(langSwitcher);
+      } else if (!shouldFix && isFixed) {
+        langSwitcher.classList.remove("is-fixed");
+        langSwitcherSlot.append(langSwitcher);
+      }
+
+      document.body.classList.toggle("has-fixed-lang", shouldFix);
+    };
+
+    let langScrollFrame = 0;
+    const queueFixedLangSwitcherUpdate = () => {
+      if (langScrollFrame) return;
+      langScrollFrame = window.requestAnimationFrame(() => {
+        langScrollFrame = 0;
+        updateFixedLangSwitcher();
+      });
+    };
+
+    measureLangSwitcherSlot();
+    updateFixedLangSwitcher();
+    window.addEventListener("scroll", queueFixedLangSwitcherUpdate, { passive: true });
+    window.addEventListener("resize", () => {
+      measureLangSwitcherSlot();
+      queueFixedLangSwitcherUpdate();
+    });
+
     const closeLang = () => {
       langSwitcher.classList.remove("is-open");
       langBtn.setAttribute("aria-expanded", "false");
