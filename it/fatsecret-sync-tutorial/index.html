@@ -15,6 +15,7 @@
     <meta name="theme-color" content="#8f5bff" />
     <meta property="og:type" content="article" />
     <meta property="og:locale" content="it_IT" />
+    <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:site_name" content="Organizr" />
     <meta property="og:title" content="Come collegare FatSecret a Organizr" />
     <meta
@@ -40,8 +41,9 @@
     <link rel="apple-touch-icon" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href="https://organizr.it/it/fatsecret-sync-tutorial/" />
+    <link rel="alternate" hreflang="en" href="https://organizr.it/fatsecret-sync-tutorial/" />
     <link rel="alternate" hreflang="it" href="https://organizr.it/it/fatsecret-sync-tutorial/" />
-    <link rel="alternate" hreflang="x-default" href="https://organizr.it/it/fatsecret-sync-tutorial/" />
+    <link rel="alternate" hreflang="x-default" href="https://organizr.it/fatsecret-sync-tutorial/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36a40752-20ea-4be7-a942-502d1f4434ef"></script>
     <script src="/assets/js/cookie-consent.min.js?v=56dd973e2a" defer></script>
     <link rel="stylesheet" href="/assets/css/style.min.css?v=b0caa75e9f" />
@@ -89,6 +91,19 @@
           <a href="/it/workout/">Workout</a>
           <a href="/it/#prezzi">Prezzi</a>
           <a href="/it/download/">Download</a>
+          <div class="lang-switcher" data-en-url="/fatsecret-sync-tutorial/" data-it-url="/it/fatsecret-sync-tutorial/">
+            <button class="lang-btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Cambia lingua">
+              <span class="lang-flag">🇮🇹</span>
+              <span class="lang-name">IT</span>
+              <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <ul class="lang-dropdown" role="listbox" aria-label="Scegli lingua">
+              <li class="lang-option" role="option" aria-selected="false" data-lang="en"><span class="lang-flag">🇬🇧</span> English</li>
+              <li class="lang-option is-active" role="option" aria-selected="true" data-lang="it"><span class="lang-flag">🇮🇹</span> Italiano</li>
+            </ul>
+          </div>
         </nav>
       </header>
 
