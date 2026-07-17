@@ -604,7 +604,7 @@
           en: "Choose Annual",
           it: "Scegli Annuale",
         },
-        checkoutUrl: "https://buy.stripe.com/dRm00i3W28G77Dm29X7wA01",
+        checkoutUrl: "https://buy.stripe.com/bJe9ASfEK7C3e1K29X7wA07",
       },
       monthly: {
         label: {
@@ -627,7 +627,7 @@
           en: "Choose Monthly",
           it: "Scegli Mensile",
         },
-        checkoutUrl: "https://buy.stripe.com/bJeaEW78ef4v0aUaGt7wA00",
+        checkoutUrl: "https://buy.stripe.com/28EeVc5061dF7DmaGt7wA08",
       },
     };
 
