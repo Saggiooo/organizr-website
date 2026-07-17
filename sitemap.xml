@@ -44,9 +44,9 @@
 
   <!-- FatSecret Sync Tutorial -->
   <url>
-    <loc>https://organizr.it/fatsecret-sync-tutorial/</loc>
-    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/fatsecret-sync-tutorial/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/fatsecret-sync-tutorial/"/>
+    <loc>https://organizr.it/it/fatsecret-sync-tutorial/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/fatsecret-sync-tutorial/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/it/fatsecret-sync-tutorial/"/>
     <lastmod>2026-07-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
