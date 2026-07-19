@@ -1,0 +1,160 @@
+(() => {
+  "use strict";
+
+  const form = document.querySelector("[data-support-form]");
+  if (!form) return;
+
+  const FORMGATE_URL = "https://api-formgate.wonder-web.it/webhook/f1e08990-bfae-4538-8512-4eb0888b5541";
+  const FORMGATE_KEY = "fg_58be967a643b1cfdad4ef2d49d0aaa2ef76c8b4de432453d";
+  const card = form.closest(".support-card");
+  const content = card.querySelector("[data-support-content]");
+  const success = card.querySelector("[data-support-success]");
+  const alertBox = form.querySelector("[data-support-alert]");
+  const alertMessage = form.querySelector("[data-support-alert-message]");
+  const submitButton = form.querySelector("[data-support-submit]");
+  const submitLabel = form.querySelector("[data-support-submit-label]");
+  const submitIcon = form.querySelector("[data-support-submit-icon]");
+  const consent = form.querySelector("[name='privacy']");
+  const consentLabel = consent.closest(".support-consent");
+
+  const messages = {
+    required: form.dataset.errorRequired,
+    email: form.dataset.errorEmail,
+    message: form.dataset.errorMessage,
+    privacy: form.dataset.errorPrivacy,
+    generic: form.dataset.errorGeneric,
+    sending: form.dataset.sendingLabel,
+    submit: form.dataset.submitLabel,
+  };
+
+  const showAlert = (message) => {
+    alertMessage.textContent = message;
+    alertBox.classList.add("is-visible");
+  };
+
+  const clearAlert = () => {
+    alertBox.classList.remove("is-visible");
+  };
+
+  const setInvalid = (control) => {
+    control.classList.add("is-invalid");
+    control.setAttribute("aria-invalid", "true");
+  };
+
+  const clearInvalid = (control) => {
+    control.classList.remove("is-invalid");
+    control.removeAttribute("aria-invalid");
+  };
+
+  const setLoading = (loading) => {
+    submitButton.disabled = loading;
+    submitLabel.textContent = loading ? messages.sending : messages.submit;
+    submitIcon.className = loading ? "fas fa-spinner" : "fas fa-paper-plane";
+  };
+
+  form.addEventListener("input", (event) => {
+    clearAlert();
+    if (event.target.matches(".support-control")) clearInvalid(event.target);
+    if (event.target === consent) consentLabel.classList.remove("is-invalid");
+  });
+
+  form.addEventListener("change", (event) => {
+    clearAlert();
+    if (event.target.matches(".support-control")) clearInvalid(event.target);
+    if (event.target === consent) consentLabel.classList.remove("is-invalid");
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    clearAlert();
+
+    const data = new FormData(form);
+    const requiredControls = [...form.querySelectorAll(".support-control[required]")];
+    const firstEmpty = requiredControls.find((control) => !control.value.trim());
+
+    requiredControls.forEach(clearInvalid);
+    consentLabel.classList.remove("is-invalid");
+
+    if (firstEmpty) {
+      setInvalid(firstEmpty);
+      showAlert(messages.required);
+      firstEmpty.focus();
+      return;
+    }
+
+    const emailControl = form.elements.email;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailControl.value.trim())) {
+      setInvalid(emailControl);
+      showAlert(messages.email);
+      emailControl.focus();
+      return;
+    }
+
+    const messageControl = form.elements.message;
+    if (messageControl.value.trim().length < 20) {
+      setInvalid(messageControl);
+      showAlert(messages.message);
+      messageControl.focus();
+      return;
+    }
+
+    if (!consent.checked) {
+      consentLabel.classList.add("is-invalid");
+      showAlert(messages.privacy);
+      consent.focus();
+      return;
+    }
+
+    // Honeypot filled by a bot: show a successful submission without sending it.
+    if (data.get("website")) {
+      content.hidden = true;
+      success.hidden = false;
+      return;
+    }
+
+    const details = [
+      "Support request",
+      `Language: ${document.documentElement.lang}`,
+      `Topic: ${data.get("topic")}`,
+      `Platform / device: ${data.get("platform")}`,
+      `App version: ${data.get("app_version") || "Not provided"}`,
+      `Order reference: ${data.get("order_reference") || "Not provided"}`,
+      `Subject: ${data.get("subject")}`,
+      "",
+      data.get("message").trim(),
+    ].join("\n");
+
+    setLoading(true);
+
+    try {
+      const response = await fetch(FORMGATE_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "X-FormGate-Key": FORMGATE_KEY,
+        },
+        body: JSON.stringify({
+          name: data.get("name").trim(),
+          email: data.get("email").trim(),
+          phone: data.get("phone").trim(),
+          message: details,
+        }),
+      });
+
+      if (!response.ok) {
+        const responseData = await response.json().catch(() => ({}));
+        throw new Error(responseData.error || messages.generic);
+      }
+
+      content.hidden = true;
+      success.hidden = false;
+      success.focus({ preventScroll: true });
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    } catch (error) {
+      showAlert(error.message || messages.generic);
+    } finally {
+      setLoading(false);
+    }
+  });
+})();

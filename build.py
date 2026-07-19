@@ -19,10 +19,11 @@ TARGETS = [
     (ROOT / "assets/css/style.css",          ROOT / "assets/css/style.min.css",          "CSS"),
     (ROOT / "assets/js/cookie-consent.js",   ROOT / "assets/js/cookie-consent.min.js",   "JS "),
     (ROOT / "assets/js/main.js",             ROOT / "assets/js/main.min.js",             "JS "),
+    (ROOT / "assets/js/support.js",          ROOT / "assets/js/support.min.js",          "JS "),
 ]
 
 ASSET_VERSION_PATTERN = re.compile(
-    r"(?P<asset>(?:/|\.\./)?assets/(?:css/style\.min\.css|js/(?:cookie-consent|main)\.min\.js))(?:\?v=[A-Za-z0-9._-]+)?"
+    r"(?P<asset>(?:/|\.\./)?assets/(?:css/style\.min\.css|js/(?:cookie-consent|main|support)\.min\.js))(?:\?v=[A-Za-z0-9._-]+)?"
 )
 
 asset_versions = {}
