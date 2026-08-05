@@ -6,6 +6,18 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["serve", "-p", "8765", "/Users/simone/Documents/WonderWeb/organizer-sito"],
       "port": 8765
+    },
+    {
+      "name": "site-alt",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "8766", "/Users/simone/Documents/WonderWeb/organizer-sito"],
+      "port": 8766
+    },
+    {
+      "name": "site-alt2",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-p", "8767", "/Users/simone/Documents/WonderWeb/organizer-sito"],
+      "port": 8767
     }
   ]
 }

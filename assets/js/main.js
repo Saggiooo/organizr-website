@@ -23,6 +23,8 @@
     mac: "/assets/downloads/Organizr_0.2.3_aarch64.dmg",
     windows: "/assets/downloads/Organizr_0.2.3_x64-setup.exe",
   };
+  const appStoreUrl = "https://apps.apple.com/it/app/organizr/id6790398372";
+  const downloadCards = [...document.querySelectorAll("[data-download-card]")];
 
   const revealTargets = [...document.querySelectorAll("[data-reveal]")];
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -129,9 +131,11 @@
     const previewSource = showcase.querySelector("[data-phone-preview-source]");
     const previewLabel = showcase.querySelector("[data-phone-preview-label]");
     const placeholder = previewLabel?.closest(".phone-showcase-placeholder");
+    const shots = [...showcase.querySelectorAll("[data-phone-shot]")];
 
     if (!tabs.length || !title || !copy || !previewLabel || !placeholder) return;
 
+    let shotCycleTimer = 0;
     let dockShiftTimer = 0;
     let wheelResetTimer = 0;
     let lockedScrollY = null;
@@ -305,6 +309,27 @@
       return true;
     };
 
+    const showShotsFor = (appName) => {
+      window.clearInterval(shotCycleTimer);
+
+      const activeShots = shots.filter((shot) => shot.dataset.phoneShot === appName);
+
+      for (const shot of shots) {
+        shot.classList.toggle("is-active", shot === activeShots[0]);
+      }
+
+      placeholder.classList.toggle("is-hidden", activeShots.length > 0);
+
+      if (activeShots.length < 2) return;
+
+      let shotIndex = 0;
+      shotCycleTimer = window.setInterval(() => {
+        activeShots[shotIndex].classList.remove("is-active");
+        shotIndex = (shotIndex + 1) % activeShots.length;
+        activeShots[shotIndex].classList.add("is-active");
+      }, 3400);
+    };
+
     const setActivePhoneTab = (nextTab, options = {}) => {
       for (const tab of tabs) {
         const active = tab === nextTab;
@@ -321,7 +346,7 @@
       title.textContent = displayName;
       copy.textContent = description;
       previewLabel.textContent = displayName;
-      placeholder.classList.remove("is-hidden");
+      showShotsFor(appName);
       previewVideo?.pause();
       previewVideo?.classList.add("is-hidden");
       previewSource?.removeAttribute("src");
@@ -381,7 +406,7 @@
     initPhoneShowcase(showcase);
   }
 
-  if (platformDownload) {
+  const detectPlatform = () => {
     const platform = [
       navigator.userAgentData?.platform,
       navigator.platform,
@@ -390,12 +415,35 @@
       .filter(Boolean)
       .join(" ")
       .toLowerCase();
-    const isMobile =
-      /android|iphone|ipad|ipod/.test(platform) ||
-      (platform.includes("mac") && navigator.maxTouchPoints > 1);
+    const isAndroid = platform.includes("android");
+    const isIos =
+      !isAndroid &&
+      (/iphone|ipad|ipod/.test(platform) ||
+        (platform.includes("mac") && navigator.maxTouchPoints > 1));
+    const isMobile = isIos || isAndroid;
     const isWindows = !isMobile && platform.includes("win");
     const isMac = !isMobile && platform.includes("mac");
-    const detectedPlatform = isWindows ? "windows" : isMac ? "mac" : "";
+    return isIos ? "ios" : isWindows ? "windows" : isMac ? "mac" : "";
+  };
+
+  if (downloadCards.length) {
+    const currentPlatform = detectPlatform();
+    if (currentPlatform && downloadCards.some((card) => card.dataset.downloadCard === currentPlatform)) {
+      for (const card of downloadCards) {
+        const isCurrent = card.dataset.downloadCard === currentPlatform;
+        card.classList.toggle("is-featured", isCurrent);
+        card.classList.toggle("is-current", isCurrent);
+        const cardBtn = card.querySelector(".download-btn");
+        if (cardBtn) {
+          cardBtn.classList.toggle("btn-primary", isCurrent);
+          cardBtn.classList.toggle("btn-secondary", !isCurrent);
+        }
+      }
+    }
+  }
+
+  if (platformDownload) {
+    const detectedPlatform = detectPlatform();
     const label = platformDownload.querySelector("[data-platform-download-label]");
     const showIcon = (platformKey) => {
       for (const icon of platformDownload.querySelectorAll("[data-platform-icon]")) {
@@ -404,7 +452,12 @@
     };
 
     if (detectedPlatform) {
-      if (detectedPlatform === "windows") {
+      if (detectedPlatform === "ios") {
+        platformDownload.href = appStoreUrl;
+        platformDownload.removeAttribute("download");
+        platformDownload.setAttribute("target", "_blank");
+        platformDownload.setAttribute("rel", "noopener noreferrer");
+      } else if (detectedPlatform === "windows") {
         const langPrefix = location.pathname.startsWith("/it/") ? "/it" : "";
         platformDownload.href = langPrefix + "/download-windows/";
         platformDownload.removeAttribute("download");
@@ -413,7 +466,7 @@
         platformDownload.setAttribute("download", "");
       }
       if (label) label.textContent = "Download";
-      showIcon(detectedPlatform);
+      showIcon(detectedPlatform === "ios" ? "mac" : detectedPlatform);
     } else {
       platformDownload.href = "download/";
       platformDownload.removeAttribute("download");
