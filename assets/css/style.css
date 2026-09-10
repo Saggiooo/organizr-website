@@ -7014,12 +7014,15 @@ textarea.support-control {
 
 .faq-section .section-heading {
   margin-bottom: 26px;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .faq-list {
   display: grid;
   gap: 12px;
   max-width: 860px;
+  margin-inline: auto;
 }
 
 .faq-item {
