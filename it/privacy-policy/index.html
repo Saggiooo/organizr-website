@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Privacy Policy Organizr | Sito e app desktop</title>
+    <title>Privacy Policy Organizr | Sito e app</title>
     <meta
       name="description"
-      content="Privacy Policy di Organizr per il sito web e per l'app desktop: dati locali, aggiornamenti, integrazioni esterne e contatti del titolare."
+      content="Privacy Policy di Organizr per sito, app iOS e desktop: dati locali, allegati AI, Sync, servizi esterni e contatti del Titolare."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#8f5bff" />
@@ -14,12 +14,12 @@
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Organizr" />
     <meta property="og:title" content="Privacy Policy Organizr" />
-    <meta property="og:description" content="Informativa privacy per sito web e app desktop Organizr." />
+    <meta property="og:description" content="Informativa privacy per sito web, app iOS e desktop Organizr." />
     <meta property="og:url" content="https://organizr.it/it/privacy-policy/" />
     <meta property="og:image" content="https://organizr.it/assets/img/logo/organizer-logo-black.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Privacy Policy Organizr" />
-    <meta name="twitter:description" content="Informativa privacy per sito web e app desktop Organizr." />
+    <meta name="twitter:description" content="Informativa privacy per sito web, app iOS e desktop Organizr." />
     <meta name="twitter:image" content="https://organizr.it/assets/img/logo/organizer-logo-black.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +36,7 @@
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/privacy-policy/" />
     <script defer src="https://cloud.umami.is/script.js" data-website-id="36a40752-20ea-4be7-a942-502d1f4434ef"></script>
     <script src="/assets/js/cookie-consent.min.js?v=56dd973e2a" defer></script>
-    <link rel="stylesheet" href="/assets/css/style.min.css?v=acf7133438" />
+    <link rel="stylesheet" href="/assets/css/style.min.css?v=8b29e060af" />
     <script src="/assets/js/main.min.js?v=69a4c72c25" defer></script>
   </head>
   <body>
@@ -49,7 +49,7 @@
 
         <nav class="top-nav" aria-label="Navigazione principale">
           <a href="/it/workout/">Workout</a>
-          <a href="/it/#prezzi">Prezzi</a>
+          <a href="/it/pricing/">Prezzi</a>
           <a href="/it/download/">Download</a>
           <div class="lang-switcher" data-en-url="/privacy-policy/" data-it-url="/it/privacy-policy/">
             <button class="lang-btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Cambia lingua">
@@ -75,13 +75,14 @@
         <header class="legal-hero">
           <p class="eyebrow">Privacy</p>
           <h1>Privacy Policy di Organizr</h1>
-          <p class="lead">Ultimo aggiornamento: 25 Maggio 2026</p>
+          <p class="lead">Ultimo aggiornamento: 10 settembre 2026</p>
         </header>
 
         <section class="legal-layout" aria-label="Privacy Policy Organizr">
           <nav class="legal-toc" aria-label="Indice privacy">
             <a href="#privacy-sito">Privacy sito</a>
             <a href="#privacy-app">Privacy app</a>
+            <a href="#organizr-ai">Allegati AI</a>
             <a href="#contatti">Contatti</a>
           </nav>
 
@@ -148,9 +149,9 @@
 
               <h3>2. Tipologia di applicazione</h3>
               <p>
-                Organizr è un'applicazione desktop sviluppata con tecnologia Tauri. L'app funziona in
-                modalità locale (offline) per impostazione predefinita: tutti i dati inseriti dall'utente sono salvati
-                esclusivamente sul dispositivo dell'utente. È disponibile una funzione opzionale di <strong>Sync</strong>:
+                Organizr è disponibile come app nativa iOS, con companion per Apple Watch, e come app desktop.
+                È local-first: i dati principali inseriti dall'utente sono salvati sul dispositivo. È disponibile
+                una funzione opzionale di <strong>Sync</strong>:
                 se attivata esplicitamente dall'utente, i dati vengono salvati su nostri server sicuri situati
                 nell'Unione Europea. La sincronizzazione è disattivata per impostazione predefinita e deve essere
                 abilitata manualmente.
@@ -159,13 +160,18 @@
               <h3>3. Dati trattati</h3>
               <h4>3.1 Dati salvati localmente (modalità predefinita)</h4>
               <p>
-                Per impostazione predefinita, l'app memorizza esclusivamente sul dispositivo dell'utente: attività e
-                impegni (kanban), dati relativi ad abbonamenti, informazioni alimentari, dati relativi agli allenamenti
-                e chiavi API inserite manualmente dall'utente.
+                Per impostazione predefinita, l'app memorizza sul dispositivo i contenuti principali, inclusi attività,
+                abbonamenti, dati Wallet, tracker e misurazioni, alimentazione, ricette, allenamenti, letture, obiettivi,
+                guardaroba, immagini locali e preferenze dell'app.
               </p>
               <p>
-                In modalità offline, questi dati non vengono trasmessi al Titolare, non vengono condivisi con terze
-                parti e non vengono sincronizzati su alcun server esterno.
+                In modalità offline, questi dati non vengono trasmessi al Titolare né sincronizzati su server esterni.
+                Quando l'utente attiva volontariamente una funzione cloud come Organizr AI, Sync, Community, account o
+                ricerca online, vengono trasmessi soltanto i dati descritti per quella funzione.
+              </p>
+              <p>
+                Le foto salvate in Tracker, Ricette o Guardaroba restano locali e sono intenzionalmente escluse dalla
+                Sync. Questo trattamento è distinto da quello di una foto allegata volontariamente a Organizr AI.
               </p>
 
               <h4>3.2 Dati sincronizzati in cloud (opzionale)</h4>
@@ -198,21 +204,49 @@
                 l'utente può effettuare l'autenticazione tramite browser esterno.
               </p>
               <p>
-                Importante: Organizr non gestisce né memorizza dati sui propri server. Tutti i dati ottenuti
-                tramite API restano esclusivamente in locale. Il trattamento dei dati da parte di tali servizi è
+                I dati importati tramite integrazioni come Hevy o FatSecret diventano dati locali dell'app e non vengono
+                inviati automaticamente ai server Organizr. Il trattamento svolto direttamente da tali servizi è
                 regolato dalle rispettive privacy policy.
+              </p>
+
+              <h4 id="organizr-ai">3.4 Foto e file inviati a Organizr AI</h4>
+              <p>
+                Organizr non analizza né carica automaticamente la libreria foto, il rullino o i file del dispositivo.
+                Viene trasmesso via HTTPS al backend Organizr e poi a OpenAI soltanto l'elemento che l'utente seleziona
+                volontariamente e invia nella chat AI. Il contenuto visivo o testuale viene usato per interpretare
+                l'allegato e generare la risposta richiesta. Non viene aggiunto automaticamente a Tracker, Ricette,
+                Guardaroba, Sync, Community, profili pubblicitari o altre sezioni dell'app.
+              </p>
+              <p>
+                Il backend Organizr non crea una copia persistente dell'allegato e non ne salva il contenuto binario
+                nello storico chat lato server. Lo storico AI locale conserva il testo del messaggio e il nome
+                dell'allegato, non il relativo file binario; il modello non può quindi accedervi nuovamente in una
+                richiesta successiva salvo che l'utente lo alleghi di nuovo. A seconda del file e della piattaforma,
+                nei dati trasmessi possono essere presenti metadati incorporati.
+              </p>
+              <p>
+                OpenAI dichiara che input e output delle API non vengono usati per addestrare i modelli per impostazione
+                predefinita, salvo adesione esplicita dell'account API. In base ai controlli dati API standard di OpenAI,
+                input e output possono essere conservati nei log di monitoraggio degli abusi fino a 30 giorni, o più a
+                lungo quando richiesto dalla legge o ragionevolmente necessario per proteggere il servizio o terzi.
+                Immagini e file sono analizzati per rilevare potenziale materiale di abuso sessuale su minori (CSAM) e
+                possono essere conservati per revisione manuale se segnalati dal relativo classificatore. L'utente non
+                deve allegare contenuti sensibili o dati personali di terzi se non dispone del diritto e di un'idonea
+                base giuridica per farlo.
               </p>
 
               <h3>4. Finalità del trattamento</h3>
               <p>
-                I dati sono trattati per consentire l'utilizzo delle funzionalità dell'app, permettere il
-                controllo aggiornamenti e integrare servizi esterni su richiesta dell'utente.
+                I dati sono trattati per fornire le funzioni richieste, gestire account ed entitlement, generare risposte
+                Organizr AI, fornire Sync e Community opzionali, controllare aggiornamenti, gestire acquisti, proteggere
+                il servizio e integrare servizi esterni su richiesta dell'utente.
               </p>
 
               <h3>5. Base giuridica</h3>
               <p>
                 Il trattamento si basa su: esecuzione di un servizio richiesto dall'utente, legittimo interesse
-                (sicurezza, aggiornamenti) e consenso per integrazioni API esterne, ove applicabile.
+                (sicurezza, prevenzione frodi e aggiornamenti) e consenso o azione esplicita dell'utente per funzioni
+                cloud opzionali e integrazioni esterne, ove applicabile.
               </p>
 
               <h3>6. Conservazione dei dati</h3>
@@ -227,12 +261,20 @@
                 L'utente può richiedere la rimozione completa dei dati cloud scrivendo a
                 <a href="mailto:info@wonder-web.it">info@wonder-web.it</a>.
               </p>
+              <p>
+                Prompt, contesto, foto, file e conversazioni AI non vengono conservati da Organizr come storico chat
+                lato server. Lo storico AI locale resta sul dispositivo finché l'utente non lo elimina e contiene solo
+                il nome dell'allegato, non il relativo contenuto binario. OpenAI può conservare input e output API nei
+                log di monitoraggio degli abusi fino a 30 giorni secondo i controlli dati standard, fatte salve le
+                eccezioni indicate sopra e future modifiche alle policy di OpenAI.
+              </p>
 
               <h3>7. Comunicazione dei dati</h3>
               <p>
-                I dati non vengono comunicati a terzi, salvo Google per i font e i servizi esterni FatSecret e
-                Hevy se utilizzati dall'utente. Se la funzione Sync è attiva, i dati crittografati sono
-                conservati sul server del Titolare nell'UE — non vengono venduti né condivisi con terze parti.
+                I dati non vengono venduti. Possono essere trattati dai fornitori necessari alle funzioni richieste,
+                inclusi hosting e sicurezza, OpenAI per Organizr AI, Stripe o Apple per gli acquisti, Google per font o
+                accesso, e FatSecret, Hevy o Open Food Facts quando tali integrazioni sono usate. Se la Sync è attiva,
+                le righe applicative sono cifrate prima dell'upload e conservate cifrate sul server UE del Titolare.
               </p>
 
               <h3>8. Diritti dell'utente</h3>

@@ -8,7 +8,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/"/>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,9 +17,29 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/"/>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Pricing -->
+  <url>
+    <loc>https://organizr.it/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/pricing/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/pricing/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/pricing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/pricing/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- Download -->
@@ -28,7 +48,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/download/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/download/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/download/"/>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -37,9 +57,109 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/download/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/download/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/download/"/>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Download Windows -->
+  <url>
+    <loc>https://organizr.it/download-windows/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/download-windows/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/download-windows/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/download-windows/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/download-windows/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/download-windows/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/download-windows/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/download-windows/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Habit tracker -->
+  <url>
+    <loc>https://organizr.it/habit-tracker/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/habit-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/habit-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/habit-tracker/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/habit-tracker/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/habit-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/habit-tracker/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/habit-tracker/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Nutrition -->
+  <url>
+    <loc>https://organizr.it/nutrition/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/nutrition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/alimentazione/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/nutrition/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/alimentazione/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/nutrition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/alimentazione/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/nutrition/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Wallet -->
+  <url>
+    <loc>https://organizr.it/wallet/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/wallet/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/portafoglio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/wallet/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/portafoglio/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/wallet/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/portafoglio/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/wallet/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Workout -->
+  <url>
+    <loc>https://organizr.it/workout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/workout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/workout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/workout/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/workout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/workout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/workout/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/workout/"/>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Support -->
@@ -82,33 +202,13 @@
     <priority>0.6</priority>
   </url>
 
-  <!-- Workout -->
-  <url>
-    <loc>https://organizr.it/workout/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/workout/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/workout/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/workout/"/>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://organizr.it/it/workout/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/workout/"/>
-    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/workout/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/workout/"/>
-    <lastmod>2026-07-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
   <!-- Privacy Policy -->
   <url>
     <loc>https://organizr.it/privacy-policy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/privacy-policy/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/privacy-policy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/privacy-policy/"/>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -117,7 +217,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/privacy-policy/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/privacy-policy/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/privacy-policy/"/>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -148,6 +248,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/terms-conditions/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/termini-condizioni/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/terms-conditions/"/>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -156,6 +257,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/terms-conditions/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/termini-condizioni/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/terms-conditions/"/>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>

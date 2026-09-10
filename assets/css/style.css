@@ -2594,7 +2594,7 @@ h3 {
 }
 
 .integration-logo rect {
-  fill: rgba(9, 8, 14, 0.94);
+  fill: rgb(0 0 0 / 94%);
   stroke: rgba(255, 255, 255, 0.16);
   stroke-width: 1.5;
   filter: drop-shadow(0 22px 44px rgba(0, 0, 0, 0.42));
@@ -6928,5 +6928,189 @@ textarea.support-control {
 
   .support-field--wide {
     grid-column: auto;
+  }
+}
+
+/* ==========================================================================
+   Pricing page hero
+   ========================================================================== */
+
+.pricing-page {
+  padding: 64px 0 0;
+}
+
+.pricing-hero {
+  max-width: 760px;
+  margin-bottom: 22px;
+}
+
+.pricing-hero h1 {
+  max-width: 16ch;
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SEO content: sections rundown + FAQ
+   ========================================================================== */
+
+.seo-content-section {
+  padding: 26px 0 8px;
+}
+
+.seo-content-section .section-heading {
+  margin-bottom: 34px;
+}
+
+.seo-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.seo-feature-card {
+  padding: 24px 22px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)),
+    rgba(9, 7, 12, 0.82);
+}
+
+.seo-feature-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.seo-feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.seo-feature-card p + p {
+  margin-top: 10px;
+}
+
+.seo-feature-card a {
+  color: var(--accent-2);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(193, 156, 255, 0.35);
+}
+
+.seo-feature-card a:hover,
+.seo-feature-card a:focus-visible {
+  border-bottom-color: var(--accent-2);
+}
+
+.faq-section {
+  padding: 62px 0 40px;
+}
+
+.faq-section .section-heading {
+  margin-bottom: 26px;
+}
+
+.faq-list {
+  display: grid;
+  gap: 12px;
+  max-width: 860px;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.022);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  cursor: pointer;
+  list-style: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--accent-2);
+  border-bottom: 2px solid var(--accent-2);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(-135deg) translate(-2px, -2px);
+}
+
+.faq-item summary:hover {
+  background: rgba(143, 91, 255, 0.06);
+}
+
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.faq-item > p {
+  margin: 0;
+  padding: 0 22px 20px;
+  max-width: 62rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.faq-item > p a {
+  color: var(--accent-2);
+}
+
+@media (max-width: 980px) {
+  .seo-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-page {
+    padding-top: 44px;
+  }
+
+  .seo-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-item summary {
+    padding: 16px 18px;
+    font-size: 0.98rem;
+  }
+
+  .faq-item > p {
+    padding: 0 18px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item summary::after {
+    transition: none;
   }
 }

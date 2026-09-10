@@ -1,44 +1,63 @@
 # Organizr
 
-> Organizr is a personal desktop planner for macOS and Windows. All data stays locally on the user's device — no cloud, no mandatory subscription.
+> Organizr is an all-in-one personal planner and habit tracker for iPhone, Android, Mac and Windows. Habits, workouts, nutrition, body measurements, goals, finances and personal projects live in one hub, synced across devices with end-to-end encryption and analyzed by a built-in AI.
 
 ## What is Organizr
 
-Organizr brings together in a single desktop app: personal kanban board, habit tracker, workout tracker, nutrition diary, body measurement tracking, goal management, subscription tracker, wardrobe organizer, reading library and file manager. It is designed for people who want a complete personal hub without using dozens of separate apps.
+Organizr replaces the handful of separate apps most people use to run their personal life. In a single app you get a kanban board, a habit tracker, a workout log, a food diary, body measurement tracking, goal management, a wallet with accounts and investments, a subscription tracker, a recipe collection, a wardrobe organizer, a reading library and a file organizer. Every section shares data with the others, so a workout logged on the phone shows up in the tracker, the dashboards and the AI analysis.
 
 ## Platforms
 
-- macOS (Apple Silicon and Intel)
+- iPhone (iOS) — [App Store](https://apps.apple.com/app/organizr/id6790398372)
+- Android
+- macOS (Apple Silicon and Intel), macOS 12 or later
 - Windows 10 / 11
-
-## Versions and pricing
-
-- **Organizr Lite** — free, core features
-- **Organizr Pro** — €7.49/year (72% off standard price)
-- **Organizr Lifetime** — €24.49 one-time payment
+- Apple Watch — log workouts, spending and habits from the wrist
 
 ## Key features
 
-- **Board (Kanban)** — task and personal project management with customizable columns
-- **Tracker** — daily habit tracker with streaks and statistics
-- **Workout** — workout log with sets, reps, weight; Hevy integration
-- **Nutrition** — nutrition diary with macros; FatSecret integration
-- **Measurements** — body weight, BMI and measurements tracking over time
-- **Goals** — goal setting and tracking with milestones
-- **Subscriptions** — manage and calculate active subscription costs
-- **Wardrobe** — clothing item organization
-- **Reading** — personal library with reading status and notes
-- **Files** — file manager integrated in the hub
+- **Tracker** — daily habit tracker with streaks, statistics and a unified dashboard
+- **Board** — personal kanban for tasks and projects with customizable columns
+- **Workout** — training log with sets, reps and load progression; compares each session to the previous one; Hevy integration
+- **Nutrition** — food diary with calories and macronutrients; FatSecret integration
+- **Recipes** — personal recipe collection, usable for meal planning and readable by Organizr AI
+- **Measurements** — body weight, BMI and measurement tracking over time
+- **Goals** — goal setting on 3-month cycles or a full year, with milestone tracking
+- **Wallet** — accounts, transactions and investments with spending dashboards
+- **Subscriptions** — subscription and renewal tracking, including shared subscriptions
+- **Wardrobe** — clothing you own, want or plan to sell (desktop only)
+- **Reading** — personal library with reading status, summaries and notes
+- **Files** — see where your files live across machines and when backups need updating (desktop only)
+- **Organizr AI** — reads the data you already track and turns it into workout plans, recipe analysis and insights on habits, nutrition and spending
+- **Sync** — end-to-end encrypted sync across iPhone, Android, Mac and Windows
+- **Time Analyzr** — time and progress analysis across sections
+
+## Integrations
+
+- **Hevy** — import workouts
+- **FatSecret** — import meals and nutritional values ([setup guide](https://organizr.it/fatsecret-sync-tutorial/))
+
+## Plans and pricing
+
+- **Organizr Lite** — free. 1 unlimited board, up to 6 subscriptions, 3 workout routines, 6 recipes, wallet with 1 account, full tracker, food diary, Apple Watch workouts, 50 Organizr AI credits per month. No advanced dashboards, no device sync, no Time Analyzr.
+- **Organizr Pro, monthly** — €3.49/month
+- **Organizr Pro, annual** — €17.99/year (from €24.99). Everything with no limits, advanced dashboards, device sync, Time Analyzr, wardrobe and file organization on desktop, 300 Organizr AI credits per month.
+- **Organizr Lifetime** — €49.99 one-time (from €89.99). All Pro features forever, no renewals, 300 Organizr AI credits per month for 24 months.
+
+Prices are also shown in USD on the site. No account is required to use Organizr Lite.
 
 ## Privacy and data
 
-All data is saved locally on the user's device. Organizr requires no account, sends no data to remote servers and has no access to the user's personal data.
+Your data lives on your devices. Sync is optional and end-to-end encrypted: only the last 90 days are held on the server, encrypted, purely to keep devices aligned. Organizr has no access to the content of your data.
 
 ## Useful links
 
-- [Homepage](https://organizr.it/)
-- [Download](https://organizr.it/download/)
-- [Support](https://organizr.it/support/)
+- [Homepage](https://organizr.it/) — [Italian](https://organizr.it/it/)
+- [Pricing](https://organizr.it/pricing/) — [Italian](https://organizr.it/it/pricing/)
+- [Download](https://organizr.it/download/) — [Italian](https://organizr.it/it/download/)
+- [Workout tracker](https://organizr.it/workout/) — [Italian](https://organizr.it/it/workout/)
+- [FatSecret sync guide](https://organizr.it/fatsecret-sync-tutorial/) — [Italian](https://organizr.it/it/fatsecret-sync-tutorial/)
+- [Support](https://organizr.it/support/) — [Italian](https://organizr.it/it/support/)
 - [Privacy Policy](https://organizr.it/privacy-policy/)
 - [Cookie Policy](https://organizr.it/cookie-policy/)
 - [Terms & Conditions](https://organizr.it/terms-conditions/)
