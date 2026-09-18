@@ -57,6 +57,7 @@ Your data lives on your devices. Sync is optional and end-to-end encrypted: only
 - [Download](https://organizr.it/download/) — [Italian](https://organizr.it/it/download/)
 - [Workout tracker](https://organizr.it/workout/) — [Italian](https://organizr.it/it/workout/)
 - [FatSecret sync guide](https://organizr.it/fatsecret-sync-tutorial/) — [Italian](https://organizr.it/it/fatsecret-sync-tutorial/)
+- [Blog](https://organizr.it/blog/) — [Italian](https://organizr.it/it/blog/) — articles on training, habits, nutrition and routines
 - [Support](https://organizr.it/support/) — [Italian](https://organizr.it/it/support/)
 - [Privacy Policy](https://organizr.it/privacy-policy/)
 - [Cookie Policy](https://organizr.it/cookie-policy/)

@@ -162,6 +162,26 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog -->
+  <url>
+    <loc>https://organizr.it/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/"/>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/"/>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Support -->
   <url>
     <loc>https://organizr.it/support/</loc>
