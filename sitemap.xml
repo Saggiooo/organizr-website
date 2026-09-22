@@ -88,7 +88,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/habit-tracker/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/habit-tracker/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/habit-tracker/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -97,7 +97,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/habit-tracker/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/habit-tracker/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/habit-tracker/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -108,7 +108,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/nutrition/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/alimentazione/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/nutrition/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -117,7 +117,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/nutrition/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/alimentazione/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/nutrition/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,7 +128,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/wallet/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/portafoglio/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/wallet/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -137,7 +137,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/wallet/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/portafoglio/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/wallet/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -148,7 +148,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/workout/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/workout/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/workout/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -157,7 +157,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/workout/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/workout/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/workout/"/>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -168,7 +168,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/"/>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -177,9 +177,317 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/"/>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Blog articles -->
+  <url>
+    <loc>https://organizr.it/blog/90-day-goals-beat-resolutions/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/90-day-goals-beat-resolutions/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/obiettivi-90-giorni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/90-day-goals-beat-resolutions/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/obiettivi-90-giorni/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/90-day-goals-beat-resolutions/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/obiettivi-90-giorni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/90-day-goals-beat-resolutions/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/cardio-and-weights-same-week/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/cardio-and-weights-same-week/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/cardio-e-pesi-nella-stessa-settimana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/cardio-and-weights-same-week/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/cardio-e-pesi-nella-stessa-settimana/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/cardio-and-weights-same-week/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/cardio-e-pesi-nella-stessa-settimana/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/cardio-and-weights-same-week/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/deload-weeks/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/deload-weeks/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/settimane-di-scarico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/deload-weeks/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/settimane-di-scarico/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/deload-weeks/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/settimane-di-scarico/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/deload-weeks/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/gym-habit-that-lasts/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/gym-habit-that-lasts/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/abitudine-palestra-che-dura/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/gym-habit-that-lasts/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/abitudine-palestra-che-dura/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/gym-habit-that-lasts/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/abitudine-palestra-che-dura/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/gym-habit-that-lasts/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/habit-stacking/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/habit-stacking/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/habit-stacking-abitudini-a-catena/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/habit-stacking/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/habit-stacking-abitudini-a-catena/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/habit-stacking/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/habit-stacking-abitudini-a-catena/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/habit-stacking/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/home-gym-vs-gym/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/home-gym-vs-gym/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/allenarsi-a-casa-o-in-palestra/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/home-gym-vs-gym/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/allenarsi-a-casa-o-in-palestra/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/home-gym-vs-gym/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/allenarsi-a-casa-o-in-palestra/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/home-gym-vs-gym/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/how-many-rest-days/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/how-many-rest-days/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/quanti-giorni-di-riposo-servono/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/how-many-rest-days/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/quanti-giorni-di-riposo-servono/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/how-many-rest-days/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/quanti-giorni-di-riposo-servono/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/how-many-rest-days/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/how-to-track-a-workout/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/how-to-track-a-workout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/come-tracciare-un-allenamento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/how-to-track-a-workout/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/come-tracciare-un-allenamento/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/how-to-track-a-workout/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/come-tracciare-un-allenamento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/how-to-track-a-workout/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/morning-routine-myth/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/morning-routine-myth/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/il-mito-della-morning-routine/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/morning-routine-myth/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/il-mito-della-morning-routine/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/morning-routine-myth/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/il-mito-della-morning-routine/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/morning-routine-myth/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/motivation-vs-systems/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/motivation-vs-systems/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/motivazione-contro-sistemi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/motivation-vs-systems/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/motivazione-contro-sistemi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/motivation-vs-systems/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/motivazione-contro-sistemi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/motivation-vs-systems/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/progressive-overload-explained/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/progressive-overload-explained/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/sovraccarico-progressivo-spiegato/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/progressive-overload-explained/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/sovraccarico-progressivo-spiegato/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/progressive-overload-explained/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/sovraccarico-progressivo-spiegato/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/progressive-overload-explained/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/push-pull-legs-vs-full-body/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/push-pull-legs-vs-full-body/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/push-pull-legs-o-full-body/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/push-pull-legs-vs-full-body/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/push-pull-legs-o-full-body/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/push-pull-legs-vs-full-body/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/push-pull-legs-o-full-body/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/push-pull-legs-vs-full-body/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/scale-weight-lies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/scale-weight-lies/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/la-bilancia-mente/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/scale-weight-lies/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/la-bilancia-mente/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/scale-weight-lies/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/la-bilancia-mente/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/scale-weight-lies/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/sleep-is-a-training-variable/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/sleep-is-a-training-variable/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/il-sonno-e-una-variabile-di-allenamento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/sleep-is-a-training-variable/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/il-sonno-e-una-variabile-di-allenamento/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/sleep-is-a-training-variable/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/il-sonno-e-una-variabile-di-allenamento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/sleep-is-a-training-variable/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/two-day-rule-streaks/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/two-day-rule-streaks/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/regola-dei-due-giorni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/two-day-rule-streaks/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/regola-dei-due-giorni/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/two-day-rule-streaks/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/regola-dei-due-giorni/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/two-day-rule-streaks/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/what-a-year-of-training-costs/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/what-a-year-of-training-costs/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/quanto-costa-un-anno-di-allenamento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/what-a-year-of-training-costs/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/quanto-costa-un-anno-di-allenamento/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/what-a-year-of-training-costs/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/quanto-costa-un-anno-di-allenamento/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/what-a-year-of-training-costs/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/blog/zone-2-steps-neat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/zone-2-steps-neat/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/zona-2-passi-e-neat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/zone-2-steps-neat/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://organizr.it/it/blog/zona-2-passi-e-neat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/blog/zone-2-steps-neat/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/blog/zona-2-passi-e-neat/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/blog/zone-2-steps-neat/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Support -->

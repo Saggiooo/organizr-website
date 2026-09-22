@@ -34,10 +34,38 @@ Organizr unisce in un'unica app desktop le funzioni di: kanban personale, habit 
 
 Tutti i dati sono salvati localmente sul dispositivo dell'utente. Organizr non richiede account, non invia dati a server remoti e non ha accesso ai dati personali dell'utente.
 
+## Articoli del blog
+
+### Abitudini
+
+- [Come costruire l’abitudine della palestra che sopravvive alla terza settimana](https://organizr.it/it/blog/abitudine-palestra-che-dura/) — La prima settimana è facile, alla terza l’abitudine della palestra muore. Cosa cambiare in piano, orari e tracciamento perché duri oltre la motivazione.
+- [Habit stacking: attaccare l’abitudine nuova a una che hai già](https://organizr.it/it/blog/habit-stacking-abitudini-a-catena/) — Le abitudini nuove falliscono perché non hanno un innesco. Agganciale a qualcosa di già automatico, come il caffè o il tragitto, e l’innesco è gratis.
+- [Il mito della morning routine: tre abitudini che cambiano davvero qualcosa](https://organizr.it/it/blog/il-mito-della-morning-routine/) — Docce ghiacciate e sveglia alle 5 sono contenuti, non risultati. Tre abitudini mattutine che aiutano davvero e come tenerle nelle settimane storte.
+- [Il sonno è una variabile di allenamento, non un premio](https://organizr.it/it/blog/il-sonno-e-una-variabile-di-allenamento/) — Forza, fame e costanza seguono il sonno. Cosa fa una settimana di poche ore a un blocco di allenamento e le poche abitudini che ne sistemano la maggior parte.
+- [La motivazione finisce. I sistemi no.](https://organizr.it/it/blog/motivazione-contro-sistemi/) — La motivazione è un umore, e gli umori sono una base fragile. Come sostituirla con default, attrito e uno storico da guardare quando non hai voglia.
+- [Gli obiettivi a 90 giorni battono i buoni propositi di gennaio](https://organizr.it/it/blog/obiettivi-90-giorni/) — Un anno è troppo lungo per restare responsabili, una settimana troppo corta per cambiare qualcosa. Perché il trimestre è l’unità che regge allenamento e vita.
+- [Quanto costa davvero un anno di allenamento](https://organizr.it/it/blog/quanto-costa-un-anno-di-allenamento/) — Abbonamento, integratori, attrezzatura, il coach usato per due mesi e gli abbonamenti dimenticati. Un anno intero messo in conto e dove di solito si spreca.
+- [Perché le streak si rompono e la regola dei due giorni che le salva](https://organizr.it/it/blog/regola-dei-due-giorni/) — Un giorno saltato non costa niente. Due di fila è il modo in cui muoiono le abitudini. La regola che rende recuperabile una streak rotta.
+
+### Allenamento
+
+- [Allenarsi a casa o in palestra: confronto onesto](https://organizr.it/it/blog/allenarsi-a-casa-o-in-palestra/) — Quanto costa davvero attrezzarsi a casa, cosa riesce e cosa non riesce a sostituire, e gli obiettivi per cui vale ancora la pena uscire di casa.
+- [Cardio e pesi nella stessa settimana senza perdere forza](https://organizr.it/it/blog/cardio-e-pesi-nella-stessa-settimana/) — L’effetto interferenza esiste ma è più piccolo di quanto si dica. Come ordinare le sedute, distanziarle e scegliere il cardio che costa meno.
+- [Come tracciare un allenamento perché i dati servano tra sei mesi](https://organizr.it/it/blog/come-tracciare-un-allenamento/) — Serie e ripetizioni non bastano. I campi che vale la pena segnare, quelli inutili e come tenere il diario abbastanza veloce da non mollarlo.
+- [La bilancia mente: le misure che dicono la verità](https://organizr.it/it/blog/la-bilancia-mente/) — Il peso giornaliero oscilla di due chili solo per l’acqua. Girovita, foto, carichi e medie settimanali sono quello che mostra davvero se il piano funziona.
+- [Push pull legs o full body: quale scheda regge la tua settimana](https://organizr.it/it/blog/push-pull-legs-o-full-body/) — La scheda migliore è quella che ripeti anche in una settimana storta. Come scegliere tra full body, upper lower e push pull legs partendo dai giorni.
+- [Quanti giorni di riposo servono davvero](https://organizr.it/it/blog/quanti-giorni-di-riposo-servono/) — Il recupero non è uguale per un principiante, per chi è a dieta e per chi dorme cinque ore. I segnali che dicono riposo e quelli che dicono pigrizia.
+- [Settimane di scarico: fermarsi apposta prima che ti fermi il corpo](https://organizr.it/it/blog/settimane-di-scarico/) — Carichi fermi, articolazioni doloranti e voglia a zero sono segnali tardivi. Come programmare uno scarico, cosa tagliare e come rientrare più forte.
+- [Il sovraccarico progressivo spiegato senza fogli di calcolo](https://organizr.it/it/blog/sovraccarico-progressivo-spiegato/) — Aggiungere peso è solo uno dei cinque modi di sovraccaricare un esercizio. Come progredire su ripetizioni, serie, tempo e ampiezza di movimento.
+- [Zona 2, passi e NEAT: il cardio noioso che funziona](https://organizr.it/it/blog/zona-2-passi-e-neat/) — Quasi tutto il cardio che cambia il corpo è lento, noioso e non contato. Cosa si sente davvero in zona 2 e perché un obiettivo di passi batte l’ennesimo HIIT.
+
 ## Link utili
 
 - [Homepage](https://organizr.it/it/)
 - [Download](https://organizr.it/it/download/)
+- [Prezzi](https://organizr.it/it/pricing/)
+- [Blog](https://organizr.it/it/blog/) — articoli su allenamento, abitudini e routine
+- [Assistenza](https://organizr.it/it/support/)
 - [Privacy Policy](https://organizr.it/it/privacy-policy/)
 - [Cookie Policy](https://organizr.it/it/cookie-policy/)
 - [Termini e Condizioni](https://organizr.it/it/termini-condizioni/)
