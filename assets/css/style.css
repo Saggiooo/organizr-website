@@ -7243,6 +7243,17 @@ textarea.support-control {
   line-height: 1.02;
 }
 
+.blog-hub-heading {
+  margin-bottom: 48px;
+}
+
+.blog-hub-heading h1 {
+  max-width: 18ch;
+  font-size: clamp(2.3rem, 4.6vw, 4rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
 .blog-card {
   position: relative;
 }
