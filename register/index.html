@@ -329,6 +329,17 @@
 
                     <form id="register-form" novalidate>
                         <div class="field">
+                            <label class="field__label" for="age-band">Fascia d’età</label>
+                            <select class="field__input" id="age-band" name="age-band" required aria-describedby="age-help">
+                                <option value="">Seleziona la tua fascia d’età</option>
+                                <option value="under16">Meno di 16 anni</option>
+                                <option value="16to17">16–17 anni</option>
+                                <option value="adult">18 anni o più</option>
+                            </select>
+                            <p id="age-help">Account e Sync dai 16 anni. Organizr AI e pubblicazione di contenuti dai 18 anni. Non chiediamo la data di nascita.</p>
+                            <p id="age-restricted" class="is-hidden" role="status">Sotto i 16 anni puoi usare l’app soltanto offline, senza creare un account. <a href="/it/download/">Scarica l’app</a>. Se hai già acquistato un piano, <a href="/it/support/">contatta il supporto</a>.</p>
+                        </div>
+                        <div class="field">
                             <label class="field__label" for="name">Nome</label>
                             <div class="field__wrap">
                                 <input class="field__input" type="text" id="name" name="name" autocomplete="name" placeholder="Il tuo nome">
@@ -364,7 +375,8 @@
                             <p class="field__error" id="confirm-error">Le password non coincidono.</p>
                         </div>
 
-                        <button type="submit" class="btn-auth" id="submit-btn">
+                        <p>Continuando accetti i <a href="/it/termini-condizioni/">Termini</a> e dichiari di aver letto la <a href="/it/privacy-policy/">Privacy Policy</a>.</p>
+                        <button type="submit" class="btn-auth" id="submit-btn" disabled>
                             <span id="submit-label">Crea account</span>
                         </button>
                     </form>
@@ -398,6 +410,8 @@
                 TOKEN_NOT_FOUND: 'Link non valido o già usato.',
                 TOKEN_EXPIRED: 'Link scaduto. Contatta il supporto o richiedi un nuovo link.',
                 VALIDATION_ERROR: 'Controlla i campi inseriti.',
+                AGE_DECLARATION_REQUIRED: 'Seleziona la tua fascia d’età.',
+                ACCOUNT_AGE_RESTRICTED: 'Per creare un account devi avere almeno 16 anni. Puoi usare l’app offline.',
                 INTERNAL_ERROR: 'Errore temporaneo. Riprova più tardi.'
             };
 
@@ -408,6 +422,8 @@
                 form: document.getElementById('state-form'),
                 success: document.getElementById('state-success'),
                 name: document.getElementById('name'),
+                age: document.getElementById('age-band'),
+                ageRestricted: document.getElementById('age-restricted'),
                 nameError: document.getElementById('name-error'),
                 pwd: document.getElementById('password'),
                 confirm: document.getElementById('confirm'),
@@ -427,6 +443,14 @@
                 return;
             }
             show(el.form);
+
+            var submitting = false;
+            function ageAllowed() { return el.age.value === '16to17' || el.age.value === 'adult'; }
+            el.age.addEventListener('change', function () {
+                el.submitBtn.disabled = submitting || !ageAllowed();
+                el.ageRestricted.classList.toggle('is-hidden', el.age.value !== 'under16');
+                hideAlert();
+            });
 
             var rules = {
                 length: function (v) { return v.length >= 8 && v.length <= 128; },
@@ -494,7 +518,8 @@
             });
 
             function setLoading(loading) {
-                el.submitBtn.disabled = loading;
+                submitting = loading;
+                el.submitBtn.disabled = loading || !ageAllowed();
                 el.submitLabel.textContent = loading ? 'Creazione in corso...' : 'Crea account';
             }
 
@@ -502,6 +527,12 @@
                 e.preventDefault();
                 hideAlert();
 
+                if (submitting) return;
+                if (!ageAllowed()) {
+                    showAlert(el.age.value === 'under16' ? ERROR_MESSAGES.ACCOUNT_AGE_RESTRICTED : ERROR_MESSAGES.AGE_DECLARATION_REQUIRED);
+                    el.age.focus();
+                    return;
+                }
                 var name = el.name.value.trim();
                 if (!name) {
                     el.nameError.classList.add('is-visible');
@@ -528,7 +559,7 @@
                 fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ token: token, name: name, password: el.pwd.value })
+                    body: JSON.stringify({ token: token, name: name, password: el.pwd.value, ageDeclaration: { band: el.age.value, source: 'self_declared' } })
                 })
                     .then(function (res) {
                         return res.json().catch(function () { return {}; }).then(function (data) {
