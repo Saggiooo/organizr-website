@@ -20,8 +20,8 @@
   const platformDownload = document.querySelector("[data-platform-download]");
   const continueButton = document.querySelector("[data-continue-plan]");
   const downloadFiles = {
-    mac: "/assets/downloads/Organizr_0.3.5_aarch64.dmg",
-    windows: "/assets/downloads/Organizr_0.3.5_x64-setup.exe",
+    mac: "/assets/downloads/Organizr_0.3.7_aarch64.dmg",
+    windows: "/assets/downloads/Organizr_0.3.7_x64-setup.exe",
   };
   const appStoreUrl = "https://apps.apple.com/it/app/organizr/id6790398372";
   const downloadCards = [...document.querySelectorAll("[data-download-card]")];
