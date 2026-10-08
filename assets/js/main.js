@@ -64,7 +64,7 @@
   };
 
   const appDescriptions = {
-    Sync: "Sincronizza i tuoi dati tra iPhone, Android, Mac e Windows con crittografia end-to-end. Sul server restano solo gli ultimi 90 giorni, cifrati, per tenere i dispositivi allineati.",
+    Sync: "La Sync conserva sul server diario, allenamenti eseguiti, pasti e blocchi Time Analyzr cifrati per 90 giorni dalla data dell’evento. Gli obiettivi scadono 90 giorni dopo la fine del trimestre. Fanno eccezione lo storico completo del Portafoglio, Bacheca, abbonamenti, misurazioni, ricette, schede e configurazioni, senza scadenza automatica. Scade solo la copia sul server: i dati restano sui dispositivi. L’elenco completo è nella Privacy Policy.",
     "Organizr AI": "L'IA di Organizr legge i tuoi dati, trova pattern, crea schede workout, prepara ricette e ti aiuta a capire meglio abitudini, spese e progressi.",
     Ricette: "Crea, salva e organizza ricette personali. Puoi usarle per pianificare i pasti e farle generare o analizzare da Organizr AI.",
     Bacheca: "Trasferisci idee, task e cose sparse dalla tua testa in una bacheca kanban semplice e visiva. Organizza tutto senza perdere il filo.",
@@ -735,7 +735,6 @@
       if (cta) {
         cta.textContent = getLocaleValue(plan.cta);
         cta.href = plan.checkoutUrl;
-        cta.dataset.umamiEvent = `cta-plan-pro-${key}`;
       }
       if (oldPrice) {
         const oldPriceValue = getCurrencyValue(plan.oldPrice, currency);

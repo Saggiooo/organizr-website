@@ -49,10 +49,9 @@
     <link rel="alternate" hreflang="en" href="https://organizr.it/" />
     <link rel="alternate" hreflang="it" href="https://organizr.it/it/" />
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/" />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="36a40752-20ea-4be7-a942-502d1f4434ef"></script>
-    <script src="assets/js/cookie-consent.min.js?v=56dd973e2a" defer></script>
+    <script src="assets/js/cookie-consent.min.js?v=bd54df2683" defer></script>
     <link rel="stylesheet" href="assets/css/style.min.css?v=f88ca355c5" />
-    <script src="assets/js/main.min.js?v=ffc34a4b8a" defer></script>
+    <script src="assets/js/main.min.js?v=6a82c10e2e" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -181,7 +180,7 @@
             {
               "@type": "Question",
               "name": "Where is my data stored?",
-              "acceptedAnswer": { "@type": "Answer", "text": "On your devices. Sync is optional and end-to-end encrypted: only the last 90 days are held on the server, encrypted, purely to keep your devices aligned. Organizr has no access to the content of your data." }
+              "acceptedAnswer": { "@type": "Answer", "text": "Sync keeps diary entries, completed workouts, meals and Time Analyzr blocks encrypted on the server for 90 days from the event date. Goals expire 90 days after their quarter ends. Complete Wallet history, Board, subscriptions, measurements, recipes, routines and settings are exceptions with no automatic expiry. Expiry removes only the server copy; data stays on your devices. See the Privacy Policy for the full list." }
             },
             {
               "@type": "Question",
@@ -255,7 +254,7 @@
             </p>
 
             <div class="cta-row" id="download">
-              <a class="btn btn-primary" href="download/" data-platform-download data-umami-event="cta-hero-download">
+              <a class="btn btn-primary" href="download/" data-platform-download>
                 <span class="platform-mark apple-mark" data-platform-icon="mac" aria-hidden="true">
                   <svg viewBox="0 0 24 24" focusable="false">
                     <path
@@ -735,7 +734,7 @@
                   <div class="plan-prices">
                     <strong class="plan-price plan-price-free">FREE</strong>
                   </div>
-                  <a class="plan-cta" href="download/" data-umami-event="cta-plan-free">Download free</a>
+                  <a class="plan-cta" href="download/">Download free</a>
                 </div>
 
                 <div class="plan-body">
@@ -784,7 +783,7 @@
                     <span class="plan-cycle" data-billing-cycle>/year</span>
                     <span class="plan-old-price" data-billing-old-price>€24.99</span>
                   </div>
-                  <a class="plan-cta plan-cta-primary" href="https://buy.stripe.com/bJe9ASfEK7C3e1K29X7wA07" data-billing-cta data-umami-event="cta-plan-pro-annual">Choose Annual</a>
+                  <a class="plan-cta plan-cta-primary" href="https://buy.stripe.com/bJe9ASfEK7C3e1K29X7wA07" data-billing-cta>Choose Annual</a>
                 </div>
 
                 <div class="plan-body">
@@ -825,7 +824,7 @@
                     <strong class="plan-price" data-price-eur="49,99€" data-price-usd="$54.99">49,99€</strong>
                     <span class="plan-old-price" data-old-price-eur="89,99€" data-old-price-usd="$98.99">89,99€</span>
                   </div>
-                  <a class="plan-cta" href="https://buy.stripe.com/9B6eVcgIO8G75ve7uh7wA05" data-umami-event="cta-plan-lifetime">Choose Lifetime</a>
+                  <a class="plan-cta" href="https://buy.stripe.com/9B6eVcgIO8G75ve7uh7wA05">Choose Lifetime</a>
                 </div>
 
                 <div class="plan-body">
@@ -951,7 +950,7 @@
                 <img src="/assets/img/icon-sync.svg" alt="" width="23" height="23" loading="lazy" decoding="async" />
               </span>
               <h3>Encrypted sync</h3>
-              <p>Start something on the phone, finish it on the Mac. Sync is end-to-end encrypted across iPhone, Android, Mac and Windows, and only the last 90 days stay on the server &mdash; encrypted &mdash; purely to keep devices aligned.</p>
+              <p>Sync keeps diary entries, completed workouts, meals and Time Analyzr blocks encrypted on the server for 90 days from the event date. Goals expire 90 days after their quarter ends. Complete Wallet history, Board, subscriptions, measurements, recipes, routines and settings are exceptions with no automatic expiry. Expiry removes only the server copy; data stays on your devices. See the Privacy Policy for the full list.</p>
             </article>
           </div>
         </section>
@@ -972,7 +971,7 @@
             </details>
             <details class="faq-item">
               <summary>Where is my data stored?</summary>
-              <p>On your devices. Sync is optional and end-to-end encrypted: only the last 90 days are held on the server, encrypted, purely to keep your devices aligned. Organizr has no access to the content of your data.</p>
+              <p>Sync keeps diary entries, completed workouts, meals and Time Analyzr blocks encrypted on the server for 90 days from the event date. Goals expire 90 days after their quarter ends. Complete Wallet history, Board, subscriptions, measurements, recipes, routines and settings are exceptions with no automatic expiry. Expiry removes only the server copy; data stays on your devices. See the Privacy Policy for the full list.</p>
             </details>
             <details class="faq-item">
               <summary>Which devices does Organizr run on?</summary>
@@ -1004,6 +1003,7 @@
         </div>
 
         <nav class="footer-links" aria-label="Legal links">
+          <a href="https://billing.stripe.com/p/login/dRm00i3W28G77Dm29X7wA01" target="_blank" rel="noopener noreferrer">Manage subscription</a>
           <a href="/blog/">Blog</a>
           <a href="support/">Support</a>
           <a href="privacy-policy/">Privacy Policy</a>

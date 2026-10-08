@@ -48,7 +48,7 @@ Prices are also shown in USD on the site. No account is required to use Organizr
 
 ## Privacy and data
 
-Your data lives on your devices. Sync is optional and end-to-end encrypted: only the last 90 days are held on the server, encrypted, purely to keep devices aligned. Organizr has no access to the content of your data.
+Sync keeps diary entries, completed workouts, meals and Time Analyzr blocks encrypted on the server for 90 days from the event date. Goals expire 90 days after their quarter ends. Complete Wallet history, Board, subscriptions, measurements, recipes, routines and settings are exceptions with no automatic expiry. Expiry removes only the server copy; data stays on your devices. See the Privacy Policy for the full list.
 
 ## Blog articles
 

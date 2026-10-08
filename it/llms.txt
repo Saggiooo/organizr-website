@@ -69,3 +69,11 @@ Tutti i dati sono salvati localmente sul dispositivo dell'utente. Organizr non r
 - [Privacy Policy](https://organizr.it/it/privacy-policy/)
 - [Cookie Policy](https://organizr.it/it/cookie-policy/)
 - [Termini e Condizioni](https://organizr.it/it/termini-condizioni/)
+
+## Conservazione Sync
+
+Diario Tracker, allenamenti eseguiti, pasti e blocchi Time Analyzr restano sul server per 90 giorni dalla data dell’evento. Gli obiettivi scadono 90 giorni dopo la fine del trimestre.
+
+Portafoglio completo, Bacheca, Abbonamenti, Misurazioni, Ricette, Libreria letture, Guardaroba, alimenti salvati, piano alimentare, schede Workout, esercizi personalizzati e configurazioni non hanno una scadenza automatica sul server.
+
+La scadenza rimuove solo la copia sul server: i dati restano sui dispositivi. Per trasferire lo storico scaduto su un nuovo dispositivo, usa un backup completo.
