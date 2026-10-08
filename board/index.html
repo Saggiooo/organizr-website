@@ -36,16 +36,15 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="apple-touch-icon" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" />
+    <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" as="image" href="/assets/img/iphone/board.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="/assets/css/site.min.css?v=1fbd988054" />
+    <link rel="stylesheet" href="/assets/css/site.min.css?v=669f42a4d9" />
     <link rel="stylesheet" href="/assets/css/pages.min.css?v=0dae22c6ba" />
-    <link rel="stylesheet" href="/assets/css/home.min.css?v=f120e0f0d4" />
-    <script src="/assets/js/cookie-consent.min.js?v=55b349f2c1" defer></script>
-    <script src="/assets/js/site.min.js?v=2bf5af4402" defer></script>
-    <script src="/assets/js/home.min.js?v=215fa636ec" defer></script>
+    <link rel="stylesheet" href="/assets/css/home.min.css?v=6aabbb3885" />
+    <script src="/assets/js/cookie-consent.min.js?v=679c558434" defer></script>
+    <script src="/assets/js/site.min.js?v=8816b8b63c" defer></script>
+    <script src="/assets/js/home.min.js?v=00a62fe29e" defer></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -189,7 +188,7 @@
   <div class="grain" aria-hidden="true"></div>
   <canvas id="stars" aria-hidden="true"></canvas>
 
-  <a href="/#prezzi" class="promo" aria-label="Up to 44% off: go to pricing">
+  <a href="/#prezzi" class="promo">
     <span class="promo__shine" aria-hidden="true"></span>
     <span class="promo__tag">−44%</span>
     <span class="promo__text"><b>Launch offer ·</b> Up to 44% off Premium and Lifetime</span>
@@ -310,7 +309,7 @@
             <span class="window__sync"><span class="dot"></span> Synced</span>
           </div>
           <div class="window__screen">
-            <video id="deskVideo" src="/assets/video/bacheca_web.mp4" poster="/assets/video/poster-bacheca.jpg" muted loop playsinline preload="none" aria-label="Board inside the Organizr desktop app"></video>
+            <video id="deskVideo" src="/assets/video/bacheca_web.mp4" poster="/assets/video/poster-bacheca-680.webp" muted loop playsinline preload="none" aria-label="Board inside the Organizr desktop app"><track kind="captions" src="/assets/video/no-audio.en.vtt" srclang="en" label="English"></video>
           </div>
         </div>
         <div class="desk__reflection" aria-hidden="true"></div>

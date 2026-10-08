@@ -36,15 +36,15 @@
     <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="apple-touch-icon" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" />
-    <link rel="preload" as="image" href="/assets/img/apps/organizr.webp" fetchpriority="high" />
-    <link rel="stylesheet" href="/assets/css/site.min.css?v=1fbd988054" />
-    <link rel="stylesheet" href="/assets/css/home.min.css?v=f120e0f0d4" />
-    <script src="/assets/js/cookie-consent.min.js?v=55b349f2c1" defer></script>
-    <script src="/assets/js/site.min.js?v=2bf5af4402" defer></script>
-    <script src="/assets/js/home.min.js?v=215fa636ec" defer></script>
+    <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" as="image" href="/assets/img/apps/organizr-256.webp" imagesrcset="/assets/img/apps/organizr-256.webp 256w, /assets/img/apps/organizr.webp 384w" imagesizes="(max-width: 700px) 34vw, 236px" fetchpriority="high" />
+    <link rel="stylesheet" href="/assets/css/site.min.css?v=669f42a4d9" />
+    <link rel="stylesheet" href="/assets/css/home.min.css?v=6aabbb3885" />
+    <script src="/assets/js/cookie-consent.min.js?v=679c558434" defer></script>
+    <script src="/assets/js/site.min.js?v=8816b8b63c" defer></script>
+    <script src="/assets/js/home.min.js?v=00a62fe29e" defer></script>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -248,7 +248,7 @@
   <div class="grain" aria-hidden="true"></div>
   <canvas id="stars" aria-hidden="true"></canvas>
 
-  <a href="/it/#prezzi" class="promo" aria-label="Sconti fino al 44%: vai ai prezzi">
+  <a href="/it/#prezzi" class="promo">
     <span class="promo__shine" aria-hidden="true"></span>
     <span class="promo__tag">−44%</span>
     <span class="promo__text"><b>Offerta lancio ·</b> Sconti fino al 44% su Premium e Lifetime</span>
@@ -257,7 +257,7 @@
 
   <header class="nav" id="nav">
     <a href="/it/" class="nav__brand" aria-label="Organizr, home">
-      <img src="/assets/img/apps/organizr.webp" alt="" width="30" height="30">
+      <img src="/assets/img/apps/organizr-256.webp" alt="" width="30" height="30">
       <span>Organizr</span>
     </a>
     <nav class="nav__links" aria-label="Principale">
@@ -309,7 +309,7 @@
         </div>
 
         <div class="orbit-wrap reveal" style="--d:.1s">
-          <div class="orbit" id="orbit" role="img" aria-label="Organizr al centro, con Board, Wallet e Workout in orbita">
+          <div class="orbit" id="orbit" role="group" aria-label="Organizr al centro, con Board, Wallet e Workout in orbita">
             <div class="orbit__glow" aria-hidden="true"></div>
             <svg class="orbit__rings" viewBox="0 0 600 600" aria-hidden="true">
               <defs>
@@ -324,17 +324,17 @@
               <ellipse class="ring ring--c" cx="300" cy="300" rx="290" ry="250" transform="rotate(-4 300 300)"/>
             </svg>
             <div class="orbit__core">
-              <img src="/assets/img/apps/organizr.webp" alt="" width="384" height="384" fetchpriority="high">
+              <img src="/assets/img/apps/organizr-256.webp" srcset="/assets/img/apps/organizr-256.webp 256w, /assets/img/apps/organizr.webp 384w" sizes="(max-width: 700px) 34vw, 236px" alt="" width="384" height="384" fetchpriority="high">
               <span class="orbit__shine" aria-hidden="true"></span>
             </div>
-            <a href="#app-board" class="sat" data-ring="0" data-phase="200" data-speed="1" style="--c:#6E7BFF">
-              <img src="/assets/img/apps/board.webp" alt="" width="384" height="384"><span class="sat__label">Board</span>
+            <a href="#app-board" class="sat" aria-label="Board: vedi nell'ecosistema" data-ring="0" data-phase="200" data-speed="1" style="--c:#6E7BFF">
+              <img src="/assets/img/apps/board-192.webp" srcset="/assets/img/apps/board-192.webp 192w, /assets/img/apps/board.webp 384w" sizes="(max-width: 700px) 18vw, 122px" alt="" width="384" height="384"><span class="sat__label">Board</span>
             </a>
-            <a href="#app-wallet" class="sat" data-ring="1" data-phase="130" data-speed=".78" style="--c:#3FCF7E">
-              <img src="/assets/img/apps/wallet.webp" alt="" width="384" height="384"><span class="sat__label">Wallet</span>
+            <a href="#app-wallet" class="sat" aria-label="Wallet: vedi nell'ecosistema" data-ring="1" data-phase="130" data-speed=".78" style="--c:#3FCF7E">
+              <img src="/assets/img/apps/wallet-192.webp" srcset="/assets/img/apps/wallet-192.webp 192w, /assets/img/apps/wallet.webp 384w" sizes="(max-width: 700px) 18vw, 122px" alt="" width="384" height="384"><span class="sat__label">Wallet</span>
             </a>
-            <a href="#app-workout" class="sat" data-ring="0" data-phase="20" data-speed="1" style="--c:#3E9BFF">
-              <img src="/assets/img/apps/workout.webp" alt="" width="384" height="384"><span class="sat__label">Workout</span>
+            <a href="#app-workout" class="sat" aria-label="Workout: vedi nell'ecosistema" data-ring="0" data-phase="20" data-speed="1" style="--c:#3E9BFF">
+              <img src="/assets/img/apps/workout-192.webp" srcset="/assets/img/apps/workout-192.webp 192w, /assets/img/apps/workout.webp 384w" sizes="(max-width: 700px) 18vw, 122px" alt="" width="384" height="384"><span class="sat__label">Workout</span>
             </a>
             <span class="ic-calendar moon" data-ring="2" data-phase="0" data-speed=".42" style="--c:#AE8FFF"></span>
             <span class="ic-fork-knife moon" data-ring="2" data-phase="60" data-speed=".42" style="--c:#F2A65A"></span>
@@ -382,7 +382,7 @@
 
       <div class="eco__hub reveal">
         <div class="hub">
-          <img src="/assets/img/apps/organizr.webp" alt="" width="96" height="96" loading="lazy">
+          <img src="/assets/img/apps/organizr-256.webp" alt="" width="96" height="96" loading="lazy">
           <div>
             <h3>Organizr</h3>
             <p>La suite completa. 14 sezioni che condividono gli stessi dati, su iPhone, Android, Mac e Windows.</p>
@@ -402,7 +402,7 @@
       <div class="eco__grid">
         <article class="app-card tilt reveal" id="app-board" style="--c:#6E7BFF;--c2:#3D4BD8">
           <div class="app-card__top">
-            <img src="/assets/img/apps/board.webp" alt="" width="72" height="72" class="app-card__icon" loading="lazy">
+            <img src="/assets/img/apps/board-192.webp" alt="" width="72" height="72" class="app-card__icon" loading="lazy">
             <span class="tag">App iOS dedicata</span>
           </div>
           <h3>Board</h3>
@@ -413,11 +413,11 @@
             <li>Organizr AI integrata</li>
           </ul>
           <a class="app-card__link" href="/it/board/">Scopri Board <span aria-hidden="true">→</span></a>
-          <div class="app-card__phone"><img src="/assets/img/iphone/board.webp" alt="App Board su iPhone con la vista timeline" loading="lazy" decoding="async" width="708" height="1400"></div>
+          <div class="app-card__phone"><img src="/assets/img/iphone/board-360.webp" srcset="/assets/img/iphone/board-240.webp 240w, /assets/img/iphone/board-360.webp 360w, /assets/img/iphone/board.webp 708w" sizes="(max-width: 1080px) 46vw, 240px" alt="App Board su iPhone con la vista timeline" loading="lazy" decoding="async" width="708" height="1400"></div>
         </article>
         <article class="app-card tilt reveal" id="app-wallet" style="--c:#3FCF7E;--c2:#1E8F55;--d:0.08s">
           <div class="app-card__top">
-            <img src="/assets/img/apps/wallet.webp" alt="" width="72" height="72" class="app-card__icon" loading="lazy">
+            <img src="/assets/img/apps/wallet-192.webp" alt="" width="72" height="72" class="app-card__icon" loading="lazy">
             <span class="tag">App iOS + Watch</span>
           </div>
           <h3>Wallet</h3>
@@ -428,11 +428,11 @@
             <li>Entrate e spese dal polso</li>
           </ul>
           <a class="app-card__link" href="/it/portafoglio/">Scopri Wallet <span aria-hidden="true">→</span></a>
-          <div class="app-card__phone"><img src="/assets/img/iphone/wallet.webp" alt="App Wallet su iPhone con saldo e spese per categoria" loading="lazy" decoding="async" width="708" height="1400"></div>
+          <div class="app-card__phone"><img src="/assets/img/iphone/wallet-360.webp" srcset="/assets/img/iphone/wallet-240.webp 240w, /assets/img/iphone/wallet-360.webp 360w, /assets/img/iphone/wallet.webp 708w" sizes="(max-width: 1080px) 46vw, 240px" alt="App Wallet su iPhone con saldo e spese per categoria" loading="lazy" decoding="async" width="708" height="1400"></div>
         </article>
         <article class="app-card tilt reveal" id="app-workout" style="--c:#3E9BFF;--c2:#2563D9;--d:0.16s">
           <div class="app-card__top">
-            <img src="/assets/img/apps/workout.webp" alt="" width="72" height="72" class="app-card__icon" loading="lazy">
+            <img src="/assets/img/apps/workout-192.webp" alt="" width="72" height="72" class="app-card__icon" loading="lazy">
             <span class="tag">App iOS + Watch</span>
           </div>
           <h3>Workout</h3>
@@ -443,7 +443,7 @@
             <li>Allenamenti e recuperi da Apple Watch</li>
           </ul>
           <a class="app-card__link" href="/it/workout/">Scopri Workout <span aria-hidden="true">→</span></a>
-          <div class="app-card__phone"><img src="/assets/img/iphone/workout.webp" alt="App Workout su iPhone con la dashboard degli allenamenti" loading="lazy" decoding="async" width="708" height="1400"></div>
+          <div class="app-card__phone"><img src="/assets/img/iphone/workout-360.webp" srcset="/assets/img/iphone/workout-240.webp 240w, /assets/img/iphone/workout-360.webp 360w, /assets/img/iphone/workout.webp 708w" sizes="(max-width: 1080px) 46vw, 240px" alt="App Workout su iPhone con la dashboard degli allenamenti" loading="lazy" decoding="async" width="708" height="1400"></div>
         </article>
       </div>
 
@@ -462,39 +462,39 @@
 
       <div class="explorer">
         <ol class="explorer__list" role="tablist" aria-label="Sezioni di Organizr">
-          <li><button type="button" role="tab" class="ex-tab is-active" data-img="home" data-c="#8B5CF6" aria-selected="true">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab is-active" data-img="home" data-c="#8B5CF6" aria-selected="true">
             <span class="ex-tab__n">01</span><span class="ex-tab__t">Home</span>
             <span class="ex-tab__d">Apri l'app e vedi subito cosa conta oggi: streak, abitudini, saldo del mese e allenamento.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="tracker" data-c="#AE8FFF" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="tracker" data-c="#AE8FFF" aria-selected="false">
             <span class="ex-tab__n">02</span><span class="ex-tab__t">Tracker</span>
             <span class="ex-tab__d">Il cuore della suite. Abitudini, peso, pasti e allenamenti raccontano la stessa giornata.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="board" data-c="#6E7BFF" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="board" data-c="#6E7BFF" aria-selected="false">
             <span class="ex-tab__n">03</span><span class="ex-tab__t">Board</span>
             <span class="ex-tab__d">Una kanban personale con timeline, per i progetti che altrimenti resterebbero in testa.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="workout" data-c="#3E9BFF" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="workout" data-c="#3E9BFF" aria-selected="false">
             <span class="ex-tab__n">04</span><span class="ex-tab__t">Workout</span>
             <span class="ex-tab__d">Serie, ripetizioni e carichi. Ogni sessione confrontata con la precedente, storico importabile da Hevy.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="nutrition" data-c="#3FCF7E" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="nutrition" data-c="#3FCF7E" aria-selected="false">
             <span class="ex-tab__n">05</span><span class="ex-tab__t">Alimentazione</span>
             <span class="ex-tab__d">Diario, macro e planner. Collega FatSecret e i pasti arrivano già scomposti.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="recipe" data-c="#F07AA8" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="recipe" data-c="#F07AA8" aria-selected="false">
             <span class="ex-tab__n">06</span><span class="ex-tab__t">Ricette</span>
             <span class="ex-tab__d">Salva le tue ricette e lascia che l'AI stimi i valori nutrizionali o ne inventi di nuove.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="measurements" data-c="#5FD3C6" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="measurements" data-c="#5FD3C6" aria-selected="false">
             <span class="ex-tab__n">07</span><span class="ex-tab__t">Misure</span>
             <span class="ex-tab__d">Peso, BMI e circonferenze nel tempo, accanto ai dati che spiegano i cambiamenti.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="wallet" data-c="#3FCF7E" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="wallet" data-c="#3FCF7E" aria-selected="false">
             <span class="ex-tab__n">08</span><span class="ex-tab__t">Wallet</span>
             <span class="ex-tab__d">Conti, movimenti e investimenti. Nessun collegamento alla banca richiesto.</span>
             <span class="ex-tab__bar"></span></button></li>
-          <li><button type="button" role="tab" class="ex-tab" data-img="subscriptions" data-c="#FF8A65" aria-selected="false">
+          <li role="presentation"><button type="button" role="tab" class="ex-tab" data-img="subscriptions" data-c="#FF8A65" aria-selected="false">
             <span class="ex-tab__n">09</span><span class="ex-tab__t">Abbonamenti</span>
             <span class="ex-tab__d">Rinnovi, quote condivise e il vero totale mensile, prima che ti sorprenda.</span>
             <span class="ex-tab__bar"></span></button></li>
@@ -504,7 +504,7 @@
         <div class="explorer__stage">
           <div class="explorer__halo" aria-hidden="true"></div>
           <div class="phone-stack">
-            <img class="ex-phone is-on" src="/assets/img/iphone/home.webp" alt="Home di Organizr su iPhone" width="708" height="1400" loading="lazy" decoding="async">
+            <img class="ex-phone is-on" src="/assets/img/iphone/home-360.webp" srcset="/assets/img/iphone/home-360.webp 360w, /assets/img/iphone/home.webp 708w" sizes="(max-width: 471px) 70vw, 330px" alt="Home di Organizr su iPhone" width="708" height="1400" loading="lazy" decoding="async">
           </div>
           <div class="float-badge float-badge--a" aria-hidden="true"><b>11</b> giorni di streak 🔥</div>
           <div class="float-badge float-badge--b" aria-hidden="true"><span class="dot"></span> Sincronizzato</div>
@@ -664,7 +664,7 @@
             <span class="window__sync"><span class="dot"></span> Sincronizzato</span>
           </div>
           <div class="window__screen">
-            <video id="deskVideo" src="/assets/video/bacheca_web.mp4" poster="/assets/video/poster-bacheca.jpg" muted loop playsinline preload="none" aria-label="Anteprima dell'app desktop di Organizr"></video>
+            <video id="deskVideo" src="/assets/video/bacheca_web.mp4" poster="/assets/video/poster-bacheca-680.webp" muted loop playsinline preload="none" aria-label="Anteprima dell'app desktop di Organizr"><track kind="captions" src="/assets/video/no-audio.it.vtt" srclang="it" label="Italiano"></video>
           </div>
         </div>
         <div class="desk__reflection" aria-hidden="true"></div>
@@ -790,10 +790,10 @@
     <section class="final" id="download">
       <div class="final__orbit" aria-hidden="true">
         <span class="fo fo--1"></span><span class="fo fo--2"></span><span class="fo fo--3"></span>
-        <img class="fo__core" src="/assets/img/apps/organizr.webp" alt="" width="160" height="160" loading="lazy">
-        <img class="fo__sat fo__sat--1" src="/assets/img/apps/board.webp" alt="" width="64" height="64" loading="lazy">
-        <img class="fo__sat fo__sat--2" src="/assets/img/apps/wallet.webp" alt="" width="64" height="64" loading="lazy">
-        <img class="fo__sat fo__sat--3" src="/assets/img/apps/workout.webp" alt="" width="64" height="64" loading="lazy">
+        <img class="fo__core" src="/assets/img/apps/organizr-256.webp" alt="" width="160" height="160" loading="lazy">
+        <img class="fo__sat fo__sat--1" src="/assets/img/apps/board-192.webp" alt="" width="64" height="64" loading="lazy">
+        <img class="fo__sat fo__sat--2" src="/assets/img/apps/wallet-192.webp" alt="" width="64" height="64" loading="lazy">
+        <img class="fo__sat fo__sat--3" src="/assets/img/apps/workout-192.webp" alt="" width="64" height="64" loading="lazy">
       </div>
       <h2 class="final__title reveal">Mettiti <em>in orbita.</em></h2>
       <p class="lede reveal" style="--d:.08s">Scarica Organizr gratis. La tua versione migliore inizia da un'abitudine.</p>
@@ -817,7 +817,7 @@
   <footer class="foot">
     <div class="foot__inner">
       <div class="foot__brand">
-        <a href="/it/" class="foot__logo"><img src="/assets/img/apps/organizr.webp" alt="" width="38" height="38" loading="lazy">Organizr</a>
+        <a href="/it/" class="foot__logo"><img src="/assets/img/apps/organizr-256.webp" alt="" width="38" height="38" loading="lazy">Organizr</a>
         <p>La suite per la crescita personale: abitudini, allenamento, alimentazione, finanze e obiettivi in un unico spazio sincronizzato.</p>
       </div>
       <div class="foot__col">

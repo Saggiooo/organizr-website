@@ -58,7 +58,6 @@
   ];
 
   const SERVICES = [
-    { name: "Google Fonts", purpose: { it: "Caratteri tipografici del sito: riceve l'indirizzo IP, senza cookie.", en: "Website typefaces: receives your IP address, no cookies." } },
     { name: "Stripe", purpose: { it: "Pagamenti e gestione abbonamento, solo quando apri le loro pagine.", en: "Payments and subscription management, only when you open their pages." } },
     { name: "FormGate", purpose: { it: "Invio del modulo di assistenza, solo quando lo spedisci.", en: "Delivery of the support form, only when you send it." } },
     { name: "cdnjs (Cloudflare)", purpose: { it: "Icone delle pagine di assistenza e account, senza cookie.", en: "Icons on support and account pages, no cookies." } }

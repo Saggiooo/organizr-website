@@ -116,6 +116,7 @@
   if (phones.length === 1) {
     const twin = document.createElement("img");
     twin.className = "ex-phone"; twin.alt = ""; twin.width = 708; twin.height = 1400; twin.decoding = "async";
+    twin.sizes = phones[0].sizes;
     phones[0].after(twin); phones.push(twin);
   }
   const halo = $(".explorer__halo");
@@ -126,7 +127,9 @@
     // preload images
     // warm the next screenshots only once the explorer is close to the viewport
     let warmed = false;
-    const warm = () => { if (warmed) return; warmed = true; tabs.forEach(t => { const i = new Image(); i.src = `/assets/img/iphone/${t.dataset.img}.webp`; }); };
+    // 360w for phones and small screens, the full 708w file only where the density needs it
+    const shotSet = (img) => `/assets/img/iphone/${img}-360.webp 360w, /assets/img/iphone/${img}.webp 708w`;
+    const warm = () => { if (warmed) return; warmed = true; tabs.forEach(t => { const i = new Image(); i.sizes = phones[0].sizes; i.srcset = shotSet(t.dataset.img); }); };
     const label = (t) => isIt ? `${t.querySelector(".ex-tab__t").textContent} di Organizr su iPhone` : `Organizr ${t.querySelector(".ex-tab__t").textContent} on iPhone`;
     const show = (n, user = false) => {
       const prev = tabs[idx];
@@ -140,7 +143,8 @@
       if (desc) desc.textContent = tab.querySelector(".ex-tab__d").textContent.trim();
       if (prev !== tab) {
         const cur = phones[front], next = phones[1 - front];
-        next.src = `/assets/img/iphone/${tab.dataset.img}.webp`;
+        next.srcset = shotSet(tab.dataset.img);
+        next.src = `/assets/img/iphone/${tab.dataset.img}-360.webp`;
         next.alt = label(tab);
         cur.classList.remove("is-on"); cur.classList.add("is-out"); cur.alt = "";
         next.classList.remove("is-out");
@@ -210,6 +214,9 @@
   if (scene && video) {
     const win = $(".window", scene);
     let inView = false;
+    // the HTML ships the 680px poster (phones); wide screens switch to the full-size one once the window is near
+    const wide = window.matchMedia("(min-width: 701px)").matches;
+    const posterFor = (v) => `/assets/video/poster-${v}${wide ? "" : "-680"}.webp`;
     const update = () => {
       const r = scene.getBoundingClientRect();
       const vh = window.innerHeight;
@@ -226,7 +233,10 @@
     }
     new IntersectionObserver(([e]) => {
       inView = e.isIntersecting;
-      if (inView) { update(); if (!reduced) video.play().catch(() => {}); }
+      if (inView) {
+        if (wide && video.poster.endsWith("-680.webp")) video.poster = video.poster.replace(/-680\.webp$/, ".webp");
+        update(); if (!reduced) video.play().catch(() => {});
+      }
       else video.pause();
     }, { threshold: 0.05 }).observe(scene);
 
@@ -237,7 +247,7 @@
       video.classList.add("is-fading");
       setTimeout(() => {
         video.src = `/assets/video/${btn.dataset.v}_web.mp4`;
-        video.poster = `/assets/video/poster-${btn.dataset.v}.jpg`;
+        video.poster = posterFor(btn.dataset.v);
         video.addEventListener("loadeddata", () => video.classList.remove("is-fading"), { once: true });
         if (!reduced) video.play().catch(() => {}); else video.classList.remove("is-fading");
       }, 280);
@@ -300,6 +310,9 @@
     }));
     render();
     window.addEventListener("resize", () => moveThumb($(".billing__opt.is-active", billing)));
-    if (document.fonts) document.fonts.ready.then(() => moveThumb($(".billing__opt.is-active", billing)));
+    // the thumb only animates after its first placement, so nothing runs a width transition during page load
+    const ready = () => requestAnimationFrame(() => billing.classList.add("is-ready"));
+    if (document.fonts) document.fonts.ready.then(() => { moveThumb($(".billing__opt.is-active", billing)); ready(); });
+    else ready();
   }
 })();

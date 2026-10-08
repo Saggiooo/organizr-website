@@ -42,4 +42,4 @@ User-agent: meta-externalagent
 Allow: /
 
 Sitemap: https://organizr.it/sitemap.xml
-LLMs: https://organizr.it/llms.txt
+# LLM-readable summary: https://organizr.it/llms.txt

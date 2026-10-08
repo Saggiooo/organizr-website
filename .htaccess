@@ -44,8 +44,13 @@ RewriteRule ^(.+?)/?$ $1.html [L]
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 0 seconds"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
+  # CSS/JS are always referenced with a ?v=<hash> that build.py changes on every edit.
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/x-javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/vtt "access plus 1 month"
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/jpeg "access plus 1 year"
   ExpiresByType image/webp "access plus 1 year"
@@ -59,6 +64,10 @@ RewriteRule ^(.+?)/?$ $1.html [L]
 </IfModule>
 
 AddType application/octet-stream .dmg
+# Serve the sitemap as XML, including with nosniff enabled.
+AddType application/xml .xml
+AddType font/woff2 .woff2
+AddType text/vtt .vtt
 
 <FilesMatch "\.(dmg|exe)$">
   Header set Content-Disposition "attachment"
@@ -67,8 +76,21 @@ AddType application/octet-stream .dmg
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  # Baseline CSP: no plugins, no <base> hijacking, no framing by other sites, HTTPS only.
+  Header always set Content-Security-Policy "object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
+
+  # Fingerprinted assets (?v=hash) and self-hosted fonts never change under the same URL.
+  <FilesMatch "\.(css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
 
   <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+
+  <FilesMatch "^sitemap\.xml$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
 </IfModule>

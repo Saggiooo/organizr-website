@@ -62,7 +62,9 @@
       }
       if (!reduced) requestAnimationFrame(draw);
     };
-    build(); draw();
+    // decorative: start after the page has loaded so it never competes with the first paint
+    const start = () => { build(); draw(); };
+    if (document.readyState === "complete") start(); else window.addEventListener("load", start, { once: true });
     let rt;
     window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { build(); if (reduced) draw(); }, 150); });
   }
@@ -88,10 +90,13 @@
       entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
     }, { threshold: 0.14, rootMargin: "0px 0px -6% 0px" });
     reveals.forEach((el) => io.observe(el));
-    // above-the-fold content shouldn't wait for the observer's first callback
-    setTimeout(() => reveals.forEach((el) => {
-      if (el.getBoundingClientRect().top < window.innerHeight * 0.94) { el.classList.add("is-in"); io.unobserve(el); }
-    }), 40);
+    // above-the-fold content shouldn't wait for the 14% threshold (tall blocks may never reach it):
+    // a one-shot observer reveals whatever already touches the viewport, without forcing a layout from JS
+    const first = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+      first.disconnect();
+    }, { rootMargin: "0px 0px -6% 0px" });
+    reveals.forEach((el) => first.observe(el));
   } else {
     reveals.forEach((el) => el.classList.add("is-in"));
   }
