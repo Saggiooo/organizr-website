@@ -83,7 +83,26 @@
   </url>
 
   <!-- Habit tracker -->
-  <url>
+    <!-- Board -->
+<url>
+    <loc>https://organizr.it/board/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/board/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/board/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/board/"/>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
+    <loc>https://organizr.it/it/board/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/board/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/board/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://organizr.it/board/"/>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+<url>
     <loc>https://organizr.it/habit-tracker/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://organizr.it/habit-tracker/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://organizr.it/it/habit-tracker/"/>

@@ -18,7 +18,7 @@ Organizr replaces the handful of separate apps most people use to run their pers
 
 Organizr is the complete suite. On iPhone there are also three dedicated apps, each focused on one area and synced with Organizr through the same account and licence:
 
-- **Board** — personal kanban with Board, Timeline and To-do views, separate workspaces and Organizr AI
+- **Board** — personal kanban with Board, Timeline and To-do views, separate workspaces and Organizr AI ([Board page](https://organizr.it/board/))
 - **Wallet** — accounts, reports, investments, forecast and subscriptions; Apple Watch app for logging income and expenses
 - **Workout** — routines, sets, reps and load, muscle breakdown, progress photos; Apple Watch app with rest timers
 

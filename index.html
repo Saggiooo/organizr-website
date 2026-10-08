@@ -41,7 +41,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" />
     <link rel="preload" as="image" href="/assets/img/apps/organizr.webp" fetchpriority="high" />
     <link rel="stylesheet" href="/assets/css/site.min.css?v=c9b21428d6" />
-    <link rel="stylesheet" href="/assets/css/home.min.css?v=1a11c7fbfb" />
+    <link rel="stylesheet" href="/assets/css/home.min.css?v=f120e0f0d4" />
     <script src="/assets/js/cookie-consent.min.js?v=bd54df2683" defer></script>
     <script src="/assets/js/site.min.js?v=2bf5af4402" defer></script>
     <script src="/assets/js/home.min.js?v=215fa636ec" defer></script>
@@ -412,6 +412,7 @@
             <li>Separate workspaces for work and life</li>
             <li>Organizr AI built in</li>
           </ul>
+          <a class="app-card__link" href="/board/">Discover Board <span aria-hidden="true">→</span></a>
           <div class="app-card__phone"><img src="/assets/img/iphone/board.webp" alt="Board app on iPhone with the timeline view" loading="lazy" decoding="async" width="708" height="1400"></div>
         </article>
         <article class="app-card tilt reveal" id="app-wallet" style="--c:#3FCF7E;--c2:#1E8F55;--d:0.08s">
@@ -426,6 +427,7 @@
             <li>Forecast and Subscriptions</li>
             <li>Log income and spending from your wrist</li>
           </ul>
+          <a class="app-card__link" href="/wallet/">Discover Wallet <span aria-hidden="true">→</span></a>
           <div class="app-card__phone"><img src="/assets/img/iphone/wallet.webp" alt="Wallet app on iPhone with balance and spending by category" loading="lazy" decoding="async" width="708" height="1400"></div>
         </article>
         <article class="app-card tilt reveal" id="app-workout" style="--c:#3E9BFF;--c2:#2563D9;--d:0.16s">
@@ -440,6 +442,7 @@
             <li>Muscle breakdown and progress photos</li>
             <li>Workouts and rest timers on Apple Watch</li>
           </ul>
+          <a class="app-card__link" href="/workout/">Discover Workout <span aria-hidden="true">→</span></a>
           <div class="app-card__phone"><img src="/assets/img/iphone/workout.webp" alt="Workout app on iPhone with the training dashboard" loading="lazy" decoding="async" width="708" height="1400"></div>
         </article>
       </div>
@@ -512,15 +515,18 @@
         <h3>Every section, one tap away</h3>
         <p>All of them share the same data, so a workout logged on your phone shows up in the tracker, the dashboards and the AI analysis.</p>
       </div>
+      <ul class="sec-feature">
+        <li><a class="secf" href="/habit-tracker/" style="--c:#AE8FFF"><i class="ic-calendar" aria-hidden="true"></i><b>Habit tracker</b><span>Streaks, statistics and the daily view every other section feeds into.</span><span class="secf__go">Discover <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+        <li><a class="secf" href="/board/" style="--c:#6E7BFF"><i class="ic-rectangle-split-3x1-fill" aria-hidden="true"></i><b>Board</b><span>Personal kanban with timeline and to-do lists for long-running projects.</span><span class="secf__go">Discover <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+        <li><a class="secf" href="/workout/" style="--c:#3E9BFF"><i class="ic-dumbbell-fill" aria-hidden="true"></i><b>Workout tracker</b><span>Sets, reps and load progression, with Hevy import and AI-built routines.</span><span class="secf__go">Discover <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+        <li><a class="secf" href="/wallet/" style="--c:#3FCF7E"><i class="ic-wallet-bifold-fill" aria-hidden="true"></i><b>Wallet</b><span>Accounts, transactions and investments with spending dashboards.</span><span class="secf__go">Discover <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+      </ul>
+      <p class="sec-more">Also inside Organizr</p>
       <ul class="sec-grid">
-        <li><a class="sec" href="/habit-tracker/" style="--c:#AE8FFF"><i class="ic-calendar" aria-hidden="true"></i><b>Habit tracker</b><span>Streaks, statistics and the daily view every other section feeds into.</span></a></li>
-        <li><div class="sec" style="--c:#6E7BFF"><i class="ic-rectangle-split-3x1-fill" aria-hidden="true"></i><b>Board</b><span>Personal kanban with timeline and to-do lists for long-running projects.</span></div></li>
-        <li><a class="sec" href="/workout/" style="--c:#3E9BFF"><i class="ic-dumbbell-fill" aria-hidden="true"></i><b>Workout tracker</b><span>Sets, reps and load progression, with Hevy import and AI-built routines.</span></a></li>
         <li><div class="sec" style="--c:#F2A65A"><i class="ic-fork-knife" aria-hidden="true"></i><b>Nutrition</b><span>Food diary with calories and macros, connected to FatSecret.</span></div></li>
         <li><div class="sec" style="--c:#F07AA8"><i class="ic-book-closed-fill" aria-hidden="true"></i><b>Recipes</b><span>Your recipes, ready for meal planning and AI nutrition analysis.</span></div></li>
         <li><div class="sec" style="--c:#5FD3C6"><i class="ic-ruler-fill" aria-hidden="true"></i><b>Measurements</b><span>Weight, BMI and body measurements tracked over weeks and months.</span></div></li>
         <li><div class="sec" style="--c:#F5C84B"><i class="ic-trophy-fill" aria-hidden="true"></i><b>Goals</b><span>Quarterly or yearly goals with milestones: long enough to matter, short enough to finish.</span></div></li>
-        <li><a class="sec" href="/wallet/" style="--c:#3FCF7E"><i class="ic-wallet-bifold-fill" aria-hidden="true"></i><b>Wallet</b><span>Accounts, transactions and investments with spending dashboards.</span></a></li>
         <li><div class="sec" style="--c:#FF8A65"><i class="ic-creditcard-fill" aria-hidden="true"></i><b>Subscriptions</b><span>Every renewal, including the ones shared with friends, and the real monthly total.</span></div></li>
         <li><div class="sec" style="--c:#8FB3FF"><i class="ic-tshirt-fill" aria-hidden="true"></i><b>Wardrobe<small>Desktop</small></b><span>Clothes you own, want or plan to sell, in one list.</span></div></li>
         <li><div class="sec" style="--c:#D69CFF"><i class="ic-books-vertical-fill" aria-hidden="true"></i><b>Reading library</b><span>Books in progress and finished, with summaries and notes.</span></div></li>
@@ -818,6 +824,7 @@
         <p class="foot__h">Product</p>
         <ul>
           <li><a href="/habit-tracker/">Habit tracker</a></li>
+          <li><a href="/board/">Board</a></li>
           <li><a href="/workout/">Workout tracker</a></li>
           <li><a href="/wallet/">Wallet</a></li>
           <li><a href="/pricing/">Pricing</a></li>

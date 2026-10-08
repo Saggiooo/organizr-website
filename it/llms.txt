@@ -18,7 +18,7 @@ Organizr sostituisce le tante app separate che si usano per gestire la vita pers
 
 Organizr è la suite completa. Su iPhone esistono anche tre app dedicate, ognuna focalizzata su un solo aspetto e sincronizzata con Organizr tramite lo stesso account e la stessa licenza:
 
-- **Board** — kanban personale con viste Board, Timeline e ToDo, workspace separati e Organizr AI
+- **Board** — kanban personale con viste Board, Timeline e ToDo, workspace separati e Organizr AI ([pagina Board](https://organizr.it/it/board/))
 - **Wallet** — conti, report, investimenti, previsionale e abbonamenti; app Apple Watch per registrare entrate e spese
 - **Workout** — schede, serie, ripetizioni e carichi, dettaglio muscolare, foto di confronto; app Apple Watch con timer di recupero
 
