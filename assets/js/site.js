@@ -1,4 +1,4 @@
-/* Organizr — shared behaviour for the homepage and the blog. */
+/* Organizr - shared behaviour for the homepage and the blog. */
 (() => {
   "use strict";
 

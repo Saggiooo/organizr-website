@@ -1,6 +1,6 @@
 <?php
 /**
- * Organizr — cookie consent log.
+ * Organizr - cookie consent log.
  *
  * Receives the choice made in the cookie banner (assets/js/cookie-consent.js) and appends it
  * to a monthly JSON Lines file in /_private/consents/ (blocked by .htaccess), so a consent can

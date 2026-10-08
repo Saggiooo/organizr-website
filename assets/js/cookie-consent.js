@@ -1,4 +1,4 @@
-/* Organizr — cookie consent.
+/* Organizr - cookie consent.
  * Banner + preferences + bottom-left button. The choice is stored for 180 days in the
  * `organizr_consent` cookie and logged server side by /api/consent.php (proof of consent).
  * Optional categories only run scripts tagged <script type="text/plain" data-consent="ID">

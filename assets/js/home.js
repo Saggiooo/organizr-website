@@ -1,4 +1,4 @@
-/* Organizr — homepage interactions (orbit, explorer, desktop preview, pricing). */
+/* Organizr - homepage interactions (orbit, explorer, desktop preview, pricing). */
 (() => {
   "use strict";
 
