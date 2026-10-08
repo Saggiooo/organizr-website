@@ -63,6 +63,10 @@ RewriteRule ^(.+?)/?$ $1.html [L]
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
 </IfModule>
 
+# Without an explicit charset browsers read text/plain (llms.txt, robots.txt) as Windows-1252: "—" becomes "â€”".
+AddDefaultCharset utf-8
+AddCharset utf-8 .txt .vtt .xml .webmanifest .css .js
+
 AddType application/octet-stream .dmg
 # Serve the sitemap as XML, including with nosniff enabled.
 AddType application/xml .xml
