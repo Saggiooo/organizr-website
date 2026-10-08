@@ -4,6 +4,8 @@ Disallow: /.git/
 Disallow: /assets/downloads/
 Disallow: /download.html
 Disallow: /maintenance.html
+Disallow: /api/
+Disallow: /_private/
 
 # AI crawlers — allowed to index all public content
 User-agent: GPTBot

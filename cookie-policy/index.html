@@ -32,13 +32,12 @@
     <link rel="alternate" hreflang="en" href="https://organizr.it/cookie-policy/" />
     <link rel="alternate" hreflang="it" href="https://organizr.it/it/cookie-policy/" />
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/cookie-policy/" />
-    <script src="../assets/js/cookie-consent.min.js?v=bd54df2683" defer></script>
+    <script src="../assets/js/cookie-consent.min.js?v=55b349f2c1" defer></script>
     <script src="/assets/js/site.min.js?v=2bf5af4402" defer></script>
-    <script src="/assets/js/site.min.js?v=2bf5af4402" defer></script>
-    <link rel="stylesheet" href="/assets/css/site.min.css?v=c9b21428d6" />
+    <link rel="stylesheet" href="/assets/css/site.min.css?v=1fbd988054" />
     <link rel="stylesheet" href="/assets/css/pages.min.css?v=0dae22c6ba" />
   </head>
-      <body>
+    <body>
   <div class="grain" aria-hidden="true"></div>
   <canvas id="stars" aria-hidden="true"></canvas>
   <a href="/#prezzi" class="promo" aria-label="Up to 44% off: go to pricing">
@@ -76,11 +75,11 @@
     <a href="/#download" class="btn btn--light">Download free</a>
   </div>
 
-  <main class="legal-page page-main page-main" id="top" id="top">
+  <main class="legal-page page-main" id="top">
         <header class="legal-hero">
           <p class="eyebrow">Cookie</p>
           <h1>Cookie Policy of Organizr</h1>
-          <p class="lead">Last updated: June 30, 2026</p>
+          <p class="lead">Last updated: October 8, 2026</p>
         </header>
 
         <section class="legal-layout" aria-label="Cookie Policy Organizr">
@@ -96,12 +95,24 @@
           <article class="legal-card">
             <section id="website">
               <h2>Organizr website</h2>
-              <p>The website does not load visit analytics, advertising or profiling trackers.
-                No analytics consent banner is shown. Previously saved analytics/consent cookies
-                are removed where accessible to the website.</p>
-              <p>Hosting and security services may use necessary technical cookies to protect requests.
-                Google Fonts receives technical network data when serving fonts. Payment and support
-                services opened or used voluntarily have their own privacy notices.</p>
+              <p>The website only uses technical cookies and similar tools (localStorage), needed to run it securely and to remember your choices. It does not use visit analytics, advertising or profiling cookies. On your first visit a banner informs you and lets you choose; you can change your mind at any time from the round button at the bottom left, from the footer or from here.</p>
+              <p><button type="button" class="btn btn-secondary" data-cookie-prefs>Change cookie preferences</button></p>
+              <h3>Cookies and storage used by the website</h3>
+              <table>
+                <thead><tr><th scope="col">Name</th><th scope="col">Provider</th><th scope="col">Type</th><th scope="col">Purpose</th><th scope="col">Duration</th></tr></thead>
+                <tbody>
+                  <tr><td><code>organizr_consent</code></td><td>organizr.it</td><td>Cookie</td><td>Remembers your cookie choice and its consent ID.</td><td>180 days</td></tr>
+                  <tr><td><code>organizr_lang_pref</code></td><td>organizr.it</td><td>Cookie</td><td>Remembers the language you picked (English or Italian).</td><td>1 year</td></tr>
+                  <tr><td><code>organizr_currency_pref</code></td><td>organizr.it</td><td>localStorage</td><td>Remembers the currency picked for prices (€ or $).</td><td>Until you clear it</td></tr>
+                  <tr><td><code>__cf_bm</code></td><td>Cloudflare</td><td>Cookie</td><td>Protection against bots and automated traffic, set only when needed.</td><td>30 minutes</td></tr>
+                  <tr><td><code>cf_clearance</code></td><td>Cloudflare</td><td>Cookie</td><td>Remembers that you passed a security check, if one was shown.</td><td>30 minutes to 1 year</td></tr>
+                </tbody>
+              </table>
+              <h3>Consent records</h3>
+              <p>When you make a choice in the banner we record on our server the date and time, a random consent ID, the version of this policy, your choice per category, the language, the page and your anonymised IP address (last part set to zero). It is used only to prove consent. Your choice stays in the <code>organizr_consent</code> cookie for 180 days, then we ask again; server records are kept for 24 months and then deleted.</p>
+              <h3>Third-party services</h3>
+              <p>Google Fonts serves the website typefaces and receives your IP address, without setting cookies on organizr.it. Stripe (payments and subscription management), FormGate (support form) and external sites opened through links use their own cookies and tools only when you open their pages or send a form, under their own privacy notices. Icons on some pages are loaded from cdnjs (Cloudflare), without cookies.</p>
+              <p>Analytics and consent cookies used in the past are removed automatically where accessible to the website.</p>
             </section>
             <section id="desktop-app">
               <h2>1. Desktop app</h2>
@@ -211,6 +222,7 @@
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/cookie-policy/">Cookie Policy</a></li>
           <li><a href="/terms-conditions/">Terms &amp; Conditions</a></li>
+          <li><button type="button" class="foot__cookie" data-cookie-prefs>Cookie preferences</button></li>
         </ul>
       </div>
     </div>

@@ -2,3 +2,6 @@
 .playwright-cli/
 output/
 AGENTS.md
+
+# Cookie consent records written by api/consent.php (server only, never commit)
+_private/consents/*.jsonl
