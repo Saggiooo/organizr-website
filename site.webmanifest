@@ -1,13 +1,13 @@
 {
   "name": "Organizr",
   "short_name": "Organizr",
-  "description": "Planner personale desktop per kanban, habit tracker, workout, dieta, obiettivi, file e progressi.",
-  "lang": "it-IT",
+  "description": "The suite for personal growth: habit tracker, planner, workout, nutrition, finances and goals, synced across iPhone, Android, Mac and Windows.",
+  "lang": "en",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#8f5bff",
+  "background_color": "#08070b",
+  "theme_color": "#08070b",
   "icons": [
     {
       "src": "/assets/img/favicon/favicon-organizr.png",

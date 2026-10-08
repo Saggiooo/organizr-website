@@ -32,6 +32,10 @@ RewriteRule ^(.+)/index\.html$ $1/ [R=301,L]
 
 RewriteRule ^download\.html$ download/ [R=301,L]
 
+# Removed pages (8 October 2026): the nutrition landing pages no longer exist.
+RewriteRule ^nutrition/?$ / [R=301,L]
+RewriteRule ^it/alimentazione/?$ /it/ [R=301,L]
+
 # Allow future simple pages: /nome instead of /nome.html.
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f

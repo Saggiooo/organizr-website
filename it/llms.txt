@@ -1,38 +1,58 @@
 # Organizr
 
-> Organizr è un planner personale desktop per macOS e Windows. Tutti i dati rimangono localmente sul computer dell'utente — nessun cloud, nessun abbonamento obbligatorio.
+> Organizr è la suite per la crescita personale per iPhone, Android, Mac e Windows: habit tracker, planner, workout, alimentazione, misure corporee, obiettivi, finanze e progetti personali in un unico hub, sincronizzato tra i dispositivi con cifratura end-to-end e analizzato da un'AI integrata.
 
 ## Cos'è Organizr
 
-Organizr unisce in un'unica app desktop le funzioni di: kanban personale, habit tracker, workout tracker, diario alimentare, monitoraggio misurazioni corporee, gestione obiettivi, tracker abbonamenti, organizzazione armadio, libreria di lettura e gestore file. È pensato per chi vuole un hub personale completo senza dover usare decine di app separate.
+Organizr sostituisce le tante app separate che si usano per gestire la vita personale. In un'unica app ci sono bacheca kanban, habit tracker, diario degli allenamenti, diario alimentare, misure corporee, obiettivi, portafoglio con conti e investimenti, abbonamenti, ricette, guardaroba, libreria e organizzazione dei file. Ogni sezione condivide i dati con le altre: un allenamento registrato sul telefono compare nel tracker, nelle dashboard e nelle analisi dell'AI.
 
 ## Piattaforme
 
-- macOS (Apple Silicon e Intel)
+- iPhone (iOS) — [App Store](https://apps.apple.com/it/app/organizr/id6790398372)
+- Android
+- macOS 12 o successivo
 - Windows 10 / 11
+- Apple Watch — allenamenti, spese e abitudini dal polso
 
-## Versioni e prezzi
+## App dedicate per iPhone
 
-- **Organizr Lite** — gratuita, funzionalità base
-- **Organizr Pro** — €7,49/anno (sconto 72% sul prezzo standard)
-- **Organizr Lifetime** — €24,49 pagamento unico
+Organizr è la suite completa. Su iPhone esistono anche tre app dedicate, ognuna focalizzata su un solo aspetto e sincronizzata con Organizr tramite lo stesso account e la stessa licenza:
+
+- **Board** — kanban personale con viste Board, Timeline e ToDo, workspace separati e Organizr AI
+- **Wallet** — conti, report, investimenti, previsionale e abbonamenti; app Apple Watch per registrare entrate e spese
+- **Workout** — schede, serie, ripetizioni e carichi, dettaglio muscolare, foto di confronto; app Apple Watch con timer di recupero
+
+Un solo piano Premium sblocca Organizr e le tre app su tutti i dispositivi. La Sync è facoltativa e cifrata end-to-end.
 
 ## Funzionalità principali
 
-- **Bacheca (Kanban)** — gestione task e progetti personali con colonne personalizzabili
-- **Tracker** — habit tracker giornaliero con streak e statistiche
-- **Workout** — log allenamenti, serie, ripetizioni, peso; integrazione con Hevy
-- **Alimentazione** — diario alimentare con macro; integrazione con FatSecret
-- **Misurazioni** — monitoraggio peso corporeo, BMI e misure nel tempo
-- **Obiettivi** — definizione e tracking di obiettivi con milestone
-- **Abbonamenti** — gestione e calcolo costo abbonamenti attivi
-- **Armadio** — organizzazione capi di abbigliamento
-- **Lettura** — libreria personale con stato lettura e note
-- **File** — gestore file integrato nell'hub
+- **Tracker** — habit tracker giornaliero con streak, statistiche e dashboard unificata
+- **Board** — kanban personale per task e progetti con colonne personalizzabili
+- **Workout** — log allenamenti con serie, ripetizioni e progressione dei carichi; integrazione Hevy
+- **Alimentazione** — diario alimentare con calorie e macronutrienti; integrazione FatSecret
+- **Ricette** — raccolta di ricette personali, utilizzabili nel planner e da Organizr AI
+- **Misure** — peso, BMI e misure corporee nel tempo
+- **Obiettivi** — obiettivi trimestrali o annuali con traguardi
+- **Portafoglio** — conti, movimenti e investimenti con dashboard delle spese
+- **Abbonamenti** — rinnovi e costi, anche condivisi
+- **Guardaroba** — capi posseduti, desiderati o da vendere (solo desktop)
+- **Libreria** — libri in lettura e letti, con riassunti e note
+- **File** — dove si trovano i file tra i computer e quando aggiornare i backup (solo desktop)
+- **Organizr AI** — legge i dati già tracciati e li trasforma in schede, analisi e risposte
+- **Time Analyzr** — analisi del tempo e dei progressi tra le sezioni
+
+## Versioni e prezzi
+
+- **Organizr Lite** — gratis, senza account. Tracker completo, diario alimentare, 1 Board illimitata, fino a 3 schede Workout, 6 ricette, 6 abbonamenti, Wallet con 1 conto, allenamenti da Apple Watch, 50 crediti Organizr AI al mese.
+- **Organizr Premium, mensile** — €3,49/mese
+- **Organizr Premium, annuale** — €17,99/anno (da €24,99). Tutto senza limiti, Sync, dashboard avanzate, Time Analyzr, Guardaroba e File su desktop, 300 crediti Organizr AI al mese.
+- **Organizr Lifetime** — €49,99 una tantum (da €89,99). Tutte le funzioni Premium per sempre, 300 crediti AI al mese per 24 mesi.
+
+Premium e Lifetime includono anche le app Board, Wallet e Workout.
 
 ## Privacy e dati
 
-Tutti i dati sono salvati localmente sul dispositivo dell'utente. Organizr non richiede account, non invia dati a server remoti e non ha accesso ai dati personali dell'utente.
+I dati restano sui dispositivi. Con la Sync attiva viaggiano cifrati end-to-end: diario, allenamenti completati, pasti e blocchi di Time Analyzr restano cifrati sul server per 90 giorni dalla data dell'evento; storico Wallet, Board, abbonamenti, misure, ricette, schede e impostazioni non scadono. La scadenza rimuove solo la copia sul server. Dettagli nella [Privacy Policy](https://organizr.it/it/privacy-policy/).
 
 ## Articoli del blog
 

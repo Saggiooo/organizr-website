@@ -9,7 +9,8 @@
       content="Cookie Policy di Organizr: archiviazione tecnica dell'app desktop, localStorage, risorse esterne e gestione dei dati locali."
     />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#8f5bff" />
+    <meta name="theme-color" content="#08070b" />
+    <meta name="color-scheme" content="dark" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Organizr" />
@@ -23,10 +24,7 @@
     <meta name="twitter:image" content="https://organizr.it/assets/img/logo/organizer-logo-black.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" />
     <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="apple-touch-icon" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -35,42 +33,49 @@
     <link rel="alternate" hreflang="it" href="https://organizr.it/it/cookie-policy/" />
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/cookie-policy/" />
     <script src="/assets/js/cookie-consent.min.js?v=bd54df2683" defer></script>
-    <link rel="stylesheet" href="/assets/css/style.min.css?v=f88ca355c5" />
-    <script src="/assets/js/main.min.js?v=6a82c10e2e" defer></script>
+    <script src="/assets/js/site.min.js?v=2bf5af4402" defer></script>
+    <link rel="stylesheet" href="/assets/css/site.min.css?v=c9b21428d6" />
+    <link rel="stylesheet" href="/assets/css/pages.min.css?v=51e0d3f110" />
   </head>
-  <body>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <div class="page-shell">
-      <header class="site-header">
-        <a class="logo" href="/it/" aria-label="Organizr home">
-          <img src="/assets/img/logo/organizer-logo-black.png" alt="Logo Organizr" width="1275" height="351" />
-        </a>
+    <body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <a href="/it/#prezzi" class="promo" aria-label="Sconti fino al 44%: vai ai prezzi">
+    <span class="promo__shine" aria-hidden="true"></span>
+    <span class="promo__tag">−44%</span>
+    <span class="promo__text"><b>Offerta lancio ·</b> Sconti fino al 44% su Premium e Lifetime</span>
+    <span class="promo__cta">Vedi i prezzi <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </a>
 
-        <nav class="top-nav" aria-label="Navigazione principale">
-          <a href="/it/workout/">Workout</a>
-          <a href="/it/pricing/">Prezzi</a>
-          <a href="/it/download/">Download</a>
-          <div class="lang-switcher" data-en-url="/cookie-policy/" data-it-url="/it/cookie-policy/">
-            <button class="lang-btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Cambia lingua">
-              <span class="lang-flag">🇮🇹</span>
-              <span class="lang-name">IT</span>
-              <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <ul class="lang-dropdown" role="listbox" aria-label="Scegli lingua">
-              <li class="lang-option" role="option" aria-selected="false" data-lang="en">
-                <span class="lang-flag">🇬🇧</span> English
-              </li>
-              <li class="lang-option is-active" role="option" aria-selected="true" data-lang="it">
-                <span class="lang-flag">🇮🇹</span> Italiano
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
+  <header class="nav" id="nav">
+    <a href="/it/" class="nav__brand" aria-label="Organizr, home">
+      <img src="/assets/img/apps/organizr.webp" alt="" width="30" height="30">
+      <span>Organizr</span>
+    </a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="/it/#ecosistema">Ecosistema</a>
+      <a href="/it/#suite">Suite</a>
+      <a href="/it/#desktop">Desktop</a>
+      <a href="/it/pricing/">Prezzi</a>
+      <a href="/it/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+      <div class="lang" role="group" aria-label="Lingua"><a href="https://organizr.it/cookie-policy/" hreflang="en" lang="en" data-lang-link="en">EN</a><a href="https://organizr.it/it/cookie-policy/" hreflang="it" lang="it" data-lang-link="it" aria-current="true">IT</a></div>
+      <a href="/it/#download" class="btn btn--sm btn--light">Scarica gratis</a>
+      <button class="nav__burger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mnav" id="mnav" hidden>
+    <a href="/it/#ecosistema">Ecosistema</a>
+    <a href="/it/#suite">Suite</a>
+    <a href="/it/#desktop">Desktop</a>
+    <a href="/it/pricing/">Prezzi</a>
+    <a href="/it/blog/">Blog</a>
+    <div class="lang" role="group" aria-label="Lingua"><a href="https://organizr.it/cookie-policy/" hreflang="en" lang="en" data-lang-link="en">EN</a><a href="https://organizr.it/it/cookie-policy/" hreflang="it" lang="it" data-lang-link="it" aria-current="true">IT</a></div>
+    <a href="/it/#download" class="btn btn--light">Scarica gratis</a>
+  </div>
 
-      <main class="legal-page">
+  <main class="legal-page page-main" id="top">
         <header class="legal-hero">
           <p class="eyebrow">Cookie</p>
           <h1>Cookie Policy di Organizr</h1>
@@ -176,28 +181,44 @@
         </section>
       </main>
 
-      <footer class="site-footer">
-        <div class="footer-brand">
-          <a class="footer-logo" href="/it/" aria-label="Organizr home">
-            <img src="/assets/img/logo/organizer-logo-white.png" alt="Logo Organizr" width="1275" height="351" />
-          </a>
-          <p>Planner personale desktop per routine, workout, dieta, obiettivi e progressi locali.</p>
-        </div>
-
-        <nav class="footer-links" aria-label="Link legali">
-          <a href="https://billing.stripe.com/p/login/dRm00i3W28G77Dm29X7wA01" target="_blank" rel="noopener noreferrer">Gestisci abbonamento</a>
-          <a href="/it/blog/">Blog</a>
-          <a href="/it/support/">Assistenza</a>
-          <a href="/it/privacy-policy/">Privacy Policy</a>
-          <a href="/it/cookie-policy/">Cookie Policy</a>
-          <a href="/it/termini-condizioni/">Termini e condizioni</a>
-        </nav>
-
-        <div class="footer-meta">
-          <span>© 2026 Organizr</span>
-          <span>Software sviluppato da <a href="https://wonder-web.it" target="_blank" rel="noopener noreferrer">WonderWeb</a> di Allpromotion</span>
-        </div>
-      </footer>
+  <footer class="foot">
+    <div class="foot__inner">
+      <div class="foot__brand">
+        <a href="/it/" class="foot__logo"><img src="/assets/img/apps/organizr.webp" alt="" width="38" height="38" loading="lazy">Organizr</a>
+        <p>La suite per la crescita personale: abitudini, allenamento, alimentazione, finanze e obiettivi in un unico spazio sincronizzato.</p>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">Prodotto</p>
+        <ul>
+          <li><a href="/it/habit-tracker/">Habit tracker</a></li>
+          <li><a href="/it/workout/">Tracker workout</a></li>
+          <li><a href="/it/portafoglio/">Portafoglio</a></li>
+          <li><a href="/it/pricing/">Prezzi</a></li>
+          <li><a href="/it/download/">Download</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">Risorse</p>
+        <ul>
+          <li><a href="/it/blog/">Blog</a></li>
+          <li><a href="/it/fatsecret-sync-tutorial/">Guida FatSecret</a></li>
+          <li><a href="/it/support/">Supporto</a></li>
+          <li><a href="https://billing.stripe.com/p/login/dRm00i3W28G77Dm29X7wA01" rel="noopener">Gestisci abbonamento</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">Legale</p>
+        <ul>
+          <li><a href="/it/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/it/cookie-policy/">Cookie Policy</a></li>
+          <li><a href="/it/termini-condizioni/">Termini e condizioni</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="foot__copy">
+      <span>© 2026 Organizr</span>
+      <span>Software sviluppato da <a href="https://wonder-web.it" rel="noopener">WonderWeb</a> di Allpromotion</span>
+    </div>
+  </footer>
   </body>
 </html>

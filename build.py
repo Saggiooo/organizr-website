@@ -20,10 +20,16 @@ TARGETS = [
     (ROOT / "assets/js/cookie-consent.js",   ROOT / "assets/js/cookie-consent.min.js",   "JS "),
     (ROOT / "assets/js/main.js",             ROOT / "assets/js/main.min.js",             "JS "),
     (ROOT / "assets/js/support.js",          ROOT / "assets/js/support.min.js",          "JS "),
+    # New design system: shared (home + blog) and homepage-only bundles
+    (ROOT / "assets/css/site.css",           ROOT / "assets/css/site.min.css",           "CSS"),
+    (ROOT / "assets/css/home.css",           ROOT / "assets/css/home.min.css",           "CSS"),
+    (ROOT / "assets/css/pages.css",          ROOT / "assets/css/pages.min.css",          "CSS"),
+    (ROOT / "assets/js/site.js",             ROOT / "assets/js/site.min.js",             "JS "),
+    (ROOT / "assets/js/home.js",             ROOT / "assets/js/home.min.js",             "JS "),
 ]
 
 ASSET_VERSION_PATTERN = re.compile(
-    r"(?P<asset>(?:/|\.\./)?assets/(?:css/style\.min\.css|js/(?:cookie-consent|main|support)\.min\.js))(?:\?v=[A-Za-z0-9._-]+)?"
+    r"(?P<asset>(?:/|\.\./)?assets/(?:css/(?:style|site|home|pages)\.min\.css|js/(?:cookie-consent|main|support|site|home)\.min\.js))(?:\?v=[A-Za-z0-9._-]+)?"
 )
 
 asset_versions = {}

@@ -13,7 +13,8 @@
     <meta name="application-name" content="Organizr" />
     <meta name="apple-mobile-web-app-title" content="Organizr" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="theme-color" content="#8f5bff" />
+    <meta name="theme-color" content="#08070b" />
+    <meta name="color-scheme" content="dark" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Organizr" />
@@ -35,10 +36,7 @@
     <meta name="twitter:image:alt" content="Workout tracker di Organizr" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" />
     <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="apple-touch-icon" href="/assets/img/favicon/favicon-organizr.png" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -47,8 +45,11 @@
     <link rel="alternate" hreflang="it" href="https://organizr.it/it/workout/" />
     <link rel="alternate" hreflang="x-default" href="https://organizr.it/workout/" />
     <script src="/assets/js/cookie-consent.min.js?v=bd54df2683" defer></script>
-    <link rel="stylesheet" href="/assets/css/style.min.css?v=f88ca355c5" />
-    <script src="/assets/js/main.min.js?v=6a82c10e2e" defer></script>
+    <script src="/assets/js/site.min.js?v=2bf5af4402" defer></script>
+    <script src="/assets/js/home.min.js?v=215fa636ec" defer></script>
+    <link rel="stylesheet" href="/assets/css/site.min.css?v=c9b21428d6" />
+    <link rel="stylesheet" href="/assets/css/pages.min.css?v=51e0d3f110" />
+    <link rel="stylesheet" href="/assets/css/home.min.css?v=1a11c7fbfb" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -75,42 +76,45 @@
       }
     </script>
   </head>
-  <body>
-    <div class="cursor-glow" aria-hidden="true"></div>
-    <a class="top-offer-bar" href="/it/#prezzi" aria-label="Vai alla sezione prezzi">
-      <span class="top-offer-copy">Non perdere lo sconto fino al 44%</span>
+    <body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <a href="/it/#prezzi" class="promo" aria-label="Sconti fino al 44%: vai ai prezzi">
+    <span class="promo__shine" aria-hidden="true"></span>
+    <span class="promo__tag">−44%</span>
+    <span class="promo__text"><b>Offerta lancio ·</b> Sconti fino al 44% su Premium e Lifetime</span>
+    <span class="promo__cta">Vedi i prezzi <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </a>
+
+  <header class="nav" id="nav">
+    <a href="/it/" class="nav__brand" aria-label="Organizr, home">
+      <img src="/assets/img/apps/organizr.webp" alt="" width="30" height="30">
+      <span>Organizr</span>
     </a>
-    <div class="page-shell">
-      <header class="site-header">
-        <a class="logo" href="/it/" aria-label="Organizr home">
-          <img src="/assets/img/logo/organizer-logo-black.png" alt="Logo Organizr" width="1275" height="351" />
-        </a>
+    <nav class="nav__links" aria-label="Principale">
+      <a href="/it/#ecosistema">Ecosistema</a>
+      <a href="/it/#suite">Suite</a>
+      <a href="/it/#desktop">Desktop</a>
+      <a href="/it/pricing/">Prezzi</a>
+      <a href="/it/blog/">Blog</a>
+    </nav>
+    <div class="nav__cta">
+      <div class="lang" role="group" aria-label="Lingua"><a href="https://organizr.it/workout/" hreflang="en" lang="en" data-lang-link="en">EN</a><a href="https://organizr.it/it/workout/" hreflang="it" lang="it" data-lang-link="it" aria-current="true">IT</a></div>
+      <a href="/it/#download" class="btn btn--sm btn--light">Scarica gratis</a>
+      <button class="nav__burger" type="button" aria-label="Apri menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+  </header>
+  <div class="mnav" id="mnav" hidden>
+    <a href="/it/#ecosistema">Ecosistema</a>
+    <a href="/it/#suite">Suite</a>
+    <a href="/it/#desktop">Desktop</a>
+    <a href="/it/pricing/">Prezzi</a>
+    <a href="/it/blog/">Blog</a>
+    <div class="lang" role="group" aria-label="Lingua"><a href="https://organizr.it/workout/" hreflang="en" lang="en" data-lang-link="en">EN</a><a href="https://organizr.it/it/workout/" hreflang="it" lang="it" data-lang-link="it" aria-current="true">IT</a></div>
+    <a href="/it/#download" class="btn btn--light">Scarica gratis</a>
+  </div>
 
-        <nav class="top-nav" aria-label="Navigazione principale">
-          <a href="/it/workout/" aria-current="page">Workout</a>
-          <a href="/it/pricing/">Prezzi</a>
-          <a href="/it/download/">Download</a>
-          <div class="lang-switcher" data-en-url="/workout/" data-it-url="/it/workout/">
-            <button class="lang-btn" aria-expanded="false" aria-haspopup="listbox" aria-label="Cambia lingua">
-              <span class="lang-flag">🇮🇹</span>
-              <span class="lang-name">IT</span>
-              <svg class="lang-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-            <ul class="lang-dropdown" role="listbox" aria-label="Scegli lingua">
-              <li class="lang-option" role="option" aria-selected="false" data-lang="en">
-                <span class="lang-flag">🇬🇧</span> English
-              </li>
-              <li class="lang-option is-active" role="option" aria-selected="true" data-lang="it">
-                <span class="lang-flag">🇮🇹</span> Italiano
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-
-      <main class="workout-page">
+  <main class="workout-page page-main" id="top">
         <section class="workout-hero">
           <div class="workout-hero-copy">
             <p class="eyebrow">WORKOUT</p>
@@ -273,133 +277,78 @@
           </figure>
         </section>
 
-        <section class="promo-section" id="prezzi" aria-label="Offerta attiva">
-          <div class="pricing-showcase">
-            <div class="plan-list" role="radiogroup" aria-label="Scelta piano">
-              <article class="plan-card" data-plan="Organizr Lite" role="radio" aria-checked="false" tabindex="0">
-                <div class="plan-top">
-                  <div class="plan-row">
-                    <p class="plan-name">
-                      <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
-                        <circle cx="9.5" cy="7" r="4" />
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                      </svg>
-                      Organizr lite
-                    </p>
-                  </div>
-                  <div class="plan-prices">
-                    <strong class="plan-price plan-price-free">FREE</strong>
-                  </div>
-                  <a class="plan-cta" href="/it/download/">Scarica gratis</a>
-                </div>
+        <section class="section pricing" id="prezzi">
+      <header class="section__head">
+        <p class="eyebrow reveal">Prezzi</p>
+        <h2 class="h2 reveal" style="--d:.06s">Inizia gratis.<br><em>Cresci senza limiti.</em></h2>
+        <p class="lede reveal" style="--d:.12s">Un solo piano Premium per Organizr, Board, Wallet e Workout. Su tutti i tuoi dispositivi.</p>
+      </header>
 
-                <div class="plan-body">
-                  <ul class="plan-features">
-                    <li>1 bacheca illimitata</li>
-                    <li>Fino a 6 abbonamenti</li>
-                    <li>Fino a 3 schede Workout</li>
-                    <li>Allenamenti con iWatch</li>
-                    <li>Fino a 6 ricette</li>
-                    <li>Portafoglio con 1 conto</li>
-                    <li>Diario alimentare</li>
-                    <li>Tracker completo</li>
-                    <li class="is-unavailable">Dashboard avanzate</li>
-                    <li class="is-unavailable">Funzioni illimitate</li>
-                    <li class="is-unavailable">Sincronizzazione dispositivi</li>
-                    <li class="is-unavailable">Time Analyzr</li>
-                  </ul>
-                  <div class="plan-ai-box">
-                    <span class="plan-ai-label">Organizr AI</span>
-                    <p>50 crediti al mese</p>
-                  </div>
-                </div>
-              </article>
+      <div class="billing-row reveal">
+        <div class="billing" role="radiogroup" aria-label="Frequenza di pagamento">
+          <button type="button" class="billing__opt is-active" data-bill="year" role="radio" aria-checked="true">Annuale <span class="save">−28%</span></button>
+          <button type="button" class="billing__opt" data-bill="month" role="radio" aria-checked="false">Mensile</button>
+          <span class="billing__thumb" aria-hidden="true"></span>
+        </div>
+        <div class="cur" role="group" aria-label="Valuta">
+          <button type="button" data-currency="eur" aria-pressed="true">€</button>
+          <button type="button" data-currency="usd" aria-pressed="false">$</button>
+        </div>
+      </div>
 
-              <article class="plan-card is-featured" data-plan="Annuale" data-billing-card role="radio" aria-checked="true" tabindex="0">
-                <div class="plan-top">
-                  <div class="plan-row plan-row-pro">
-                    <div class="billing-toggle" aria-label="Scegli periodo piano Pro">
-                      <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <rect x="3" y="4" width="18" height="17" rx="2" />
-                        <path d="M8 2v4" />
-                        <path d="M16 2v4" />
-                        <path d="M3 10h18" />
-                      </svg>
-                      <button class="billing-option is-active" type="button" data-billing-option="annual" aria-pressed="true">
-                        Annuale
-                      </button>
-                      <button class="billing-option" type="button" data-billing-option="monthly" aria-pressed="false">
-                        Mensile
-                      </button>
-                    </div>
-                    <span class="plan-badge">-28%</span>
-                  </div>
-                  <div class="plan-prices">
-                    <strong class="plan-price" data-billing-price>17,99€</strong>
-                    <span class="plan-cycle" data-billing-cycle>/anno</span>
-                    <span class="plan-old-price" data-billing-old-price>24,99€</span>
-                  </div>
-                  <a class="plan-cta plan-cta-primary" href="https://buy.stripe.com/bJe9ASfEK7C3e1K29X7wA07" data-billing-cta>Scegli Annuale</a>
-                </div>
+      <div class="plans">
+        <article class="plan-card reveal">
+          <h3>Lite</h3>
+          <p class="plan-card__sub">Per iniziare a mettere ordine.</p>
+          <div class="price"><span class="price__n">Gratis</span></div>
+          <p class="price__hint">Per sempre · nessun account richiesto</p>
+          <a href="/it/download/" class="btn btn--ghost btn--block">Scarica gratis</a>
+          <ul class="plist">
+            <li>Tracker completo e diario alimentare</li>
+            <li>1 Board illimitata</li>
+            <li>Fino a 3 schede Workout e 6 ricette</li>
+            <li>Wallet con 1 conto, fino a 6 abbonamenti</li>
+            <li>Allenamenti da Apple Watch</li>
+            <li>Organizr AI · 50 crediti/mese</li>
+          </ul>
+        </article>
 
-                <div class="plan-body">
-                  <ul class="plan-features">
-                    <li>Tutto senza limiti</li>
-                    <li>Dashboard avanzate</li>
-                    <li>Sincronizzazione dispositivi</li>
-                    <li>Time Analyzr</li>
-                    <li>Armadio (solo desktop)</li>
-                    <li>Controllo File (solo desktop)</li>
-                  </ul>
-                  <div class="plan-ai-box">
-                    <span class="plan-ai-label">Organizr AI</span>
-                    <p>300 crediti al mese</p>
-                  </div>
-                </div>
-              </article>
-
-              <article class="plan-card" data-plan="Lifetime" role="radio" aria-checked="false" tabindex="0">
-                <div class="plan-top">
-                  <div class="plan-row">
-                    <p class="plan-name">
-                      <svg aria-hidden="true" viewBox="0 0 24 24">
-                        <rect x="4" y="2" width="16" height="20" rx="2" />
-                        <path d="M9 22v-4h6v4" />
-                        <path d="M8 6h.01" />
-                        <path d="M12 6h.01" />
-                        <path d="M16 6h.01" />
-                        <path d="M8 10h.01" />
-                        <path d="M12 10h.01" />
-                        <path d="M16 10h.01" />
-                      </svg>
-                      Lifetime
-                    </p>
-                    <span class="plan-badge">-44%</span>
-                  </div>
-                  <div class="plan-prices">
-                    <strong class="plan-price" data-price-eur="49,99€" data-price-usd="$54.99">49,99€</strong>
-                    <span class="plan-old-price" data-old-price-eur="89,99€" data-old-price-usd="$98.99">89,99€</span>
-                  </div>
-                  <a class="plan-cta" href="https://buy.stripe.com/9B6eVcgIO8G75ve7uh7wA05">Scegli Lifetime</a>
-                </div>
-
-                <div class="plan-body">
-                  <ul class="plan-features">
-                    <li>Tutte le funzioni di Annuale/Mensile</li>
-                    <li>Accesso completo per sempre</li>
-                    <li>Nessun rinnovo</li>
-                  </ul>
-                  <div class="plan-ai-box">
-                    <span class="plan-ai-label">Organizr AI</span>
-                    <p>300 crediti al mese per 24 mesi</p>
-                  </div>
-                </div>
-              </article>
-            </div>
+        <article class="plan-card plan-card--pro reveal" data-plan="pro" style="--d:.08s">
+          <span class="plan-card__badge">Il più scelto</span>
+          <h3>Premium</h3>
+          <p class="plan-card__sub">Tutto, senza limiti.</p>
+          <div class="price">
+            <s class="price__old">€24,99</s>
+            <span class="price__n">€17,99</span>
+            <span class="price__per" data-year="/anno" data-month="/mese">/anno</span>
           </div>
-        </section>
+          <p class="price__hint" data-year="Circa €1,50 al mese" data-month="Disdici quando vuoi">Circa €1,50 al mese</p>
+          <a href="https://buy.stripe.com/bJe9ASfEK7C3e1K29X7wA07" class="btn btn--light btn--block" data-checkout rel="noopener">Passa a Premium</a>
+          <ul class="plist">
+            <li>Tutte le sezioni, senza limiti</li>
+            <li>Sync cifrata su tutti i dispositivi</li>
+            <li>Dashboard avanzate e Time Analyzr</li>
+            <li>Board, Wallet e Workout inclusi</li>
+            <li>Guardaroba e File su desktop</li>
+            <li>Organizr AI · 300 crediti/mese</li>
+          </ul>
+        </article>
+
+        <article class="plan-card reveal" data-plan="life" style="--d:.16s">
+          <h3>Lifetime</h3>
+          <p class="plan-card__sub">Paghi una volta. È tuo per sempre.</p>
+          <div class="price"><s class="price__old">€89,99</s><span class="price__n">€49,99</span></div>
+          <p class="price__hint">Una tantum · −44% per un periodo limitato</p>
+          <a href="https://buy.stripe.com/9B6eVcgIO8G75ve7uh7wA05" class="btn btn--ghost btn--block" rel="noopener">Scegli Lifetime</a>
+          <ul class="plist">
+            <li>Tutto quello che c'è in Premium</li>
+            <li>Accesso completo per sempre</li>
+            <li>Nessun rinnovo</li>
+            <li>Organizr AI · 300 crediti/mese per 24 mesi</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
         <section class="seo-content-section" id="from-the-blog" aria-labelledby="from-the-blog-title">
           <div class="section-heading">
@@ -440,28 +389,44 @@
         </section>
       </main>
 
-      <footer class="site-footer">
-        <div class="footer-brand">
-          <a class="footer-logo" href="/it/" aria-label="Organizr home">
-            <img src="/assets/img/logo/organizer-logo-white.png" alt="Logo Organizr" width="1275" height="351" />
-          </a>
-          <p>Planner personale desktop per routine, workout, dieta, obiettivi e progressi locali.</p>
-        </div>
-
-        <nav class="footer-links" aria-label="Link legali">
-          <a href="https://billing.stripe.com/p/login/dRm00i3W28G77Dm29X7wA01" target="_blank" rel="noopener noreferrer">Gestisci abbonamento</a>
-          <a href="/it/blog/">Blog</a>
-          <a href="/it/support/">Assistenza</a>
-          <a href="/it/privacy-policy/">Privacy Policy</a>
-          <a href="/it/cookie-policy/">Cookie Policy</a>
-          <a href="/it/termini-condizioni/">Termini e condizioni</a>
-        </nav>
-
-        <div class="footer-meta">
-          <span>© 2026 Organizr</span>
-          <span>Software sviluppato da <a href="https://wonder-web.it" target="_blank" rel="noopener noreferrer">WonderWeb</a> di Allpromotion</span>
-        </div>
-      </footer>
+  <footer class="foot">
+    <div class="foot__inner">
+      <div class="foot__brand">
+        <a href="/it/" class="foot__logo"><img src="/assets/img/apps/organizr.webp" alt="" width="38" height="38" loading="lazy">Organizr</a>
+        <p>La suite per la crescita personale: abitudini, allenamento, alimentazione, finanze e obiettivi in un unico spazio sincronizzato.</p>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">Prodotto</p>
+        <ul>
+          <li><a href="/it/habit-tracker/">Habit tracker</a></li>
+          <li><a href="/it/workout/">Tracker workout</a></li>
+          <li><a href="/it/portafoglio/">Portafoglio</a></li>
+          <li><a href="/it/pricing/">Prezzi</a></li>
+          <li><a href="/it/download/">Download</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">Risorse</p>
+        <ul>
+          <li><a href="/it/blog/">Blog</a></li>
+          <li><a href="/it/fatsecret-sync-tutorial/">Guida FatSecret</a></li>
+          <li><a href="/it/support/">Supporto</a></li>
+          <li><a href="https://billing.stripe.com/p/login/dRm00i3W28G77Dm29X7wA01" rel="noopener">Gestisci abbonamento</a></li>
+        </ul>
+      </div>
+      <div class="foot__col">
+        <p class="foot__h">Legale</p>
+        <ul>
+          <li><a href="/it/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/it/cookie-policy/">Cookie Policy</a></li>
+          <li><a href="/it/termini-condizioni/">Termini e condizioni</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="foot__copy">
+      <span>© 2026 Organizr</span>
+      <span>Software sviluppato da <a href="https://wonder-web.it" rel="noopener">WonderWeb</a> di Allpromotion</span>
+    </div>
+  </footer>
   </body>
 </html>

@@ -1,0 +1,305 @@
+/* Organizr — homepage interactions (orbit, explorer, desktop preview, pricing). */
+(() => {
+  "use strict";
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(pointer: fine)").matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const isIt = (document.documentElement.lang || "").toLowerCase().startsWith("it");
+
+  /* ---------- marquee: three copies of the set, the track loops by one third ---------- */
+  $$(".marquee__track").forEach(track => {
+    const items = [...track.children];
+    for (let n = 0; n < 2; n++) items.forEach(el => { const c = el.cloneNode(true); c.setAttribute("aria-hidden", "true"); track.appendChild(c); });
+  });
+
+  /* ---------- orbit ---------- */
+  const orbit = $("#orbit");
+  if (orbit) {
+    const RINGS = [
+      { rx: 268, ry: 118, rot: -14 },
+      { rx: 226, ry: 168, rot: 10 },
+      { rx: 290, ry: 250, rot: -4 }
+    ];
+    const bodies = $$(".sat, .moon, .spark", orbit).map(el => ({
+      el,
+      ring: RINGS[+el.dataset.ring],
+      phase: +el.dataset.phase,
+      speed: +el.dataset.speed,
+      kind: el.classList.contains("sat") ? "sat" : el.classList.contains("moon") ? "moon" : "spark"
+    }));
+    let size = orbit.offsetWidth, running = true;
+    // orbit clock: advances with an eased speed so hovering a satellite brings the system to a smooth stop
+    let clock = 0, speed = 1, target = 1, lastNow = performance.now();
+    const place = (now) => {
+      const dt = Math.min(0.05, (now - lastNow) / 1000);
+      lastNow = now;
+      speed += (target - speed) * Math.min(1, dt * 6);
+      clock += dt * speed;
+      const t = clock;
+      const k = size / 600;
+      for (const b of bodies) {
+        const a = (b.phase + t * 9 * b.speed) * Math.PI / 180;
+        const r = b.ring.rot * Math.PI / 180;
+        const px = b.ring.rx * Math.cos(a), py = b.ring.ry * Math.sin(a);
+        const x = 300 + px * Math.cos(r) - py * Math.sin(r);
+        const y = 300 + px * Math.sin(r) + py * Math.cos(r);
+        const depth = Math.sin(a); // +1 front, -1 back
+        const f = (depth + 1) / 2;
+        const st = b.el.style;
+        st.setProperty("--x", (x * k).toFixed(1) + "px");
+        st.setProperty("--y", (y * k).toFixed(1) + "px");
+        if (b.kind === "sat") {
+          st.setProperty("--s", (0.66 + 0.4 * f).toFixed(3));
+          st.setProperty("--o", (0.5 + 0.5 * f).toFixed(3));
+          st.setProperty("--b", b.el.classList.contains("is-hover") ? "0px" : ((1 - f) * 2).toFixed(2) + "px");
+          st.setProperty("--tilt", (Math.cos(a) * 8).toFixed(1) + "deg");
+        } else {
+          st.setProperty("--s", (0.7 + 0.35 * f).toFixed(3));
+          st.setProperty("--o", (0.35 + 0.65 * f).toFixed(3));
+          if (b.kind === "moon") st.setProperty("--b", ((1 - f) * 1.4).toFixed(2) + "px");
+        }
+        st.zIndex = b.el.classList.contains("is-hover") ? 60 : depth > 0 ? 30 + Math.round(f * 10) : 10 - Math.round((1 - f) * 5);
+      }
+    };
+    const loop = (now) => {
+      if (running) place(now); else lastNow = now;
+      if (!reduced) requestAnimationFrame(loop);
+    };
+    bodies.filter(b => b.kind === "sat").forEach(({ el }) => {
+      const on = () => { el.classList.add("is-hover"); target = 0; };
+      const off = () => { el.classList.remove("is-hover"); target = 1; };
+      el.addEventListener("pointerenter", on);
+      el.addEventListener("pointerleave", off);
+      el.addEventListener("focus", on);
+      el.addEventListener("blur", off);
+    });
+    place(performance.now());
+    if (!reduced) requestAnimationFrame(loop);
+    new ResizeObserver(() => { size = orbit.offsetWidth; place(performance.now()); }).observe(orbit);
+    new IntersectionObserver(([e]) => { running = e.isIntersecting; }).observe(orbit);
+
+    if (finePointer && !reduced) {
+      window.addEventListener("pointermove", (e) => {
+        const nx = e.clientX / window.innerWidth - 0.5;
+        const ny = e.clientY / window.innerHeight - 0.5;
+        orbit.style.setProperty("--ry", (nx * 16).toFixed(2) + "deg");
+        orbit.style.setProperty("--rx", (-ny * 12).toFixed(2) + "deg");
+      }, { passive: true });
+    }
+  }
+
+  /* ---------- pointer spotlight + tilt ---------- */
+  if (finePointer) {
+    $$(".spot, .app-card").forEach(el => {
+      el.addEventListener("pointermove", (e) => {
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        el.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+        el.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+        if (el.classList.contains("tilt") && !reduced) {
+          el.style.setProperty("--try", ((x - 0.5) * 8).toFixed(2) + "deg");
+          el.style.setProperty("--trx", (-(y - 0.5) * 6).toFixed(2) + "deg");
+        }
+      });
+      el.addEventListener("pointerleave", () => {
+        el.style.setProperty("--try", "0deg"); el.style.setProperty("--trx", "0deg");
+      });
+    });
+  }
+
+  /* ---------- suite explorer ---------- */
+  const tabs = $$(".ex-tab");
+  const phones = $$(".ex-phone");
+  // the second, empty slot for cross-fades is created here so the markup never ships an <img> without src
+  if (phones.length === 1) {
+    const twin = document.createElement("img");
+    twin.className = "ex-phone"; twin.alt = ""; twin.width = 708; twin.height = 1400; twin.decoding = "async";
+    phones[0].after(twin); phones.push(twin);
+  }
+  const halo = $(".explorer__halo");
+  const desc = $("#exDesc");
+  if (tabs.length) {
+    const DUR = 5200;
+    let idx = 0, front = 0, timer = null, paused = false, visible = false;
+    // preload images
+    // warm the next screenshots only once the explorer is close to the viewport
+    let warmed = false;
+    const warm = () => { if (warmed) return; warmed = true; tabs.forEach(t => { const i = new Image(); i.src = `/assets/img/iphone/${t.dataset.img}.webp`; }); };
+    const label = (t) => isIt ? `${t.querySelector(".ex-tab__t").textContent} di Organizr su iPhone` : `Organizr ${t.querySelector(".ex-tab__t").textContent} on iPhone`;
+    const show = (n, user = false) => {
+      const prev = tabs[idx];
+      idx = (n + tabs.length) % tabs.length;
+      const tab = tabs[idx];
+      tabs.forEach(t => { t.classList.remove("is-active", "is-running"); t.setAttribute("aria-selected", "false"); });
+      tab.classList.add("is-active"); tab.setAttribute("aria-selected", "true");
+      tab.style.setProperty("--c", tab.dataset.c);
+      tab.style.setProperty("--dur", DUR + "ms");
+      halo.style.setProperty("--hc", tab.dataset.c);
+      if (desc) desc.textContent = tab.querySelector(".ex-tab__d").textContent.trim();
+      if (prev !== tab) {
+        const cur = phones[front], next = phones[1 - front];
+        next.src = `/assets/img/iphone/${tab.dataset.img}.webp`;
+        next.alt = label(tab);
+        cur.classList.remove("is-on"); cur.classList.add("is-out"); cur.alt = "";
+        next.classList.remove("is-out");
+        void next.offsetWidth;
+        next.classList.add("is-on");
+        front = 1 - front;
+        setTimeout(() => cur.classList.remove("is-out"), 900);
+        if (user && window.innerWidth <= 1080) tab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }
+      schedule();
+    };
+    const schedule = () => {
+      clearTimeout(timer);
+      const tab = tabs[idx];
+      tab.classList.remove("is-running");
+      if (paused || !visible || reduced) return;
+      void tab.offsetWidth;
+      tab.classList.add("is-running");
+      timer = setTimeout(() => show(idx + 1), DUR);
+    };
+    tabs.forEach((t, i) => t.addEventListener("click", () => { paused = false; show(i, true); }));
+    const list = $(".explorer__list");
+    list.addEventListener("keydown", (e) => {
+      if (!["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      e.preventDefault();
+      const d = (e.key === "ArrowDown" || e.key === "ArrowRight") ? 1 : -1;
+      show(idx + d, true); tabs[idx].focus();
+    });
+    const explorer = $(".explorer");
+    explorer.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { paused = true; schedule(); } });
+    explorer.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { paused = false; schedule(); } });
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) warm(); schedule(); }, { threshold: 0.35 }).observe(explorer);
+    show(0);
+  }
+
+  /* ---------- heatmap ---------- */
+  const heat = $("#heat");
+  if (heat) {
+    let seed = 7;
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const frag = document.createDocumentFragment();
+    for (let c = 0; c < 26; c++) {
+      for (let r = 0; r < 7; r++) {
+        const i = document.createElement("i");
+        const trend = c / 26;
+        const v = rnd() + trend * 0.35 - (r === 6 ? 0.25 : 0);
+        i.dataset.l = v < 0.42 ? 0 : v < 0.62 ? 1 : v < 0.8 ? 2 : v < 1.0 ? 3 : 4;
+        i.style.transitionDelay = (c * 22 + r * 12) + "ms";
+        frag.appendChild(i);
+      }
+    }
+    heat.appendChild(frag);
+    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { heat.classList.add("is-in"); o.disconnect(); } }, { threshold: 0.3 }).observe(heat);
+  }
+
+  /* ---------- AI chat ---------- */
+  const chat = $("#chat");
+  if (chat) {
+    new IntersectionObserver(([e], o) => {
+      if (e.isIntersecting) { setTimeout(() => chat.classList.add("is-done"), reduced ? 0 : 1800); o.disconnect(); }
+    }, { threshold: 0.5 }).observe(chat);
+  }
+
+  /* ---------- desktop window ---------- */
+  const scene = $("#deskScene");
+  const video = $("#deskVideo");
+  if (scene && video) {
+    const win = $(".window", scene);
+    let inView = false;
+    const update = () => {
+      const r = scene.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.75)));
+      const e = 1 - Math.pow(1 - p, 3);
+      win.style.setProperty("--wrx", (22 * (1 - e)).toFixed(2) + "deg");
+      win.style.setProperty("--wsc", (0.88 + 0.12 * e).toFixed(3));
+      win.style.setProperty("--wty", (40 * (1 - e)).toFixed(1) + "px");
+    };
+    if (!reduced) {
+      window.addEventListener("scroll", () => { if (inView) requestAnimationFrame(update); }, { passive: true });
+    } else {
+      win.style.setProperty("--wrx", "0deg"); win.style.setProperty("--wsc", "1"); win.style.setProperty("--wty", "0px");
+    }
+    new IntersectionObserver(([e]) => {
+      inView = e.isIntersecting;
+      if (inView) { update(); if (!reduced) video.play().catch(() => {}); }
+      else video.pause();
+    }, { threshold: 0.05 }).observe(scene);
+
+    $$(".dtab").forEach(btn => btn.addEventListener("click", () => {
+      if (btn.classList.contains("is-active")) return;
+      $$(".dtab").forEach(b => { b.classList.remove("is-active"); b.setAttribute("aria-selected", "false"); });
+      btn.classList.add("is-active"); btn.setAttribute("aria-selected", "true");
+      video.classList.add("is-fading");
+      setTimeout(() => {
+        video.src = `/assets/video/${btn.dataset.v}_web.mp4`;
+        video.poster = `/assets/video/poster-${btn.dataset.v}.jpg`;
+        video.addEventListener("loadeddata", () => video.classList.remove("is-fading"), { once: true });
+        if (!reduced) video.play().catch(() => {}); else video.classList.remove("is-fading");
+      }, 280);
+    }));
+  }
+
+  /* ---------- FAQ: one open at a time ---------- */
+  const faqs = $$(".faq details");
+  faqs.forEach(d => d.addEventListener("toggle", () => {
+    if (d.open) faqs.forEach(o => { if (o !== d) o.open = false; });
+  }));
+
+  /* ---------- pricing: billing period + currency ---------- */
+  const PRICES = {
+    year:  { eur: ["€17,99", "€24,99"], usd: ["$19.99", "$27.99"], url: "https://buy.stripe.com/bJe9ASfEK7C3e1K29X7wA07" },
+    month: { eur: ["€3,49", ""],        usd: ["$3.99", ""],        url: "https://buy.stripe.com/28EeVc5061dF7DmaGt7wA08" },
+    life:  { eur: ["€49,99", "€89,99"], usd: ["$54.99", "$98.99"] }
+  };
+  const billing = $(".billing");
+  if (billing) {
+    const opts = $$(".billing__opt", billing);
+    const thumb = $(".billing__thumb", billing);
+    const curBtns = $$("[data-currency]");
+    const pro = $("[data-plan='pro']");
+    const life = $("[data-plan='life']");
+    let mode = "year";
+    let currency = "eur";
+    try { currency = localStorage.getItem("organizr_currency_pref") || "eur"; } catch (e) {}
+    if (!PRICES.year[currency]) currency = "eur";
+    const moveThumb = (btn) => {
+      thumb.style.setProperty("--tw", btn.offsetWidth + "px");
+      thumb.style.setProperty("--tx", (btn.offsetLeft - 5) + "px");
+    };
+    const swap = (el, text) => {
+      if (!el || el.textContent === text) return;
+      el.textContent = text;
+      el.classList.remove("is-swap"); void el.offsetWidth; el.classList.add("is-swap");
+    };
+    const render = () => {
+      opts.forEach(o => {
+        const on = o.dataset.bill === mode;
+        o.classList.toggle("is-active", on); o.setAttribute("aria-checked", on);
+        if (on) moveThumb(o);
+      });
+      curBtns.forEach(b => b.setAttribute("aria-pressed", b.dataset.currency === currency ? "true" : "false"));
+      const p = PRICES[mode][currency];
+      swap($(".price__n", pro), p[0]);
+      $(".price__old", pro).textContent = p[1];
+      $$("[data-year]", pro).forEach(el => { el.textContent = el.dataset[mode === "year" ? "year" : "month"]; });
+      $("[data-checkout]", pro).href = PRICES[mode].url;
+      const l = PRICES.life[currency];
+      swap($(".price__n", life), l[0]);
+      $(".price__old", life).textContent = l[1];
+    };
+    opts.forEach(o => o.addEventListener("click", () => { mode = o.dataset.bill; render(); }));
+    curBtns.forEach(b => b.addEventListener("click", () => {
+      currency = b.dataset.currency;
+      try { localStorage.setItem("organizr_currency_pref", currency); } catch (e) {}
+      render();
+    }));
+    render();
+    window.addEventListener("resize", () => moveThumb($(".billing__opt.is-active", billing)));
+    if (document.fonts) document.fonts.ready.then(() => moveThumb($(".billing__opt.is-active", billing)));
+  }
+})();

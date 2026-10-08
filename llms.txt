@@ -14,6 +14,16 @@ Organizr replaces the handful of separate apps most people use to run their pers
 - Windows 10 / 11
 - Apple Watch — log workouts, spending and habits from the wrist
 
+## Companion apps for iPhone
+
+Organizr is the complete suite. On iPhone there are also three dedicated apps, each focused on one area and synced with Organizr through the same account and licence:
+
+- **Board** — personal kanban with Board, Timeline and To-do views, separate workspaces and Organizr AI
+- **Wallet** — accounts, reports, investments, forecast and subscriptions; Apple Watch app for logging income and expenses
+- **Workout** — routines, sets, reps and load, muscle breakdown, progress photos; Apple Watch app with rest timers
+
+One Premium plan unlocks Organizr and all three apps on every device. Sync is optional and end-to-end encrypted.
+
 ## Key features
 
 - **Tracker** — daily habit tracker with streaks, statistics and a unified dashboard
@@ -44,7 +54,7 @@ Organizr replaces the handful of separate apps most people use to run their pers
 - **Organizr Pro, annual** — €17.99/year (from €24.99). Everything with no limits, advanced dashboards, device sync, Time Analyzr, wardrobe and file organization on desktop, 300 Organizr AI credits per month.
 - **Organizr Lifetime** — €49.99 one-time (from €89.99). All Pro features forever, no renewals, 300 Organizr AI credits per month for 24 months.
 
-Prices are also shown in USD on the site. No account is required to use Organizr Lite.
+Premium (monthly, annual or Lifetime) also covers the Board, Wallet and Workout apps. Prices are also shown in USD on the site. No account is required to use Organizr Lite.
 
 ## Privacy and data
 
