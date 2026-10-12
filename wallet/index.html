@@ -36,7 +36,7 @@
     <script src="../assets/js/cookie-consent.min.js?v=679c558434" defer></script>
     <script src="/assets/js/site.min.js?v=8816b8b63c" defer></script>
     <link rel="stylesheet" href="/assets/css/site.min.css?v=669f42a4d9" />
-    <link rel="stylesheet" href="/assets/css/pages.min.css?v=0dae22c6ba" />
+    <link rel="stylesheet" href="/assets/css/pages.min.css?v=dde338459c" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -68,6 +68,11 @@
               "@type": "Question",
               "name": "Does Organizr connect to my bank?",
               "acceptedAnswer": { "@type": "Answer", "text": "No. There is no bank connection: you add the accounts and transactions you want to track. That is a deliberate choice, and it is why your financial data can stay on your devices." }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I add transactions with AI instead of typing them in?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. With Quick add with Organizr AI you write or dictate a sentence like \"10.50 sandwich cash\" and the AI prepares the transaction with amount, description, account, category and date. You check it and confirm before it is saved. It uses Organizr AI credits and reads only your text and the names of your accounts and categories, never balances or history." }
             },
             {
               "@type": "Question",
@@ -150,6 +155,38 @@
           </div>
         </section>
 
+        <section class="workout-section-split wai-section" id="ai-quick-add" aria-labelledby="wallet-ai-title">
+          <div class="workout-split-copy">
+            <p class="eyebrow">ADD WITH AI</p>
+            <h2 id="wallet-ai-title">Type it or say it. Organizr AI fills in the rest.</h2>
+            <p>No forms to fill in: write or dictate a sentence and <strong>Organizr AI</strong> turns it into a transaction.</p>
+            <ul class="workout-bullets">
+              <li><strong>Write like you talk.</strong> "10.50 sandwich cash" and the transaction is ready.</li>
+              <li><strong>Or dictate it</strong> with the keyboard microphone.</li>
+              <li><strong>You confirm.</strong> Nothing is saved without your OK.</li>
+              <li><strong>Private.</strong> It reads only your text and the names of accounts and categories.</li>
+            </ul>
+          </div>
+          <div class="workout-split-visual">
+            <div class="wai" aria-hidden="true">
+              <div class="wai__head"><span class="wai__badge">&#10022; ORGANIZR AI</span><b>Quick add</b></div>
+              <p class="wai__label">What did you spend or earn?</p>
+              <div class="wai__input"><span class="wai__text">10.50 sandwich cash</span><span class="wai__mic"><svg width="14" height="14" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div>
+              <div class="wai__card">
+                <p class="wai__kicker">CHECK AND CONFIRM</p>
+                <div class="wai__amount"><span class="wai__type">&#8599; Expense</span><b>&minus;&euro;10.50</b></div>
+                <p class="wai__desc">Sandwich</p>
+                <dl class="wai__rows">
+                  <div><dt>Account</dt><dd>Cash</dd></div>
+                  <div><dt>Category</dt><dd>Food</dd></div>
+                  <div><dt>Date</dt><dd>Today</dd></div>
+                </dl>
+                <div class="wai__actions"><span>Cancel</span><span class="wai__ok">&#10003; Add transaction</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="seo-content-section" aria-labelledby="wallet-detail-title">
           <div class="section-heading">
             <p class="eyebrow">WHAT YOU GET</p>
@@ -157,29 +194,56 @@
             <p>Money sits in the same app as habits, training and goals, which is usually where the honest explanation for a month is hiding.</p>
           </div>
           <div class="seo-feature-grid">
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 8h14M15 5l3 3-3 3M20 16H6M9 13l-3 3 3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Accounts and transactions</h3>
               <p>Add every account you use and record what moves through them. Nothing is connected to your bank unless you type it in yourself.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 20h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M4 16l5-5 3.5 3.5L19 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M14.5 8H19v4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Investments</h3>
               <p>Track investments beside the day-to-day accounts, so net position and monthly spending are not two separate stories.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M15 14.5a3 3 0 1 1-1-2.2M14.3 10.8l-.3 1.6 1.6.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Subscription tracker</h3>
               <p>Every subscription with its renewal date and real cost, including the ones split with friends or colleagues. The monthly total stops being a surprise.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 3.5V12h8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 12l-5.5 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Spending dashboards</h3>
               <p>Read what you spent and where, over the periods that matter, instead of scrolling a bank statement.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><rect x="6.5" y="6" width="11" height="12" rx="3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M9 6l.6-3h4.8l.6 3M9 18l.6 3h4.8l.6-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 9.5V12l1.8 1.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Log spending from Apple Watch</h3>
               <p>Record a payment from your wrist the moment it happens, then find it in the Wallet with everything else.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 3l7 2.8v5.4c0 4.4-2.9 8-7 9.8-4.1-1.8-7-5.4-7-9.8V5.8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M9 12l2.2 2.2L15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Your numbers, your device</h3>
               <p>Wallet and Subscriptions have no 90-day limit: complete history stays encrypted on the server to keep balances and reports accurate. Data also stays on your devices.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="app-two" aria-labelledby="two-title">
+          <div class="section-heading section-heading--center">
+            <p class="eyebrow">Two ways to use it</p>
+            <h2 id="two-title">As an app of its own, <em>or inside Organizr.</em></h2>
+          </div>
+          <div class="two-grid">
+            <article class="two-card two-card--app two-card--wallet reveal" style="--d:0.00s">
+              <img src="/assets/img/apps/wallet.webp" alt="" width="64" height="64" loading="lazy">
+              <h3>Wallet for iPhone</h3>
+              <p>A dedicated app with Overview, Report, Investments, Forecast and Subscriptions in the tab bar. Only your money, nothing else.</p>
+              <ul class="ticks"><li>Free with 2 accounts and 6 subscriptions</li><li>Apple Watch app to log spending and income</li><li>English, Italian, Spanish and German</li></ul>
+            </article>
+            <article class="two-card reveal" style="--d:0.08s">
+              <img src="/assets/img/apps/organizr.webp" alt="" width="64" height="64" loading="lazy">
+              <h3>Inside Organizr</h3>
+              <p>The same wallet next to habits, workouts, nutrition and goals, on iPhone, Android, Mac and Windows.</p>
+              <ul class="ticks"><li>One account for every app</li><li>Premium covers Wallet and the full Organizr</li><li>Spending next to the rest of your month</li></ul>
             </article>
           </div>
         </section>
@@ -219,6 +283,10 @@
             <details class="faq-item">
               <summary>Does Organizr connect to my bank?</summary>
               <p>No. There is no bank connection: you add the accounts and transactions you want to track. That is a deliberate choice, and it is why your financial data can stay on your devices.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Can I add transactions with AI instead of typing them in?</summary>
+              <p>Yes. With Quick add with Organizr AI you write or dictate a sentence like &ldquo;10.50 sandwich cash&rdquo; and the AI prepares the transaction with amount, description, account, category and date. You check it and confirm before it is saved. It uses Organizr AI credits and reads only your text and the names of your accounts and categories, never balances or history.</p>
             </details>
             <details class="faq-item">
               <summary>Can I track subscriptions?</summary>

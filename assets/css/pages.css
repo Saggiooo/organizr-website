@@ -438,7 +438,7 @@ textarea.support-control { min-height: 150px; resize: vertical; }
 @keyframes tdfade { 0%, 10% { color: var(--text); } 16%, 80% { color: var(--dim); text-decoration: line-through; text-decoration-color: rgba(255,255,255,.3); } 90%, 100% { color: var(--text); text-decoration: none; } }
 
 .bfeat h3::before { display: none !important; }
-.bfeat__ic { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 18px; border-radius: 12px; font-size: 18px; color: #fff; background: linear-gradient(135deg, rgba(110,123,255,.9), rgba(139,92,246,.6)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2), 0 12px 26px -12px rgba(110,123,255,.9); }
+.bfeat__ic { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 18px; border-radius: 13px; color: #fff; background: linear-gradient(135deg, rgba(110,123,255,.9), rgba(139,92,246,.6)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.2), 0 12px 26px -12px rgba(110,123,255,.9); }
 
 .section-heading--center { text-align: center; margin-left: auto; margin-right: auto; }
 .section-heading--center > p:not(.eyebrow) { margin-left: auto; margin-right: auto; }
@@ -448,12 +448,17 @@ textarea.support-control { min-height: 150px; resize: vertical; }
 .two-card { padding: 32px; border-radius: var(--r-xl); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)); }
 .two-card--board { border-color: rgba(110,123,255,.4); background: radial-gradient(100% 70% at 0% 0%, rgba(110,123,255,.26), transparent 65%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)); box-shadow: 0 40px 90px -50px rgba(110,123,255,.9); }
 .two-card img { width: 64px; height: 64px; border-radius: 24%; margin-bottom: 20px; }
-.two-card:not(.two-card--board) img { border-radius: 0; filter: drop-shadow(0 10px 22px rgba(139,92,246,.6)); }
+.two-card:not(.two-card--board):not(.two-card--app) img { border-radius: 0; filter: drop-shadow(0 10px 22px rgba(139,92,246,.6)); }
 .two-card h3 { margin: 0; font: 700 28px/1.1 var(--f-display); }
 .two-card > p { margin: 10px 0 0; color: var(--muted); }
 .two-card .ticks { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; font-size: 15px; color: var(--muted); }
 .two-card .ticks li { display: flex; gap: 10px; }
 .two-card .ticks li::before { content: ""; flex: none; width: 18px; height: 18px; margin-top: 2px; border-radius: 6px; background: rgba(110,123,255,.25) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='white' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat; }
+.two-card--workout { --ac: 62,155,255; }
+.two-card--wallet { --ac: 63,207,126; }
+.two-card--app { border-color: rgba(var(--ac),.4); background: radial-gradient(100% 70% at 0% 0%, rgba(var(--ac),.24), transparent 65%), linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015)); box-shadow: 0 40px 90px -50px rgba(var(--ac),.9); }
+.two-card--app .ticks li::before { background-color: rgba(var(--ac),.28); }
+.two-card--app img { box-shadow: 0 20px 40px -14px rgba(var(--ac),.8); }
 .board-blog__h { margin: 0; font: 650 clamp(30px, 4vw, 48px)/1.05 var(--f-display); letter-spacing: -.015em; }
 .board-blog .posts { margin-top: 10px; }
 .board-cta { margin-top: clamp(80px, 10vw, 130px); text-align: center; }
@@ -461,6 +466,44 @@ textarea.support-control { min-height: 150px; resize: vertical; }
 .board-cta .cta-card__icons img:first-child { width: 72px; height: 72px; border-radius: 24%; filter: none; box-shadow: 0 20px 40px -10px rgba(61,75,216,.9); }
 .board-cta p { margin-left: auto; margin-right: auto; }
 .board-cta .cta-card__actions { justify-content: center; }
+
+/* ---------- Wallet landing: feature icons ---------- */
+.wfeat h3::before { display: none; }
+.wfeat::before { background: radial-gradient(360px circle at var(--mx) var(--my), rgba(63,207,126,.14), transparent 60%); }
+.wfeat:hover { border-color: rgba(63,207,126,.3); box-shadow: 0 30px 60px -30px rgba(63,207,126,.5); }
+.wfeat__ic { display: grid; place-items: center; width: 42px; height: 42px; margin-bottom: 18px; border-radius: 13px; color: #fff; background: linear-gradient(135deg, rgba(63,207,126,.95), rgba(28,140,96,.7)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.22), 0 12px 26px -12px rgba(63,207,126,.9); }
+.wfeat__ic svg { opacity: .95; }
+
+/* ---------- Wallet landing: AI quick add mockup ---------- */
+/* base state = final frame, so reduced motion (animation cut short) shows the filled proposal */
+.wai-section .workout-bullets li::before { background-color: rgba(63,207,126,.28); }
+.wai { position: relative; max-width: 410px; margin: 0 auto; padding: 22px; border-radius: var(--r-xl); border: 1px solid rgba(63,207,126,.28); background: radial-gradient(80% 60% at 50% 0%, rgba(63,207,126,.18), transparent 70%), linear-gradient(180deg, #111915, #0c0d12); box-shadow: 0 40px 100px -50px rgba(63,207,126,.8), 0 30px 60px -30px rgba(0,0,0,.8); }
+.wai__head { display: grid; gap: 8px; }
+.wai__badge { justify-self: start; padding: 5px 9px; border-radius: 999px; font: 600 10px/1 var(--f-mono); letter-spacing: .12em; color: #a7f0c6; background: rgba(63,207,126,.14); }
+.wai__head b { font: 700 22px/1.1 var(--f-display); }
+.wai__label { margin: 18px 0 8px; font-size: 13px; color: var(--muted); }
+.wai__input { display: flex; align-items: center; gap: 10px; padding: 13px 14px; border-radius: 16px; font-size: 15px; background: #0a0a0f; border: 1px solid var(--line-2); }
+.wai__text { position: relative; flex: 0 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; }
+.wai__text::after { content: ""; position: absolute; inset: 0; background: #0a0a0f; transform-origin: right; transform: scaleX(0); animation: waiType 9s steps(22) infinite; }
+.wai__mic { position: relative; flex: none; margin-left: auto; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; color: #06140c; background: var(--wallet); }
+.wai__mic::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--wallet); opacity: 0; animation: waiMic 9s ease-out infinite; }
+.wai__card { margin-top: 16px; padding: 18px; border-radius: 20px; background: rgba(255,255,255,.04); border: 1px solid var(--line); animation: waiCard 9s var(--ease) infinite; }
+.wai__kicker { margin: 0; font: 600 10.5px/1 var(--f-mono); letter-spacing: .12em; color: #a7f0c6; }
+.wai__amount { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+.wai__type { padding: 6px 9px; border-radius: 999px; font: 600 12px/1 var(--f-body); color: #ffb4a9; background: rgba(239,68,68,.14); }
+.wai__amount b { font: 700 30px/1 var(--f-display); letter-spacing: -.01em; }
+.wai__desc { margin: 8px 0 0; font-weight: 600; color: rgba(244,241,250,.85); }
+.wai__rows { margin: 12px 0 0; }
+.wai__rows div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.wai__rows dt { color: var(--muted); }
+.wai__rows dd { margin: 0; font-weight: 600; }
+.wai__actions { display: grid; grid-template-columns: 1fr 1.7fr; gap: 10px; margin-top: 14px; }
+.wai__actions span { display: grid; place-items: center; padding: 12px 10px; border-radius: 14px; text-align: center; font: 600 14px/1.1 var(--f-body); color: var(--muted); background: var(--glass-2); }
+.wai__actions .wai__ok { color: #06140c; background: var(--wallet); animation: waiOk 9s var(--ease) infinite; }
+@keyframes waiType { 0%, 6% { transform: scaleX(1); } 30%, 90% { transform: scaleX(0); } 96%, 100% { transform: scaleX(1); } }
+@keyframes waiMic { 0%, 4% { opacity: 0; transform: scale(1); } 10%, 26% { opacity: .7; transform: scale(1.5); } 32%, 100% { opacity: 0; transform: scale(1.7); } }
+@keyframes waiCard { 0%, 34% { opacity: 0; transform: translateY(16px) scale(.98); } 42%, 88% { opacity: 1; transform: none; } 95%, 100% { opacity: 0; transform: translateY(16px) scale(.98); } }
+@keyframes waiOk { 0%, 66% { transform: none; } 70% { transform: scale(.95); } 74%, 100% { transform: none; } }
 
 /* =========================================================
    responsive

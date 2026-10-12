@@ -33,7 +33,7 @@ Un solo piano Premium sblocca Organizr e le tre app su tutti i dispositivi. La S
 - **Ricette** - raccolta di ricette personali, utilizzabili nel planner e da Organizr AI
 - **Misure** - peso, BMI e misure corporee nel tempo
 - **Obiettivi** - obiettivi trimestrali o annuali con traguardi
-- **Portafoglio** - conti, movimenti e investimenti con dashboard delle spese
+- **Portafoglio** - conti, movimenti e investimenti con dashboard delle spese; inserimento al volo con Organizr AI (scrivi o detti una frase, controlli e confermi il movimento proposto)
 - **Abbonamenti** - rinnovi e costi, anche condivisi
 - **Guardaroba** - capi posseduti, desiderati o da vendere (solo desktop)
 - **Libreria** - libri in lettura e letti, con riassunti e note

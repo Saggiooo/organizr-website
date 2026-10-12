@@ -33,7 +33,7 @@ One Premium plan unlocks Organizr and all three apps on every device. Sync is op
 - **Recipes** - personal recipe collection, usable for meal planning and readable by Organizr AI
 - **Measurements** - body weight, BMI and measurement tracking over time
 - **Goals** - goal setting on 3-month cycles or a full year, with milestone tracking
-- **Wallet** - accounts, transactions and investments with spending dashboards
+- **Wallet** - accounts, transactions and investments with spending dashboards; quick add with Organizr AI (write or dictate a sentence, review and confirm the proposed transaction)
 - **Subscriptions** - subscription and renewal tracking, including shared subscriptions
 - **Wardrobe** - clothing you own, want or plan to sell (desktop only)
 - **Reading** - personal library with reading status, summaries and notes

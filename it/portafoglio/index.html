@@ -36,7 +36,7 @@
     <script src="../../assets/js/cookie-consent.min.js?v=679c558434" defer></script>
     <script src="/assets/js/site.min.js?v=8816b8b63c" defer></script>
     <link rel="stylesheet" href="/assets/css/site.min.css?v=669f42a4d9" />
-    <link rel="stylesheet" href="/assets/css/pages.min.css?v=0dae22c6ba" />
+    <link rel="stylesheet" href="/assets/css/pages.min.css?v=dde338459c" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -68,6 +68,11 @@
               "@type": "Question",
               "name": "Organizr si collega alla mia banca?",
               "acceptedAnswer": { "@type": "Answer", "text": "No. Non c'è nessun collegamento bancario: aggiungi tu i conti e i movimenti che vuoi seguire. È una scelta voluta, ed è il motivo per cui i tuoi dati finanziari possono restare sui tuoi dispositivi." }
+            },
+            {
+              "@type": "Question",
+              "name": "Posso inserire i movimenti con l'AI invece di compilarli a mano?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sì. Con Inserisci al volo con Organizr AI scrivi o detti una frase come \"10,50 panino contanti\" e l'AI prepara il movimento con importo, descrizione, conto, categoria e data. Lo controlli e lo confermi prima che venga salvato. Usa i crediti Organizr AI e legge solo il tuo testo e i nomi di conti e categorie, mai saldi o storico." }
             },
             {
               "@type": "Question",
@@ -150,6 +155,38 @@
           </div>
         </section>
 
+        <section class="workout-section-split wai-section" id="ai-inserimento-veloce" aria-labelledby="portafoglio-ai-title">
+          <div class="workout-split-copy">
+            <p class="eyebrow">INSERISCI CON L&rsquo;AI</p>
+            <h2 id="portafoglio-ai-title">Scrivilo o dettalo. Al resto pensa Organizr AI.</h2>
+            <p>Niente moduli da compilare: scrivi o detta una frase e <strong>Organizr AI</strong> la trasforma in un movimento.</p>
+            <ul class="workout-bullets">
+              <li><strong>Scrivi come parli.</strong> &ldquo;10,50 panino contanti&rdquo; e il movimento &egrave; pronto.</li>
+              <li><strong>Oppure dettalo</strong> con il microfono della tastiera.</li>
+              <li><strong>Confermi tu.</strong> Niente si salva senza il tuo ok.</li>
+              <li><strong>Privato.</strong> Legge solo il testo e i nomi di conti e categorie.</li>
+            </ul>
+          </div>
+          <div class="workout-split-visual">
+            <div class="wai" aria-hidden="true">
+              <div class="wai__head"><span class="wai__badge">&#10022; ORGANIZR AI</span><b>Inserisci al volo</b></div>
+              <p class="wai__label">Cosa hai speso o incassato?</p>
+              <div class="wai__input"><span class="wai__text">10,50 panino contanti</span><span class="wai__mic"><svg width="14" height="14" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M6 11a6 6 0 0 0 12 0M12 17v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></div>
+              <div class="wai__card">
+                <p class="wai__kicker">CONTROLLA E CONFERMA</p>
+                <div class="wai__amount"><span class="wai__type">&#8599; Uscita</span><b>&minus;10,50&nbsp;&euro;</b></div>
+                <p class="wai__desc">Panino</p>
+                <dl class="wai__rows">
+                  <div><dt>Conto</dt><dd>Contanti</dd></div>
+                  <div><dt>Categoria</dt><dd>Cibo</dd></div>
+                  <div><dt>Data</dt><dd>Oggi</dd></div>
+                </dl>
+                <div class="wai__actions"><span>Annulla</span><span class="wai__ok">&#10003; Inserisci movimento</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="seo-content-section" aria-labelledby="portafoglio-detail-title">
           <div class="section-heading">
             <p class="eyebrow">COSA TROVI</p>
@@ -157,29 +194,56 @@
             <p>I soldi stanno nella stessa app di abitudini, allenamento e obiettivi, che &egrave; poi dove di solito si nasconde la spiegazione onesta di un mese.</p>
           </div>
           <div class="seo-feature-grid">
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 8h14M15 5l3 3-3 3M20 16H6M9 13l-3 3 3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Conti e movimenti</h3>
               <p>Aggiungi tutti i conti che usi e registri cosa ci passa dentro. Niente &egrave; collegato alla tua banca se non lo inserisci tu.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M3 20h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M4 16l5-5 3.5 3.5L19 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M14.5 8H19v4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Investimenti</h3>
               <p>Segui gli investimenti accanto ai conti di tutti i giorni, cos&igrave; posizione netta e spesa mensile non sono due storie separate.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M3.5 9.5h17M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M15 14.5a3 3 0 1 1-1-2.2M14.3 10.8l-.3 1.6 1.6.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Tracker abbonamenti</h3>
               <p>Ogni abbonamento con data di rinnovo e costo reale, compresi quelli divisi con amici o colleghi. Il totale mensile smette di essere una sorpresa.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 3.5V12h8.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 12l-5.5 6.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Dashboard delle spese</h3>
               <p>Leggi quanto hai speso e dove, sui periodi che ti interessano, invece di scorrere l&rsquo;estratto conto.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><rect x="6.5" y="6" width="11" height="12" rx="3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M9 6l.6-3h4.8l.6 3M9 18l.6 3h4.8l.6-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12 9.5V12l1.8 1.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>Registra le spese da Apple Watch</h3>
               <p>Segni un pagamento dal polso nel momento in cui avviene, e lo ritrovi nel Portafoglio insieme a tutto il resto.</p>
             </article>
-            <article class="seo-feature-card">
+            <article class="seo-feature-card wfeat">
+              <span class="wfeat__ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 3l7 2.8v5.4c0 4.4-2.9 8-7 9.8-4.1-1.8-7-5.4-7-9.8V5.8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M9 12l2.2 2.2L15.5 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
               <h3>I tuoi numeri, sul tuo dispositivo</h3>
               <p>Portafoglio e Abbonamenti non hanno il limite di 90 giorni: lo storico completo resta cifrato sul server per mantenere corretti saldi e report. I dati restano anche sui dispositivi.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="app-two" aria-labelledby="two-title">
+          <div class="section-heading section-heading--center">
+            <p class="eyebrow">Due modi di usarlo</p>
+            <h2 id="two-title">Come app a sé, <em>o dentro Organizr.</em></h2>
+          </div>
+          <div class="two-grid">
+            <article class="two-card two-card--app two-card--wallet reveal" style="--d:0.00s">
+              <img src="/assets/img/apps/wallet.webp" alt="" width="64" height="64" loading="lazy">
+              <h3>Wallet per iPhone</h3>
+              <p>Un&rsquo;app dedicata con Panoramica, Report, Investimenti, Previsionale e Abbonamenti nella barra in basso. Solo i tuoi soldi, nient&rsquo;altro.</p>
+              <ul class="ticks"><li>Gratis con 2 conti e 6 abbonamenti</li><li>App Apple Watch per spese ed entrate</li><li>Italiano, inglese, spagnolo e tedesco</li></ul>
+            </article>
+            <article class="two-card reveal" style="--d:0.08s">
+              <img src="/assets/img/apps/organizr.webp" alt="" width="64" height="64" loading="lazy">
+              <h3>Dentro Organizr</h3>
+              <p>Lo stesso portafoglio accanto ad abitudini, allenamenti, alimentazione e obiettivi, su iPhone, Android, Mac e Windows.</p>
+              <ul class="ticks"><li>Un account per tutte le app</li><li>Premium vale per Wallet e per Organizr completo</li><li>Le spese accanto al resto del mese</li></ul>
             </article>
           </div>
         </section>
@@ -219,6 +283,10 @@
             <details class="faq-item">
               <summary>Organizr si collega alla mia banca?</summary>
               <p>No. Non c&rsquo;&egrave; nessun collegamento bancario: aggiungi tu i conti e i movimenti che vuoi seguire. È una scelta voluta, ed &egrave; il motivo per cui i tuoi dati finanziari possono restare sui tuoi dispositivi.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Posso inserire i movimenti con l&rsquo;AI invece di compilarli a mano?</summary>
+              <p>S&igrave;. Con Inserisci al volo con Organizr AI scrivi o detti una frase come &ldquo;10,50 panino contanti&rdquo; e l&rsquo;AI prepara il movimento con importo, descrizione, conto, categoria e data. Lo controlli e lo confermi prima che venga salvato. Usa i crediti Organizr AI e legge solo il tuo testo e i nomi di conti e categorie, mai saldi o storico.</p>
             </details>
             <details class="faq-item">
               <summary>Posso tenere traccia degli abbonamenti?</summary>
