@@ -80,19 +80,8 @@
     File: "Ma quella cartella era sul PC, sul Mac o nel Server? Forse in tutti e tre. Organizr ti aiuta a visualizzare dove si trovano i tuoi file, come sono organizzati i backup e quando devono essere aggiornati. Così eviti il classico panico da forse l'ho perso davvero.",
   };
 
-  const appVideos = {
-    Bacheca: "/assets/video/bacheca_web.mp4",
-    Tracker: "/assets/video/tracker_web.mp4",
-    Alimentazione: "/assets/video/alimenta_web.mp4",
-    Workout: "/assets/video/workout_web.mp4",
-    Misurazioni: "/assets/video/misure_web.mp4",
-    Portafoglio: "/assets/video/portafoglio_web.mp4",
-    Obiettivi: "/assets/video/obiettivi_web.mp4",
-    Abbonamenti: "/assets/video/abbonamenti_web.mp4",
-    Armadio: "/assets/video/armadio_web.mp4",
-    Lettura: "/assets/video/libreria_web.mp4",
-    File: "/assets/video/file_web.mp4",
-  };
+  // the app preview videos were removed from the site (only /board/ keeps bacheca_web.mp4)
+  const appVideos = {};
 
   const appVideoWarmers = new Map();
   const canWarmAppVideos = !navigator.connection?.saveData

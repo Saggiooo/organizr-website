@@ -208,6 +208,43 @@
     }, { threshold: 0.5 }).observe(chat);
   }
 
+  /* ---------- desktop window: tilt that straightens while scrolling in (home and /board/) ---------- */
+  const tiltWindow = (scene, onView) => {
+    const win = $(".window", scene);
+    let inView = false;
+    const update = () => {
+      const r = scene.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.75)));
+      const e = 1 - Math.pow(1 - p, 3);
+      win.style.setProperty("--wrx", (22 * (1 - e)).toFixed(2) + "deg");
+      win.style.setProperty("--wsc", (0.88 + 0.12 * e).toFixed(3));
+      win.style.setProperty("--wty", (40 * (1 - e)).toFixed(1) + "px");
+    };
+    if (!reduced) {
+      window.addEventListener("scroll", () => { if (inView) requestAnimationFrame(update); }, { passive: true });
+    } else {
+      win.style.setProperty("--wrx", "0deg"); win.style.setProperty("--wsc", "1"); win.style.setProperty("--wty", "0px");
+    }
+    new IntersectionObserver(([e]) => {
+      inView = e.isIntersecting;
+      onView(inView);
+      if (inView) update();
+    }, { threshold: 0.05 }).observe(scene);
+  };
+
+  /* ---------- desktop window on /board/: real app video ---------- */
+  // the HTML ships the 680px poster (phones); wide screens switch to the full-size one once the window is near
+  const deskVideo = $("#deskVideo");
+  if (deskVideo) {
+    const wide = window.matchMedia("(min-width: 701px)").matches;
+    tiltWindow($("#deskScene"), (inView) => {
+      if (!inView) { deskVideo.pause(); return; }
+      if (wide && deskVideo.poster.endsWith("-680.webp")) deskVideo.poster = deskVideo.poster.replace(/-680\.webp$/, ".webp");
+      if (!reduced) deskVideo.play().catch(() => {});
+    });
+  }
+
   /* ---------- desktop window: animated previews rebuilt from the current desktop app ---------- */
   // 1280x720 canvas scaled to the window; built only when the section gets close, animations
   // (transform/opacity only) run on the visible view and pause off-screen.
@@ -215,7 +252,6 @@
   const scene = $("#deskScene");
   const dapp = $("#deskApp");
   if (scene && dapp) {
-    const win = $(".window", scene);
     const t = (en, it) => (isIt ? it : en);
     const num = (n) => new Intl.NumberFormat(isIt ? "it-IT" : "en-GB").format(n);
     const eur = (n) => new Intl.NumberFormat(isIt ? "it-IT" : "en-IE", { style: "currency", currency: "EUR" }).format(n);
@@ -377,27 +413,8 @@
       show(current);
     };
 
-    const update = () => {
-      const r = scene.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const p = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.75)));
-      const e = 1 - Math.pow(1 - p, 3);
-      win.style.setProperty("--wrx", (22 * (1 - e)).toFixed(2) + "deg");
-      win.style.setProperty("--wsc", (0.88 + 0.12 * e).toFixed(3));
-      win.style.setProperty("--wty", (40 * (1 - e)).toFixed(1) + "px");
-    };
-    let inView = false;
-    if (!reduced) {
-      window.addEventListener("scroll", () => { if (inView) requestAnimationFrame(update); }, { passive: true });
-    } else {
-      win.style.setProperty("--wrx", "0deg"); win.style.setProperty("--wsc", "1"); win.style.setProperty("--wty", "0px");
-    }
     new IntersectionObserver(([e]) => { if (e.isIntersecting) build(); }, { rootMargin: "600px 0px" }).observe(scene);
-    new IntersectionObserver(([e]) => {
-      inView = e.isIntersecting;
-      dapp.classList.toggle("is-paused", !inView);
-      if (inView) update();
-    }, { threshold: 0.05 }).observe(scene);
+    tiltWindow(scene, (inView) => dapp.classList.toggle("is-paused", !inView));
     if ("ResizeObserver" in window) new ResizeObserver(fit).observe(dapp.parentElement);
 
     $$(".dtab").forEach(btn => btn.addEventListener("click", () => {
