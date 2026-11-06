@@ -117,7 +117,7 @@
     : { store: ["Download on the", "App Store"], mac: ["Download for", "Mac"], windows: ["Download for", "Windows"] };
   const HREF = {
     store: isIt ? "https://apps.apple.com/it/app/organizr/id6790398372" : "https://apps.apple.com/app/organizr/id6790398372",
-    mac: "/assets/downloads/Organizr_0.3.7_aarch64.dmg",
+    mac: "/assets/downloads/Organizr_0.4.3_aarch64.dmg",
     windows: isIt ? "/it/download-windows/" : "/download-windows/"
   };
   // Android has no build to promote yet: it falls back to the App Store like every unknown device.
